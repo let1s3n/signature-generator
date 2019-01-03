@@ -1,0 +1,53 @@
+body{
+    background-color: #E5E5E5;
+}
+
+.container{
+    background-color: #fff;
+    height: 784px;
+    width: 736px;
+    /* border:2px solid red; */
+    
+}
+nav{
+    margin-bottom:50px;
+}
+.nav-wrapper{
+    background-color: #fff;
+    
+}
+
+.row-form{
+    /* border:1px solid orange; */
+    
+}
+.title {
+	height: 54px;
+    width: 303px;
+    /* border:2px solid yellow; */
+    
+    margin:0 auto;
+}
+.signature-generator {
+    
+    height: 32px;
+    width: 303px;
+    color: #3C3C3C;
+    font-family: Exo;
+    font-size: 32px;
+    font-weight: bold;
+    line-height: 32px;
+    /* border:2px solid blue; */
+    
+}
+
+.fill-in-your-informa {
+	height: 21px;
+	width: 423px;
+	color: #000000;
+	font-family: Exo;
+	font-size: 16px;
+	font-weight: bold;
+	line-height: 21px;
+}
+
