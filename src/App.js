@@ -1,6 +1,7 @@
 import React, { Component } from "react";
-import "./App.css";
+
 import "materialize-css/dist/css/materialize.min.css";
+import "./App.css";
 import Form from './Form';
 class App extends Component {
   render() {
@@ -16,11 +17,11 @@ class App extends Component {
         </nav>
 
 
-        <div className="container">
+        <div className="container" /* style={{border: '1px solid blue'}} */>
           <div className="row">
-            <div className="col s10 push-s1">
+            <div className="col s10">
               <div className="row">
-                <div className="col s6 offset-s3">
+                <div className="col s6 offset-s2">
                   <Form/>
                 </div>
               </div>

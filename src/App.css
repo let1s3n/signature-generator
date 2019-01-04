@@ -2,34 +2,45 @@ body{
     background-color: #E5E5E5;
 }
 
+
 .container{
     background-color: #fff;
     height: 784px;
     width: 736px;
+    
+    
     /* border:2px solid red; */
     
 }
 nav{
-    margin-bottom:50px;
+    margin-bottom:56px;
 }
 .nav-wrapper{
-    background-color: #fff;
+   
+        height: 72px;
+        width: 100%;
+        background-color: #FFFFFF;
+        box-shadow: 0 2px 8px 0 rgba(209,209,209,0.5);
+    
     
 }
 
-.row-form{
-    /* border:1px solid orange; */
-    
-}
+
 
 
 .title {
-	height: 54px;
+	height: auto;
     width: 303px;
     /* border:2px solid yellow; */
     
     margin:0 auto;
 }
+#subtitle{
+    
+    text-align: center;
+    width:100%;
+}
+
 .signature-generator {
     
     height: 32px;
@@ -45,16 +56,26 @@ nav{
 
 .fill-in-your-informa {
 	height: 21px;
-	width: 423px;
+    /* width:423px; */
+    
 	color: #000000;
 	font-family: Exo;
 	font-size: 16px;
 	font-weight: bold;
     line-height: 21px;
+    clear:left;
+    text-align: center;
+    width:100%;
+}
+
+.main{
+    width:498px;
+   
     
 }
 
-form.main-form{
-    width:200px;
+form.col.s12{
+    margin-top:50px;
 }
+
 

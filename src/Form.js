@@ -11,16 +11,24 @@ export default class Form extends React.Component {
 
   render() {
     return (
-      <div className="row row-form">
-        <div className="title">
+      <div className="row main" /* style={{ border: "1px solid green" }} */>
+        <div className="title" /* style={{ border: "1px solid brown" }} */>
           <h2 className="signature-generator">Signature Generator</h2>
         </div>
 
-        <h6 className="fill-in-your-informa">
-          Fill in your information to generate your email signature
-        </h6>
+        <div id="subtitle" className="subtitle" /* style={{ border: "1px solid red" }} */>
+          <h6 className="fill-in-your-informa">
 
-        <form className="asd col s12 pull-s1">
+
+            Fill in your information to generate your email signature
+          </h6>
+
+        </div>
+
+        <form
+          className="col s12"
+          /* style={{ border: "1px solid orange" }} */
+        >
           <div className="row">
             <div className="input-field col s12">
               <input
@@ -74,8 +82,6 @@ export default class Form extends React.Component {
             </div>
           </div>
         </form>
-
-
       </div>
     );
   }
