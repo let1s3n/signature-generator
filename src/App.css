@@ -21,6 +21,8 @@ nav{
     /* border:1px solid orange; */
     
 }
+
+
 .title {
 	height: 54px;
     width: 303px;
@@ -48,6 +50,11 @@ nav{
 	font-family: Exo;
 	font-size: 16px;
 	font-weight: bold;
-	line-height: 21px;
+    line-height: 21px;
+    
+}
+
+form.main-form{
+    width:200px;
 }
 
