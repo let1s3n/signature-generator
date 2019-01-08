@@ -6,7 +6,7 @@ body{
 label.active,span{
     height: 16px;
     color: #000000;
-    font-family: Roboto;
+    font-family: 'Roboto', sans-serif;
     font-size: 14px;
     font-weight: bold;
     line-height: 16px;
@@ -17,10 +17,22 @@ input.validate{
     height: 19px;
     width: 140px;
     color: #567077;
-    font-family: Roboto;
+    font-family: 'Roboto', sans-serif;
     font-size:16px;
     font-style: italic;
     line-height: 19px;
+    
+    
+}
+
+#first_name{
+    box-sizing: border-box;
+    border-bottom: 2px solid #3C3C3C;
+}
+
+#first_name:focus{
+    border-bottom: 2px solid #F89937;
+
 }
 
 .container{
@@ -68,10 +80,11 @@ nav{
     height: 32px;
     width: 303px;
     color: #3C3C3C;
-    font-family: Exo;
+    font-family: 'Exo', sans-serif;
     font-size: 32px;
     font-weight: bold;
     line-height: 32px;
+    margin-bottom:21px;
     /* border:2px solid blue; */
     
 }
@@ -81,13 +94,14 @@ nav{
     /* width:423px; */
     
 	color: #000000;
-	font-family: Exo;
+	font-family: 'Exo', sans-serif;
 	font-size: 16px;
 	font-weight: bold;
     line-height: 21px;
     clear:left;
     text-align: center;
     width:100%;
+    margin-top:23px;
 }
 
 .main{
@@ -97,7 +111,7 @@ nav{
 }
 
 form.col.s12{
-    margin-top:50px;
+    margin-top:22px;
 }
 
 .row.input{
@@ -111,7 +125,7 @@ form.col.s12{
     box-sizing: border-box;
     height: 1px;
     width: 76px;
-    border: 3px solid #F89937;
+    border: 2px solid #F89937;
     margin: 0 auto;
 }
 
@@ -136,6 +150,10 @@ form.col.s12{
     /* border:1px solid grey; */
     
 }
+.btn-flat.disabled:active{
+    box-shadow: 1px 1px 2px 0 #F3AF68;
+}
+
 .email-service-span{
     /* border:1px solid green; */
     margin-bottom:13.5px;
@@ -155,19 +173,20 @@ form.col.s12{
 }
 
 
-.asd{
+.button-text{
     display:block;
     height: 16px;
     color: #000000;
-    font-family: Roboto;
+    font-family: 'Roboto', sans-serif;
     font-size: 14px;
     line-height: 16px;
-   font-weight: normal;
+    font-weight: normal;
 }
 
-.jajaja{
+.email-service-container{
     height: 120px;
     width: 400px;
     /* border:1px solid blue; */
     margin-top:0px;
 }
+

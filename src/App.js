@@ -10,7 +10,7 @@ class App extends Component {
         <nav>
           <div class="nav-wrapper">
             <a href="#" class="brand-logo center">
-            <img src={require("./logoBela.png")} />
+            <img src={require("./logoBela.png")} alt="" />
             </a>
             
           </div>

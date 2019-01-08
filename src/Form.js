@@ -36,7 +36,7 @@ export default class Form extends React.Component {
                 id="first_name"
                 type="text"
                 className="validate"
-                id="inputs"
+                
               />
               <label id="word" className="active word" for="first_name">
                 Full Name *
@@ -50,7 +50,7 @@ export default class Form extends React.Component {
                 id="first_name"
                 type="text"
                 className="validate"
-                id="inputs"
+                
               />
               <label className="active" for="first_name">
                 Position *
@@ -64,7 +64,7 @@ export default class Form extends React.Component {
                 id="first_name"
                 type="text"
                 className="validate"
-                id="inputs"
+                
               />
               <label className="active" for="first_name">
                 Email *
@@ -78,7 +78,7 @@ export default class Form extends React.Component {
                 id="first_name"
                 type="text"
                 className="validate"
-                id="inputs"
+                
               />
               <label className="active" for="first_name">
                 Skype ID *
@@ -95,26 +95,26 @@ export default class Form extends React.Component {
                   </span>
                 </div>
               </div>
-              <div className="jajaja">
+              <div className="email-service-container">
               <div className="row-buttons">
                 <div className="col s12">
                   <div className="rectangle">
                     <a class="btn-flat disabled">
                       <img src={require("./gmail.png")} alt="" />
-                      <span className="asd">Gmail</span>
+                      <span className="button-text">Gmail</span>
                     </a>
                   </div>
 
                   <div className="rectangle">
                     <a class="btn-flat disabled">
                       <img src={require("./outlook.png")} alt="" />
-                      <span className="asd">Outlook</span>
+                      <span className="button-text">Outlook</span>
                     </a>
                   </div>
                   <div className="rectangle">
                     <a class="btn-flat disabled">
                       <img src={require("./roundcube.png")} alt="" />
-                      <span className="asd">Roundcube</span>
+                      <span className="button-text">Roundcube</span>
                     </a>
                   </div>
                 </div>
