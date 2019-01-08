@@ -15,14 +15,14 @@ export default class Form extends React.Component {
         <div className="title" /* style={{ border: "1px solid brown" }} */>
           <h2 className="signature-generator">Signature Generator</h2>
         </div>
-        <div class="divider"></div>
-        <div id="subtitle" className="subtitle" /* style={{ border: "1px solid red" }} */>
+        <div class="divider" />
+        <div
+          id="subtitle"
+          className="subtitle" /* style={{ border: "1px solid red" }} */
+        >
           <h6 className="fill-in-your-informa">
-
-
             Fill in your information to generate your email signature
           </h6>
-
         </div>
 
         <form
@@ -36,6 +36,7 @@ export default class Form extends React.Component {
                 id="first_name"
                 type="text"
                 className="validate"
+                id="inputs"
               />
               <label id="word" className="active word" for="first_name">
                 Full Name *
@@ -49,6 +50,7 @@ export default class Form extends React.Component {
                 id="first_name"
                 type="text"
                 className="validate"
+                id="inputs"
               />
               <label className="active" for="first_name">
                 Position *
@@ -62,6 +64,7 @@ export default class Form extends React.Component {
                 id="first_name"
                 type="text"
                 className="validate"
+                id="inputs"
               />
               <label className="active" for="first_name">
                 Email *
@@ -75,15 +78,51 @@ export default class Form extends React.Component {
                 id="first_name"
                 type="text"
                 className="validate"
+                id="inputs"
               />
               <label className="active" for="first_name">
                 Skype ID *
               </label>
             </div>
           </div>
-          <a class="btn-flat disabled"><img src={require('./gmail.png')} alt=""/></a>
-          <a class="btn-flat disabled">Button</a>
-          <a class="btn-flat disabled">Button</a>
+
+          <div className="row email-services-section">
+            <div className="col s12">
+              <div className="row">
+                <div className="col s12">
+                  <span className="email-service-span">
+                    For which email service?
+                  </span>
+                </div>
+              </div>
+              <div className="jajaja">
+              <div className="row-buttons">
+                <div className="col s12">
+                  <div className="rectangle">
+                    <a class="btn-flat disabled">
+                      <img src={require("./gmail.png")} alt="" />
+                      <span className="asd">Gmail</span>
+                    </a>
+                  </div>
+
+                  <div className="rectangle">
+                    <a class="btn-flat disabled">
+                      <img src={require("./outlook.png")} alt="" />
+                      <span className="asd">Outlook</span>
+                    </a>
+                  </div>
+                  <div className="rectangle">
+                    <a class="btn-flat disabled">
+                      <img src={require("./roundcube.png")} alt="" />
+                      <span className="asd">Roundcube</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              </div>
+            </div>
+          </div>
+
         </form>
       </div>
     );
