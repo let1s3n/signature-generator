@@ -15,7 +15,7 @@ export default class Form extends React.Component {
         <div className="title" /* style={{ border: "1px solid brown" }} */>
           <h2 className="signature-generator">Signature Generator</h2>
         </div>
-
+        <div class="divider"></div>
         <div id="subtitle" className="subtitle" /* style={{ border: "1px solid red" }} */>
           <h6 className="fill-in-your-informa">
 
@@ -29,7 +29,7 @@ export default class Form extends React.Component {
           className="col s12"
           /* style={{ border: "1px solid orange" }} */
         >
-          <div className="row">
+          <div className="row input">
             <div className="input-field col s12">
               <input
                 placeholder="Enter your full name"
@@ -42,7 +42,7 @@ export default class Form extends React.Component {
               </label>
             </div>
           </div>
-          <div className="row">
+          <div className="row input">
             <div className="input-field col s12">
               <input
                 placeholder="Type or select your position"
@@ -55,7 +55,7 @@ export default class Form extends React.Component {
               </label>
             </div>
           </div>
-          <div className="row">
+          <div className="row input">
             <div className="input-field col s12">
               <input
                 placeholder="email@belatrixsf.com"
@@ -68,7 +68,7 @@ export default class Form extends React.Component {
               </label>
             </div>
           </div>
-          <div className="row">
+          <div className="row input">
             <div className="input-field col s12">
               <input
                 placeholder="Enter your Skype ID"
@@ -81,6 +81,9 @@ export default class Form extends React.Component {
               </label>
             </div>
           </div>
+          <a class="btn-flat disabled"><img src={require('./gmail.png')} alt=""/></a>
+          <a class="btn-flat disabled">Button</a>
+          <a class="btn-flat disabled">Button</a>
         </form>
       </div>
     );

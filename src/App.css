@@ -78,4 +78,21 @@ form.col.s12{
     margin-top:50px;
 }
 
+.row.input{
+    height: 54px;
+    width: 498px;
+    margin-bottom:26px;
+}
 
+.divider{
+    box-sizing: border-box;
+    height: 1px;
+    width: 76px;
+    border: 3px solid #F89937;
+    margin: 0 auto;
+}
+
+.btn-flat.disabled{
+    height: 100px;
+    width:100px;
+}

@@ -16,7 +16,7 @@ class App extends Component {
           </div>
         </nav>
 
-
+      
         <div className="container" /* style={{border: '1px solid blue'}} */>
           <div className="row">
             <div className="col s10">
