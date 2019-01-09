@@ -1,14 +1,15 @@
 import React from "react";
+import $ from "jquery";
+import "materialize-css";
+import "materialize-css/dist/css/materialize.min.css";
 
 export default class Form extends React.Component {
-  state = {
-    fullname: "",
-    position: "",
-    email: "",
-    skypeID: "",
-    emailService: ""
-  };
-  
+  /* componentDidMount = () => {
+    $(document).ready(function() {
+      $('select').formSelect();
+    });
+  }; */
+
   render() {
     return (
       <div className="row main" /* style={{ border: "1px solid green" }} */>
@@ -37,7 +38,6 @@ export default class Form extends React.Component {
                 id="first_name"
                 type="text"
                 className="validate"
-                
               />
               <label id="word" className="active word" for="first_name">
                 Full Name *
@@ -46,16 +46,18 @@ export default class Form extends React.Component {
           </div>
           <div className="row input">
             <div className="input-field col s12">
-              <input
-                placeholder="Type or select your position"
-                id="first_name"
-                type="text"
-                className="validate"
-                
-              />
-              <label className="active" for="first_name">
-                Position *
-              </label>
+              <select>
+                <option value="" disabled selected>
+                  Type or select your position
+                </option>
+                <option value="1">UX Designer</option>
+                <option value="2">UI Designer</option>
+                <option value="3">Option 3</option>
+                <option value="3">Option 4</option>
+                <option value="3">Option 5</option>
+                <option value="3">Option 6</option>
+              </select>
+              <label>Position *</label>
             </div>
           </div>
           <div className="row input">
@@ -66,13 +68,16 @@ export default class Form extends React.Component {
                 type="email"
                 className="validate"
                 name="email"
-                
               />
-              <label className="active" for="email" data-error="Please add @" required="required"
-                aria-required="true">
+              <label
+                className="active"
+                for="email"
+                data-error="Please add @"
+                required="required"
+                aria-required="true"
+              >
                 Email *
               </label>
-              
             </div>
           </div>
           <div className="row input">
@@ -82,7 +87,6 @@ export default class Form extends React.Component {
                 id="first_name"
                 type="text"
                 className="validate"
-                
               />
               <label className="active" for="first_name">
                 Skype ID *
@@ -100,38 +104,41 @@ export default class Form extends React.Component {
                 </div>
               </div>
               <div className="email-service-container">
-              <div className="row-buttons">
-                <div className="col s12">
-                  <div className="rectangle">
-                    <a className="btn-flat disabled">
-                      <img src={require("./gmail.png")} alt="" />
-                      <span className="button-text">Gmail</span>
-                    </a>
-                  </div>
+                <div className="row-buttons">
+                  <div className="col s12">
+                    <div className="rectangle">
+                      <a className="btn-flat">
+                        <img src={require("./gmail.png")} alt="" />
+                        <span className="button-text">Gmail</span>
+                      </a>
+                    </div>
 
-                  <div className="rectangle">
-                    <a className="btn-flat disabled">
-                      <img src={require("./outlook.png")} alt="" />
-                      <span className="button-text">Outlook</span>
-                    </a>
-                  </div>
-                  <div className="rectangle">
-                    <a className="btn-flat disabled">
-                      <img src={require("./roundcube.png")} alt="" />
-                      <span className="button-text">Roundcube</span>
-                    </a>
+                    <div className="rectangle">
+                      <a className="btn-flat">
+                        <img src={require("./outlook.png")} alt="" />
+                        <span className="button-text">Outlook</span>
+                      </a>
+                    </div>
+                    <div className="rectangle">
+                      <a id="asd" className="btn-flat">
+                        <img src={require("./roundcube.png")} alt="" />
+                        <span className="button-text">Roundcube</span>
+                      </a>
+                    </div>
                   </div>
                 </div>
-
               </div>
-              </div>
-
             </div>
           </div>
           <div className="button-final-container">
-          <button className="button-final btn-flat" type="submit" name="action">GENERATE SIGNATURE</button>
+            <button
+              className="button-final btn-flat"
+              type="submit"
+              name="action"
+            >
+              GENERATE SIGNATURE
+            </button>
           </div>
-
         </form>
       </div>
     );

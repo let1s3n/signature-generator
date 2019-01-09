@@ -1,9 +1,10 @@
 import React, { Component } from "react";
-
+import $ from 'jquery';
+import 'materialize-css';
 import "materialize-css/dist/css/materialize.min.css";
-import M from 'materialize-css';
 import "./App.css";
 import Form from './Form';
+
 class App extends Component {
   
   render() {
