@@ -3,7 +3,15 @@ body{
 }
 
 
-label.active,span{
+label.active{
+    height: 16px;
+    color: #000000;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 16px;
+}
+span{
     height: 16px;
     color: #000000;
     font-family: 'Roboto', sans-serif;
@@ -16,16 +24,32 @@ label.active,span{
 input.validate{
     height: 19px;
     width: 140px;
+    
+    
+    
+    
+}
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
     color: #567077;
     font-family: 'Roboto', sans-serif;
     font-size:16px;
     font-style: italic;
     line-height: 19px;
-    
-    
-}
+  }
 
-#first_name{
+  #word{
+    height: 16px;
+    color: #000000;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 16px;
+      
+      
+
+  }
+
+/* #first_name{
     box-sizing: border-box;
     border-bottom: 2px solid #3C3C3C;
 }
@@ -33,7 +57,9 @@ input.validate{
 #first_name:focus{
     border-bottom: 2px solid #F89937;
 
-}
+} */
+
+
 
 .container{
     background-color: #fff;
@@ -133,13 +159,14 @@ form.col.s12{
     height: 96px;
     width: 96px;
     display:inline-block;
+    
     border: 1px solid #E5E5E5;
     border-radius: 4px;
     background-color: #FFFFFF;
     margin-right:24px;
     text-align:center;
     
-    border:1px solid grey;
+    
 }
 .btn-flat.disabled{
     height: 96px;
@@ -161,9 +188,9 @@ form.col.s12{
 }
 
 .row.email-services-section{
-    height: 250px;
+    height: 175px;
     width: 450spx;
-    
+    margin-bottom:18px;
     /* border:1px solid red; */
 }
 
@@ -188,5 +215,84 @@ form.col.s12{
     width: 400px;
     /* border:1px solid blue; */
     margin-top:0px;
+    margin-bottom:10px;
 }
 
+/* .input-field input[type=text] + label, .materialize-textarea:focus:not([readonly]) + label {
+    color: #000000 !important;
+   }
+   
+   .input-field input[type=text], .materialize-textarea:focus:not([readonly]) {
+    box-sizing: border-box !important;
+    border-bottom: 2px solid #3C3C3C !important;
+   }
+   
+   
+   .input-field input[type=text]:focus + label, .materialize-textarea:focus:not([readonly]) + label {
+    color: #000000 !important;
+   }
+   
+   .input-field input[type=text]:focus, .materialize-textarea:focus:not([readonly]) {
+    box-sizing: border-box !important;
+    border-bottom: 2px solid #F89937 !important;
+    
+   }
+ */
+
+ .input-field label {
+    color: #000 !important;
+  }
+  /* label focus color */
+  .input-field input[type=text]:focus + label {
+    color: #000 !important;
+  }
+
+  .input-field input[type=email]:focus + label {
+    color: #000 !important;
+  }
+  .input-field input[type=text] {
+   
+
+    box-sizing: border-box !important;
+    border-bottom: 2px solid #3C3C3C !important;
+   }
+   .input-field input[type=email] {
+   
+
+    box-sizing: border-box !important;
+    border-bottom: 2px solid #3C3C3C !important;
+   }
+  /* label underline focus color */
+  .input-field input[type=email]:focus {
+    border-bottom: 1px solid  #F89937 !important;
+    box-shadow: 0 1px 0 0  #F89937 !important;
+    
+  }
+  .input-field input[type=text]:focus {
+    border-bottom: 1px solid  #F89937 !important;
+    box-shadow: 0 1px 0 0  #F89937 !important;
+    
+  }
+  input[type="button" i], input[type="submit" i]{
+      border-style: none;
+      border-color: #F89937;
+  }
+  .button-final-container{
+    height: 70px;
+    width: 230px;
+    margin:0 auto;
+    /* border:2px solid red; */
+  }
+  .button-final{
+    
+        height: 64px;
+        width: 235px;
+        background-color: #F89937;
+        color: #FFFFFF;
+        font-family: Roboto;
+        font-size: 16px;
+        line-height: 19px;
+        /* border:2px solid blue; */
+        
+    
+  }

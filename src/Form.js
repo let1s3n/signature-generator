@@ -8,14 +8,14 @@ export default class Form extends React.Component {
     skypeID: "",
     emailService: ""
   };
-
+  
   render() {
     return (
       <div className="row main" /* style={{ border: "1px solid green" }} */>
         <div className="title" /* style={{ border: "1px solid brown" }} */>
           <h2 className="signature-generator">Signature Generator</h2>
         </div>
-        <div class="divider" />
+        <div className="divider" />
         <div
           id="subtitle"
           className="subtitle" /* style={{ border: "1px solid red" }} */
@@ -27,6 +27,7 @@ export default class Form extends React.Component {
 
         <form
           className="col s12"
+          id="myForm"
           /* style={{ border: "1px solid orange" }} */
         >
           <div className="row input">
@@ -61,14 +62,17 @@ export default class Form extends React.Component {
             <div className="input-field col s12">
               <input
                 placeholder="email@belatrixsf.com"
-                id="first_name"
-                type="text"
+                id="email"
+                type="email"
                 className="validate"
+                name="email"
                 
               />
-              <label className="active" for="first_name">
+              <label className="active" for="email" data-error="Please add @" required="required"
+                aria-required="true">
                 Email *
               </label>
+              
             </div>
           </div>
           <div className="row input">
@@ -99,28 +103,33 @@ export default class Form extends React.Component {
               <div className="row-buttons">
                 <div className="col s12">
                   <div className="rectangle">
-                    <a class="btn-flat disabled">
+                    <a className="btn-flat disabled">
                       <img src={require("./gmail.png")} alt="" />
                       <span className="button-text">Gmail</span>
                     </a>
                   </div>
 
                   <div className="rectangle">
-                    <a class="btn-flat disabled">
+                    <a className="btn-flat disabled">
                       <img src={require("./outlook.png")} alt="" />
                       <span className="button-text">Outlook</span>
                     </a>
                   </div>
                   <div className="rectangle">
-                    <a class="btn-flat disabled">
+                    <a className="btn-flat disabled">
                       <img src={require("./roundcube.png")} alt="" />
                       <span className="button-text">Roundcube</span>
                     </a>
                   </div>
                 </div>
+
               </div>
               </div>
+
             </div>
+          </div>
+          <div className="button-final-container">
+          <button className="button-final btn-flat" type="submit" name="action">GENERATE SIGNATURE</button>
           </div>
 
         </form>
