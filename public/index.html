@@ -54,5 +54,12 @@
         $("select").formSelect();
       });
     </script>
+    <script>
+      $(document).ready(function() {
+        $("select").on("change", function() {
+          $('input.select-dropdown').css({"color":"#000000","font-family": "'Roboto',sans-serif","font-size": "16px","line-height": "19px" });
+        });
+      });
+    </script>
   </body>
 </html>

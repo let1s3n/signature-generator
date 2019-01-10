@@ -23,8 +23,9 @@ input.validate {
   height: 19px;
   width: 140px;
 }
-::placeholder,
-input.select-dropdown {
+
+
+::placeholder,input.select-dropdown {
   /* Chrome, Firefox, Opera, Safari 10.1+ */
   color: #567077;
   font-family: "Roboto", sans-serif;
@@ -33,20 +34,41 @@ input.select-dropdown {
   line-height: 19px;
 }
 
-ul.dropdown-content.select-dropdown li span {
+
+/* select{
+  color: red;
+}
+
+select option {
+  color: black; } */
+
+/* ul.dropdown-content.select-dropdown li span {
   height: 19px;
   width: 162px;
   color: #000000;
   font-family: Roboto;
   font-size: 16px;
   line-height: 19px;
+} */
+/* .select-wrapper input.select-dropdown{
+  color:red;
+} */
+
+
+ul.dropdown-content.select-dropdown li:not(.disabled) span { 
+  height: 19px;
+  width: 162px;
+  color: #000000;
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  line-height: 19px; 
 }
 
 #word {
   height: 16px;
   color: #000000;
   font-family: "Roboto", sans-serif;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: bold;
   line-height: 16px;
 }
@@ -242,9 +264,25 @@ form.col.s12 {
     
    }
  */
-
+ input.validate{
+  color: #000000;
+    font-family: Roboto;
+    font-size: 16px;
+    line-height: 19px;
+}
+select.validate{
+  color: #000000;
+    font-family: Roboto;
+    font-size: 16px;
+    line-height: 19px;
+}
 .input-field label {
-  color: #000 !important;
+  height: 16px;
+  color: #000000;
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 16px;
 }
 /* label focus color */
 .input-field input[type="text"]:focus + label {
@@ -310,3 +348,5 @@ input[type="submit" i] {
   background-color: #9c9c9c;
   border-radius: 2.5px;
 }
+
+

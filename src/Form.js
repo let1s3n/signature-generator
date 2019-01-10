@@ -9,6 +9,17 @@ export default class Form extends React.Component {
       $('select').formSelect();
     });
   }; */
+  /* componentDidMount = () => {
+    $(document).ready(function() {
+      $("select").on("change", function() {
+        if ($(this).val()) {
+          return $(this).css("color", "black");
+        } else {
+          return $(this).css("color", "red");
+        }
+      });
+    });
+  }; */
 
   render() {
     return (
@@ -39,15 +50,15 @@ export default class Form extends React.Component {
                 type="text"
                 className="validate"
               />
-              <label id="word" className="active word" for="first_name">
+              <label className="active" for="first_name">
                 Full Name *
               </label>
             </div>
           </div>
           <div className="row input">
             <div className="input-field col s12">
-              <select>
-                <option value="" disabled selected>
+              <select className="validate" required>
+                <option id="zxc" value="" disabled selected>
                   Type or select your position
                 </option>
                 <option value="1">UX Designer</option>
@@ -57,7 +68,7 @@ export default class Form extends React.Component {
                 <option value="3">Option 5</option>
                 <option value="3">Option 6</option>
               </select>
-              <label>Position *</label>
+              <label id="word">Position *</label>
             </div>
           </div>
           <div className="row input">
