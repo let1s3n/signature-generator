@@ -64,6 +64,10 @@ ul.dropdown-content.select-dropdown li:not(.disabled) span {
   line-height: 19px; 
 }
 
+ul.dropdown-content.select-dropdown li:hover{
+  background-color: #FDC68C;
+}
+
 #word {
   height: 16px;
   color: #000000;
@@ -199,9 +203,15 @@ form.col.s12 {
   
 
   
-} */
+}
 
-.btn-flat:active {
+#asd:active,#asd:focus {
+  border: 1px solid #f89937;
+  border-radius: 4px;
+
+  box-shadow: 1px 1px 2px 0 #f3af68;
+} */
+button:hover, button:focus, button:active, button:visited, .activate{ 
   border: 1px solid #f89937;
   border-radius: 4px;
 
@@ -332,6 +342,11 @@ input[type="submit" i] {
 }
 .dropdown-content {
   max-height: 250px;
+  border: 1px solid #F89937;
+}
+
+.dropdown-content option:hover{
+  background-color: #FDC68C;
 }
 ::-webkit-scrollbar {
   width: 5px;

@@ -131,7 +131,7 @@ export default class Form extends React.Component {
                       </a>
                     </div>
                     <div className="rectangle">
-                      <a id="asd" className="btn-flat">
+                      <a className="btn-flat">
                         <img src={require("./roundcube.png")} alt="" />
                         <span className="button-text">Roundcube</span>
                       </a>
@@ -143,6 +143,7 @@ export default class Form extends React.Component {
           </div>
           <div className="button-final-container">
             <button
+            
               className="button-final btn-flat"
               type="submit"
               name="action"

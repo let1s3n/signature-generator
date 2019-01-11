@@ -57,9 +57,35 @@
     <script>
       $(document).ready(function() {
         $("select").on("change", function() {
-          $('input.select-dropdown').css({"color":"#000000","font-family": "'Roboto',sans-serif","font-size": "16px","line-height": "19px" });
+          $("input.select-dropdown").css({
+            color: "#000000",
+            "font-family": "'Roboto',sans-serif",
+            "font-size": "16px",
+            "line-height": "19px"
+          });
         });
       });
     </script>
+    <script>
+      $(document).ready(function() {
+        var $link = jQuery("a");
+        $link.on("click", function() {
+          $('a').removeClass('activate');
+          $(this).addClass('activate');
+            
+        });
+      });
+    </script>
+    <!-- <script>
+      $(document).ready(function(){
+    $('input.autocomplete').autocomplete({
+      data: {
+        "UX Designer": null,
+        "UI Designer": null,
+        "Google": 'https://placehold.it/250x250'
+      },
+    });
+  });
+    </script> -->
   </body>
 </html>
