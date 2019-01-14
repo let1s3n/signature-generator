@@ -364,4 +364,49 @@ input[type="submit" i] {
   border-radius: 2.5px;
 }
 
+.modal{
+  height: 342px;
+  width: 592px;
+  background-color: #FFFFFF;
+}
+.modal-content{
+  text-align:center;
+  margin-top:61.5px;
+}
+
+.signature-generated {
+	height: 32px;
+	width: 230px;
+	color: #3C3C3C;
+	font-family: Exo;
+	font-size: 24px;
+	font-weight: bold;
+  line-height: 32px;
+  margin:0 auto;
+}
+.subtitle {
+	
+	color: #000000;
+	font-family: Roboto;
+	font-size: 16px;
+	line-height: 19px;
+}
+
+.footer-cage {
+	height: 48px;
+	width: 368px;
+	border: 1px solid #9C9C9C;
+	border-radius: 4px 0 0 4px;
+	background-color: #F7F7F7;
+}
+
+
+.footer-small-cage {
+  height: 48px;
+  width: 128px;
+  border: 1px solid #9C9C9C;
+  border-radius: 0 4px 4px 0;
+  background-color: #FFFFFF;
+}
+
 

@@ -70,10 +70,14 @@
       $(document).ready(function() {
         var $link = jQuery("a");
         $link.on("click", function() {
-          $('a').removeClass('activate');
-          $(this).addClass('activate');
-            
+          $("a").removeClass("activate");
+          $(this).addClass("activate");
         });
+      });
+    </script>
+    <script>
+      $(document).ready(function() {
+        $(".modal").modal();
       });
     </script>
     <!-- <script>
