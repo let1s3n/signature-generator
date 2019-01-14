@@ -180,8 +180,8 @@ export default class Form extends React.Component {
             <h4 className="subtitle">Just copy the information below to add it to your email</h4>
           </div>
           <div className="modal-footer">
-            <input className="" type="text"/>
-            <button className="" ></button>
+            <div className="footer-cage">asfasfasasfasfd</div>
+            <button className="footer-small-cage" >Copy info</button>
           </div>
         </div>
       </div>
