@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef, useState } from "react";
 import $ from "jquery";
 import "materialize-css";
 import "materialize-css/dist/css/materialize.min.css";
@@ -12,8 +12,10 @@ export default class Form extends React.Component {
       position: "",
       email: "",
       skypeId: "",
-      emailService:""
+      emailService: ""
     };
+    this.handleClick = this.handleClick.bind(this);
+    
   }
 
   handleSubmit = event => {
@@ -30,8 +32,19 @@ export default class Form extends React.Component {
     });
   };
 
+  handleClick(e) {
+    
+  }
+
   render() {
-    const {fullName} = this.state
+    const {
+      fullName,
+      position,
+      email,
+      skypeId,
+      emailService
+    } = this.state;
+    
     return (
       <div className="row main" /* style={{ border: "1px solid green" }} */>
         <div className="title" /* style={{ border: "1px solid brown" }} */>
@@ -70,16 +83,21 @@ export default class Form extends React.Component {
           </div>
           <div className="row input">
             <div className="input-field col s12">
-              <select className="validate" required name="position" onChange={this.handleInputChange}>
+              <select
+                className="validate"
+                required
+                name="position"
+                onChange={this.handleInputChange}
+              >
                 <option id="zxc" value="" disabled selected>
                   Type or select your position
                 </option>
-                <option value="1">UX Designer</option>
-                <option value="2">UI Designer</option>
-                <option value="3">Option 3</option>
-                <option value="4">Option 4</option>
-                <option value="5">Option 5</option>
-                <option value="6">Option 6</option>
+                <option value="UX Designer">UX Designer</option>
+                <option value="UI Desginer">UI Designer</option>
+                <option value="Option 3">Option 3</option>
+                <option value="Option 4">Option 4</option>
+                <option value="Option 5">Option 5</option>
+                <option value="Option 6">Option 6</option>
               </select>
               <label htmlFor="position" id="word">
                 Position *
@@ -134,7 +152,6 @@ export default class Form extends React.Component {
               </div>
               <div className="email-service-container">
                 <div className="row-buttons">
-
                   <div className="col s12" onChange={this.handleInputChange}>
                     <div className="rectangle">
                       <a className="btn-flat" name="contact" value="gmail">
@@ -144,7 +161,7 @@ export default class Form extends React.Component {
                     </div>
 
                     <div className="rectangle">
-                      <a className="btn-flat" name="contact" value="outlook" >
+                      <a className="btn-flat" name="contact" value="outlook">
                         <img src={require("./outlook.png")} alt="" />
                         <span className="button-text">Outlook</span>
                       </a>
@@ -156,34 +173,36 @@ export default class Form extends React.Component {
                       </a>
                     </div>
                   </div>
-
                 </div>
               </div>
             </div>
           </div>
           <div className="button-final-container">
             <button
-              className=" modal-trigger button-final btn-flat"
+              className="button-final btn-flat modal-trigger"
               type="submit"
               name="action"
-              data-target="modal1" 
-              
+              data-target="modal1"
             >
               GENERATE SIGNATURE
             </button>
           </div>
         </form>
+
         <div id="modal1" className="modal">
           <div className="modal-content">
-          <img src={require("./confirmation.png")} alt="" />
+            <img src={require("./confirmation.png")} alt="" />
             <h2 className="signature-generated">Signature Generated</h2>
-            <h4 className="subtitle">Just copy the information below to add it to your email</h4>
+            <h4 className="subtitle">
+              Just copy the information below to add it to your email
+            </h4>
           </div>
           <div className="modal-footer">
-            <div className="footer-cage">asfasfasasfasfd</div>
-            <button className="footer-small-cage" >Copy info</button>
+            <div className="footer-cage">{fullName}, {email}, {position}, {skypeId}, {emailService}</div>
+            <button className="footer-small-cage" onClick={this.handleClick}>Copy info</button>
           </div>
-        </div>
+        </div> 
+        
       </div>
     );
   }
