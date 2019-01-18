@@ -1,9 +1,10 @@
-import React, { useRef, useState } from "react";
+import React from "react";
 import $ from "jquery";
 import "materialize-css";
 import "materialize-css/dist/css/materialize.min.css";
 import PropTypes from "prop-types";
-
+import { CopyToClipboard } from "react-copy-to-clipboard";
+import { html } from 'common-tags';
 export default class Form extends React.Component {
   constructor(props) {
     super(props);
@@ -14,8 +15,6 @@ export default class Form extends React.Component {
       skypeId: "",
       emailService: ""
     };
-    this.handleClick = this.handleClick.bind(this);
-    
   }
 
   handleSubmit = event => {
@@ -32,19 +31,9 @@ export default class Form extends React.Component {
     });
   };
 
-  handleClick(e) {
-    
-  }
-
   render() {
-    const {
-      fullName,
-      position,
-      email,
-      skypeId,
-      emailService
-    } = this.state;
-    
+    const { fullName, position, email, skypeId, emailService } = this.state;
+
     return (
       <div className="row main" /* style={{ border: "1px solid green" }} */>
         <div className="title" /* style={{ border: "1px solid brown" }} */>
@@ -191,18 +180,34 @@ export default class Form extends React.Component {
 
         <div id="modal1" className="modal">
           <div className="modal-content">
-            <img src={require("./confirmation.png")} alt="" />
+            <img id="img-confirm" src={require("./confirmation.png")} alt="" />
+
             <h2 className="signature-generated">Signature Generated</h2>
             <h4 className="subtitle">
               Just copy the information below to add it to your email
             </h4>
           </div>
           <div className="modal-footer">
-            <div className="footer-cage">{fullName}, {email}, {position}, {skypeId}, {emailService}</div>
-            <button className="footer-small-cage" onClick={this.handleClick}>Copy info</button>
+            <div className="footer-cage">
+              <div className="footer-cage-text">
+                {fullName} {position}...
+              </div>
+            </div>
+            <CopyToClipboard text={`${fullName}
+${position}
+
+
+UI Desginer
+`} >
+              <button
+                className="footer-small-cage"
+                onClick={this.handleButtonClick}
+              >
+                Copy info
+              </button>
+            </CopyToClipboard>
           </div>
-        </div> 
-        
+        </div>
       </div>
     );
   }

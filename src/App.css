@@ -1,7 +1,9 @@
 body {
   background-color: #f9f9f9;
 }
-
+/* img {
+  display:block;
+} */
 label {
   height: 16px;
   color: #000000;
@@ -371,11 +373,29 @@ input[type="submit" i] {
 }
 .modal-content{
   text-align:center;
-  margin-top:61.5px;
+  /* margin-top:61.5px; */
+  /* border:1px solid red; */
+  
 }
-
+.modal .modal-content{
+  padding:0;
+}
+#img-confirm{
+  /* margin-top: 61.5px; */
+  display:block;
+  margin:0 auto;
+  margin-top: 61.5px;
+  /* border:1px solid blue; */
+}
+.modal .modal-footer{
+  padding:0;
+}
 .modal-footer{
   background-color:#FFFFFF !important;
+  /* border:1px solid yellow; */
+  
+  margin-top:26px;
+  
 }
 
 .signature-generated {
@@ -387,13 +407,16 @@ input[type="submit" i] {
 	font-weight: bold;
   line-height: 32px;
   margin:0 auto;
+  margin-top:7.5px !important;
 }
 .subtitle {
 	
 	color: #000000;
 	font-family: Roboto;
 	font-size: 16px;
-	line-height: 19px;
+  line-height: 19px;
+  margin:0 auto;
+  margin-top:11px !important;
 }
 
 .footer-cage {
@@ -402,9 +425,14 @@ input[type="submit" i] {
 	border: 1px solid #9C9C9C;
 	border-radius: 4px 0 0 4px;
   background-color: #F7F7F7;
-  display: inline-block;
-  border:1px solid red;
-  text-align: left;
+  /* display: inline-block; */
+  /* border:1px solid red; */
+  text-align: center;
+  float:left;
+  margin-left:48px;
+  
+  
+  
 }
 
 
@@ -414,8 +442,20 @@ input[type="submit" i] {
   border: 1px solid #9C9C9C;
   border-radius: 0 4px 4px 0;
   background-color: #FFFFFF;
-  display: inline-block;
-  border:1px solid blue;
+  /* display: inline-block; */
+  /* border:1px solid blue; */
+  float:left;
+  
+}
+
+.footer-cage-text{
+  height: 19px;
+  width: 320px;
+  color: #9C9C9C;
+  font-family: Roboto;
+  font-size: 16px;
+  line-height: 19px;
+  margin:15px auto;
 }
 
 
