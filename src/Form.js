@@ -31,6 +31,14 @@ export default class Form extends React.Component {
     });
   };
 
+  handleButtonClick = event => {
+    event.preventDefault();
+    /* $('.fixed').css('display', 'block'); */
+    $('.fixed').show(1).delay(1000).hide(1);
+    
+  };
+  
+
   render() {
     const { fullName, position, email, skypeId, emailService } = this.state;
 
@@ -195,9 +203,19 @@ export default class Form extends React.Component {
             </div>
             <CopyToClipboard text={`${fullName}
 ${position}
+Belatrix Software
+${email}
+USA Phone +1 (617) 608-1413 
+PE Phone (0051-1) 7173350 Ax. 1602
+Skype ID: ${skypeId}
+http://www.belatrixsf.com
 
 
-UI Desginer
+
+
+WARNING OF CONFIDENTIALITY: The information contained and transmitted here is CONFIDENTIAL and it is for exclusive use of the addressee indicated above, and for his/her specific use. If you are not the addressee, we apologize for any inconvenience. It is hereby notified that it is prohibited to revise, retransmit or broadcast or any other type of use of the information contained herein by people who are not the original addressee. If you have received this information by mistake, please contact the sender and eliminate the information contained here from all computers.
+
+AVISO DE CONFIDENCIALIDAD: La información aquí contenida y transmitida es CONFIDENCIAL, para uso exclusivo del destinatario arriba indicado y para su utilización específica. Si usted no es el destinatario, sepa disculpar la molestia. Se le notifica por el presente que está prohibida su revisión, retransmisión, difusión, y/o cualquier otro tipo de uso de la información contenida por personas extrañas al destinatario original. Si Ud. Ha recibido por error esta información, por favor contacte al remitente y elimine la información aquí contenida de toda computadora donde resida.
 `} >
               <button
                 className="footer-small-cage"
@@ -206,8 +224,11 @@ UI Desginer
                 Copy info
               </button>
             </CopyToClipboard>
+            
           </div>
+          
         </div>
+        <div className="fixed"><div className="copied-to-clipboard">Copied to clipboard!</div></div>
       </div>
     );
   }
