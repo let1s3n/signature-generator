@@ -3,7 +3,7 @@
 ##Description
 This is a signature project generator to be used for gmail and other emails providers.
 
-##Technologies to use
+##Used Technologies
 -HTML
 -CSS
 -JavaScript
