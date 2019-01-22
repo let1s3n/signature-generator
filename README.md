@@ -1,12 +1,20 @@
+#Signature Generator
 
-Description
-===
-
+##Description
 This is a signature project generator to be used for gmail and other emails providers.
 
-## Project Setup
+##Technologies to use
+-HTML
+-CSS
+-JavaScript
+-React
 
-npm install
+##Available commands and tools
+-npm install (to install all dependencies in the node_modules folder)
+-npm start   (to start the server) 
 
-npm start
+##How the project integrates with different email providers
+
+
+
 
