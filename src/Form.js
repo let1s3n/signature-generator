@@ -41,6 +41,7 @@ export default class Form extends React.Component {
 
   render() {
     const { fullName, position, email, skypeId, emailService } = this.state;
+    const str="Belatrix Software";
 
     return (
       <div className="row main" /* style={{ border: "1px solid green" }} */>
@@ -203,7 +204,7 @@ export default class Form extends React.Component {
             </div>
             <CopyToClipboard text={`${fullName}
 ${position}
-Belatrix Software
+${str.bold()}
 ${email}
 USA Phone +1 (617) 608-1413 
 PE Phone (0051-1) 7173350 Ax. 1602
@@ -228,7 +229,7 @@ AVISO DE CONFIDENCIALIDAD: La información aquí contenida y transmitida es CONF
           </div>
           
         </div>
-        <div className="fixed"><div className="copied-to-clipboard">Copied to clipboard!</div></div>
+        <div className="fixed"><div className="copied-to-clipboard">COPIED TO CLIPBOARD</div></div>
       </div>
     );
   }
