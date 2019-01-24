@@ -10,9 +10,9 @@ import { html } from 'common-tags';
 import { copyFormatted } from './copy-to-clipboard';
 
 const options = [
-  { value: 'chocolate', label: 'Chocolate' },
-  { value: 'strawberry', label: 'Strawberry' },
-  { value: 'vanilla', label: 'Vanilla' }
+  { value: 'UX Designer', label: 'UX Designer' },
+  { value: 'UI Designer', label: 'UI Designer' },
+  { value: 'Development Intern', label: 'Development Intern' }
 ]
 
 export default class Form extends React.Component {
@@ -20,7 +20,7 @@ export default class Form extends React.Component {
     super(props);
     this.state = {
       fullName: "",
-      position: "",
+      position: {},
       email: "",
       skypeId: "",
       emailService: ""
@@ -42,8 +42,9 @@ export default class Form extends React.Component {
   };
 
   handleChange = (position) => {
+    console.log({position});
     this.setState({ 
-      position : position.value,
+      position : position,
 
     });
     
@@ -60,7 +61,7 @@ export default class Form extends React.Component {
   
 
   render() {
-    const { fullName, position, email, skypeId, emailService } = this.state;
+    const { fullName, position, email, skypeId, emailService,  } = this.state;
     const str="<b>Belatrix Software</b>";
 
     return (
@@ -101,26 +102,17 @@ export default class Form extends React.Component {
           </div>
           <div className="row input">
             <div className="input-field col s12">
-              {/* <select
-                className="validate"
-                required
-                name="position"
-                onChange={this.handleInputChange}
-              >
-                <option id="zxc" value="" disabled selected>
-                  Type or select your position
-                </option>
-                <option value="UX Designer">UX Designer</option>
-                <option value="UI Desginer">UI Designer</option>
-                <option value="Development Intern">Development Intern</option>
-                <option value="Option 4">Option 4</option>
-                <option value="Option 5">Option 5</option>
-                <option value="Option 6">Option 6</option>
-              </select> */}
-              <Select 
+              
+             <input type="text"/>
+              
+             <Select
+              className="select-validate"
+              required
+              name="position"
               value={position}
               onChange={this.handleChange}
               options={options} />
+
               <label htmlFor="position" id="word">
                 Position *
               </label>
@@ -223,7 +215,7 @@ export default class Form extends React.Component {
           <div className="modal-footer">
             <div className="footer-cage">
               <div className="footer-cage-text">
-                {fullName} {position}...
+                {fullName} {position.label}...
               </div>
             </div>
             {/* <CopyToClipboard text={this.getFormattedSignature(fullName, position, str, email, skypeId)} >
@@ -237,7 +229,7 @@ export default class Form extends React.Component {
             <div>
               <button className="footer-small-cage" onClick={() => {
                 /* event.preventDefault(); */
-                const text=this.getFormattedSignature(fullName, position, str, email , skypeId)
+                const text=this.getFormattedSignature(fullName, position.label, str, email , skypeId)
                 copyFormatted(text)
                 $('.fixed').show(1).delay(1000).hide(1);
               }}>Copy Info</button>

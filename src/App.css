@@ -284,7 +284,7 @@ input.validate {
   font-size: 16px;
   line-height: 19px;
 }
-select.validate {
+.select-validate {
   color: #000000;
   font-family: Roboto;
   font-size: 16px;
