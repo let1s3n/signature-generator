@@ -2,9 +2,19 @@ import React from "react";
 import $ from "jquery";
 import "materialize-css";
 import "materialize-css/dist/css/materialize.min.css";
+import Select from 'react-select';
 import PropTypes from "prop-types";
 import { CopyToClipboard } from "react-copy-to-clipboard";
 import { html } from 'common-tags';
+
+import { copyFormatted } from './copy-to-clipboard';
+
+const options = [
+  { value: 'chocolate', label: 'Chocolate' },
+  { value: 'strawberry', label: 'Strawberry' },
+  { value: 'vanilla', label: 'Vanilla' }
+]
+
 export default class Form extends React.Component {
   constructor(props) {
     super(props);
@@ -31,17 +41,27 @@ export default class Form extends React.Component {
     });
   };
 
-  handleButtonClick = event => {
+  handleChange = (position) => {
+    this.setState({ 
+      position : position.value,
+
+    });
+    
+  }
+
+
+  /* handleButtonClick = event => {
     event.preventDefault();
-    /* $('.fixed').css('display', 'block'); */
+    
+    $('.fixed').css('display', 'block');
     $('.fixed').show(1).delay(1000).hide(1);
     
-  };
+  }; */
   
 
   render() {
     const { fullName, position, email, skypeId, emailService } = this.state;
-    const str="Belatrix Software";
+    const str="<b>Belatrix Software</b>";
 
     return (
       <div className="row main" /* style={{ border: "1px solid green" }} */>
@@ -81,7 +101,7 @@ export default class Form extends React.Component {
           </div>
           <div className="row input">
             <div className="input-field col s12">
-              <select
+              {/* <select
                 className="validate"
                 required
                 name="position"
@@ -92,11 +112,15 @@ export default class Form extends React.Component {
                 </option>
                 <option value="UX Designer">UX Designer</option>
                 <option value="UI Desginer">UI Designer</option>
-                <option value="Option 3">Option 3</option>
+                <option value="Development Intern">Development Intern</option>
                 <option value="Option 4">Option 4</option>
                 <option value="Option 5">Option 5</option>
                 <option value="Option 6">Option 6</option>
-              </select>
+              </select> */}
+              <Select 
+              value={position}
+              onChange={this.handleChange}
+              options={options} />
               <label htmlFor="position" id="word">
                 Position *
               </label>
@@ -202,36 +226,48 @@ export default class Form extends React.Component {
                 {fullName} {position}...
               </div>
             </div>
-            <CopyToClipboard text={`${fullName}
-${position}
-${str.bold()}
-${email}
-USA Phone +1 (617) 608-1413 
-PE Phone (0051-1) 7173350 Ax. 1602
-Skype ID: ${skypeId}
-http://www.belatrixsf.com
-
-
-
-
-WARNING OF CONFIDENTIALITY: The information contained and transmitted here is CONFIDENTIAL and it is for exclusive use of the addressee indicated above, and for his/her specific use. If you are not the addressee, we apologize for any inconvenience. It is hereby notified that it is prohibited to revise, retransmit or broadcast or any other type of use of the information contained herein by people who are not the original addressee. If you have received this information by mistake, please contact the sender and eliminate the information contained here from all computers.
-
-AVISO DE CONFIDENCIALIDAD: La información aquí contenida y transmitida es CONFIDENCIAL, para uso exclusivo del destinatario arriba indicado y para su utilización específica. Si usted no es el destinatario, sepa disculpar la molestia. Se le notifica por el presente que está prohibida su revisión, retransmisión, difusión, y/o cualquier otro tipo de uso de la información contenida por personas extrañas al destinatario original. Si Ud. Ha recibido por error esta información, por favor contacte al remitente y elimine la información aquí contenida de toda computadora donde resida.
-`} >
+            {/* <CopyToClipboard text={this.getFormattedSignature(fullName, position, str, email, skypeId)} >
               <button
                 className="footer-small-cage"
                 onClick={this.handleButtonClick}
               >
                 Copy info
               </button>
-            </CopyToClipboard>
-            
+            </CopyToClipboard> */}
+            <div>
+              <button className="footer-small-cage" onClick={() => {
+                /* event.preventDefault(); */
+                const text=this.getFormattedSignature(fullName, position, str, email , skypeId)
+                copyFormatted(text)
+                $('.fixed').show(1).delay(1000).hide(1);
+              }}>Copy Info</button>
+            </div>
           </div>
           
         </div>
         <div className="fixed"><div className="copied-to-clipboard">COPIED TO CLIPBOARD</div></div>
       </div>
     );
+  }
+
+  getFormattedSignature(fullName, position, str, email, skypeId) {
+    return `${fullName}<br/>
+${position}</br>
+${str.bold()}</br>
+${email}</br>
+USA Phone +1 (617) 608-1413 </br> 
+PE Phone (0051-1) 7173350 Ax. 1602 </br>
+Skype ID: ${skypeId} </br>
+http://www.belatrixsf.com </br>
+</br>
+</br>
+</br>
+</br>
+WARNING OF CONFIDENTIALITY: The information contained and transmitted here is CONFIDENTIAL and it is for exclusive use of the addressee indicated above, and for his/her specific use. If you are not the addressee, we apologize for any inconvenience. It is hereby notified that it is prohibited to revise, retransmit or broadcast or any other type of use of the information contained herein by people who are not the original addressee. If you have received this information by mistake, please contact the sender and eliminate the information contained here from all computers.
+</br>
+</br>
+AVISO DE CONFIDENCIALIDAD: La información aquí contenida y transmitida es CONFIDENCIAL, para uso exclusivo del destinatario arriba indicado y para su utilización específica. Si usted no es el destinatario, sepa disculpar la molestia. Se le notifica por el presente que está prohibida su revisión, retransmisión, difusión, y/o cualquier otro tipo de uso de la información contenida por personas extrañas al destinatario original. Si Ud. Ha recibido por error esta información, por favor contacte al remitente y elimine la información aquí contenida de toda computadora donde resida.
+`;
   }
 }
 
