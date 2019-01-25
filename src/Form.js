@@ -85,12 +85,21 @@ export default class Form extends React.Component {
     });
 
     const colourStyles = {
-      control: (styles,{isFocused,isSelected,isDisabled}) => ({ ...styles, height:'10px',boxSizing: 'border-box',  backgroundColor: 'white' ,
-      borderBottom: isDisabled 
-        ? '2px solid black'
-        : isSelected
-          ? '2px solid red'
-          : '2px solid orange' }),
+      control: (styles,{isFocused,isSelected,isDisabled}) => ({ ...styles, height:'10px',border:'none', borderBottom:'2px solid #3c3c3c', borderRadius:0 ,  backgroundColor: 'white',
+      border: isFocused ? 0 : 0,
+      boxShadow: isFocused ? 0 : 0,
+      
+      "&:hover": {
+        border: isFocused ? 0 : 0
+      },
+      borderBottom: isFocused
+          ? '2px solid #f89937'
+          : '2px solid #3c3c3c',
+        
+        '&:hover':{
+          borderBottom: '2px solid #3c3c3c'
+        }
+        }),
       option: (styles, {isDisabled, isFocused, isSelected }) => {
         const color = chroma('#9BC04B');
         return {
@@ -100,15 +109,10 @@ export default class Form extends React.Component {
           backgroundColor: isDisabled
             ? null
             : isSelected 
-              ? color
+              ? 'orange'
               : isFocused 
                 ? 'orange'
                 : null,
-          color: isDisabled
-            ? '#ccc'
-            : isSelected
-              ? chroma.contrast(color, 'white') > 2 ? 'white' : 'black'
-              : color,
           
           cursor: isDisabled 
           ? 'not-allowed' 
@@ -162,7 +166,6 @@ export default class Form extends React.Component {
           <div className="row input">
             <div className="input-field col s12">
               <Select
-                
                 styles={colourStyles}
                 required
                 name="position"
