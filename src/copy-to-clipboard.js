@@ -32,13 +32,13 @@ export function copyFormatted (html) {
     document.execCommand('copy')
   
     // [5.2]
-    for (var i = 0; i < activeSheets.length; i++) activeSheets[i].disabled = true
+    for (var i = 0; i < activeSheets.length; i++) {activeSheets[i].disabled = true}
   
     // [5.3]
     document.execCommand('copy')
   
     // [5.4]
-    for (var i = 0; i < activeSheets.length; i++) activeSheets[i].disabled = false
+    for (var i = 0; i < activeSheets.length; i++) {activeSheets[i].disabled = false}
   
     // Remove the container
     // [6]

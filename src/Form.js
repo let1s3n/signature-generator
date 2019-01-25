@@ -3,26 +3,35 @@ import $ from "jquery";
 import "materialize-css";
 import "materialize-css/dist/css/materialize.min.css";
 import chroma from 'chroma-js';
-
-
 import Select from "react-select";
 import styled from "styled-components";
-import PropTypes from "prop-types";
 import { CopyToClipboard } from "react-copy-to-clipboard";
-import { html } from "common-tags";
-
 import { copyFormatted } from "./copy-to-clipboard";
 
 const options = [
   { value: "UX Designer", label: "UX Designer" },
   { value: "UI Designer", label: "UI Designer" },
-  { value: "Development Intern", label: "Development Intern" }
+  { value: "Development Intern", label: "Development Intern" },
+  {value: "Option 4", label: "Option 4"},
+  {value: "Option 5", label: "Option 5"},
+  {value: "Option 6", label: "Option 6"},
+  {value: "Option 7", label: "Option 7"},
+  {value: "Option 8", label: "Option 8"},
+  {value: "Option 9", label: "Option 9"},
+  {value: "Option 10", label: "Option 10"},
+  {value: "Option 12", label: "Option 12"},
+  {value: "Option 13", label: "Option 13"},
+  {value: "Option 14", label: "Option 14"},
+  {value: "Option 15", label: "Option 15"},
+
+  
 ];
 
 export default class Form extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      /* value: '', */
       fullName: "",
       position: {},
       email: "",
@@ -50,25 +59,15 @@ export default class Form extends React.Component {
     this.setState({
       position: position
     });
+    /* let obj ={value: position.value, label: position.label};
+    this.setState({value: obj}); */   //  convert to obj
   };
 
-  /* handleButtonClick = event => {
-    event.preventDefault();
-    
-    $('.fixed').css('display', 'block');
-    $('.fixed').show(1).delay(1000).hide(1);
-    
-  }; */
+  
 
   render() {
     const { fullName, position, email, skypeId, emailService } = this.state;
     const str = "<b>Belatrix Software</b>";
-
-    /* const Select = styled.input`
-      font-size: 1.5em;
-      text-align: center;
-      color: palevioletred;
-    `; */
 
     const dot = (color = '#ccc') => ({
       alignItems: 'center',
@@ -86,22 +85,36 @@ export default class Form extends React.Component {
     });
 
     const colourStyles = {
-      control: styles => ({ ...styles, height:'10px', border:'none', borderBottom:'2px solid black',  backgroundColor: 'white' }),
-      /* option: (styles, { data, isDisabled, isFocused, isSelected }) => {
+      control: (styles,{isFocused,isSelected,isDisabled}) => ({ ...styles, height:'10px',boxSizing: 'border-box',  backgroundColor: 'white' ,
+      borderBottom: isDisabled 
+        ? '2px solid black'
+        : isSelected
+          ? '2px solid red'
+          : '2px solid orange' }),
+      option: (styles, {isDisabled, isFocused, isSelected }) => {
         const color = chroma('#9BC04B');
         return {
           ...styles,
+          
+          
           backgroundColor: isDisabled
             ? null
-            : isSelected ? color: isFocused ? color.alpha(0.1).css() : null,
+            : isSelected 
+              ? color
+              : isFocused 
+                ? 'orange'
+                : null,
           color: isDisabled
             ? '#ccc'
             : isSelected
               ? chroma.contrast(color, 'white') > 2 ? 'white' : 'black'
               : color,
-          cursor: isDisabled ? 'not-allowed' : 'default',
+          
+          cursor: isDisabled 
+          ? 'not-allowed' 
+          : 'default',
         };
-      }, */
+      },
       input: styles => ({ ...styles}),
       placeholder: styles => ({ ...styles}),
       singleValue: (styles, { data }) => ({ ...styles}),
@@ -156,16 +169,8 @@ export default class Form extends React.Component {
                 value={position}
                 onChange={this.handleChange}
                 options={options}
-                /* theme={(theme) => ({
-                  ...theme,
-                  borderRadius: 0,
-                  colors: {
-                  ...theme.colors,
-                    text: 'red',
-                    primary25: 'grey',
-                    primary: '',
-                  },
-                })} */
+                placeholder={'Select something'}
+                /* value={this.state.value} */
               />
 
               <label className="active" htmlFor="position" id="word">
@@ -273,20 +278,12 @@ export default class Form extends React.Component {
                 {fullName} {position.label}...
               </div>
             </div>
-            {/* <CopyToClipboard text={this.getFormattedSignature(fullName, position, str, email, skypeId)} >
-              <button
-                className="footer-small-cage"
-                onClick={this.handleButtonClick}
-              >
-                Copy info
-              </button>
-            </CopyToClipboard> */}
+           
             <div>
               <button
                 className="footer-small-cage"
                 onClick={() => {
-                  /* event.preventDefault(); */
-                  const text = this.getFormattedSignature(
+                    const text = this.getFormattedSignature(
                     fullName,
                     position.label,
                     str,
