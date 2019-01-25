@@ -2,7 +2,7 @@ import React from "react";
 import $ from "jquery";
 import "materialize-css";
 import "materialize-css/dist/css/materialize.min.css";
-import chroma from 'chroma-js';
+import chroma from "chroma-js";
 import Select from "react-select";
 import styled from "styled-components";
 import { CopyToClipboard } from "react-copy-to-clipboard";
@@ -12,26 +12,25 @@ const options = [
   { value: "UX Designer", label: "UX Designer" },
   { value: "UI Designer", label: "UI Designer" },
   { value: "Development Intern", label: "Development Intern" },
-  {value: "Option 4", label: "Option 4"},
-  {value: "Option 5", label: "Option 5"},
-  {value: "Option 6", label: "Option 6"},
-  {value: "Option 7", label: "Option 7"},
-  {value: "Option 8", label: "Option 8"},
-  {value: "Option 9", label: "Option 9"},
-  {value: "Option 10", label: "Option 10"},
-  {value: "Option 12", label: "Option 12"},
-  {value: "Option 13", label: "Option 13"},
-  {value: "Option 14", label: "Option 14"},
-  {value: "Option 15", label: "Option 15"},
-
-  
+  { value: "Option 4", label: "Option 4" },
+  { value: "Option 5", label: "Option 5" },
+  { value: "Option 6", label: "Option 6" },
+  { value: "Option 7", label: "Option 7" },
+  { value: "Option 8", label: "Option 8" },
+  { value: "Option 9", label: "Option 9" },
+  { value: "Option 10", label: "Option 10" },
+  { value: "Option 12", label: "Option 12" },
+  { value: "Option 13", label: "Option 13" },
+  { value: "Option 14", label: "Option 14" },
+  { value: "Option 15", label: "Option 15" }
 ];
 
 export default class Form extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      /* value: '', */
+      /* ==== To-Do : little hack to make placeholder prop work ==== */
+      //value: '',
       fullName: "",
       position: {},
       email: "",
@@ -59,95 +58,86 @@ export default class Form extends React.Component {
     this.setState({
       position: position
     });
-    /* let obj ={value: position.value, label: position.label};
-    this.setState({value: obj}); */   //  convert to obj
-  };
 
-  
+    /* ==== To-Do : little hack to make placeholder prop work ==== */
+
+    /* let obj ={value: position.value, label: position.label};
+    this.setState({value: obj}); */
+  };
 
   render() {
     const { fullName, position, email, skypeId, emailService } = this.state;
     const str = "<b>Belatrix Software</b>";
 
-    const dot = (color = '#ccc') => ({
-      alignItems: 'center',
-      display: 'flex',
-    
-      ':before': {
+    const dot = (color = "#ccc") => ({
+      alignItems: "center",
+      display: "flex",
+
+      ":before": {
         backgroundColor: color,
         borderRadius: 10,
         content: '" "',
-        display: 'block',
+        display: "block",
         marginRight: 8,
         height: 10,
-        width: 10,
-      },
+        width: 10
+      }
     });
 
     const colourStyles = {
-      control: (styles,{isFocused,isSelected,isDisabled}) => ({ ...styles, height:'10px',border:'none', borderBottom:'2px solid #3c3c3c', borderRadius:0 ,  backgroundColor: 'white',
-      border: isFocused ? 0 : 0,
-      boxShadow: isFocused ? 0 : 0,
-      
-      "&:hover": {
-        border: isFocused ? 0 : 0
-      },
-      borderBottom: isFocused
-          ? '2px solid #f89937'
-          : '2px solid #3c3c3c',
-        
-        '&:hover':{
-          borderBottom: '2px solid #3c3c3c'
+      control: (styles, { isFocused, isSelected, isDisabled }) => ({
+        ...styles,
+        height: "10px",
+        border: "none",
+        borderBottom: "2px solid #3c3c3c",
+        borderRadius: 0,
+        backgroundColor: "white",
+        border: isFocused ? 0 : 0,
+        boxShadow: isFocused ? 0 : 0,
+
+        "&:hover": {
+          border: isFocused ? 0 : 0
+        },
+        borderBottom: isFocused ? "2px solid #f89937" : "2px solid #3c3c3c",
+
+        "&:hover": {
+          borderBottom: "2px solid #3c3c3c"
         }
-        }),
-      option: (styles, {isDisabled, isFocused, isSelected }) => {
-        const color = chroma('#9BC04B');
+      }),
+      option: (styles, { isDisabled, isFocused, isSelected }) => {
+        const color = chroma("#9BC04B");
         return {
           ...styles,
-          
-          
+
           backgroundColor: isDisabled
             ? null
-            : isSelected 
-              ? 'orange'
-              : isFocused 
-                ? 'orange'
-                : null,
-          
-          cursor: isDisabled 
-          ? 'not-allowed' 
-          : 'default',
+            : isSelected
+            ? "orange"
+            : isFocused
+            ? "orange"
+            : null,
+
+          cursor: isDisabled ? "not-allowed" : "default"
         };
       },
-      input: styles => ({ ...styles}),
-      placeholder: styles => ({ ...styles}),
-      singleValue: (styles, { data }) => ({ ...styles}),
-
+      input: styles => ({ ...styles }),
+      placeholder: styles => ({ ...styles }),
+      singleValue: (styles, { data }) => ({ ...styles })
     };
-    
-    
 
     return (
-      <div className="row main" /* style={{ border: "1px solid green" }} */>
-        <div className="title" /* style={{ border: "1px solid brown" }} */>
+      <div className="row main">
+        <div className="title">
           <h2 className="signature-generator">Signature Generator</h2>
         </div>
         <div className="divider" />
-        <div
-          id="subtitle"
-          className="subtitle" /* style={{ border: "1px solid red" }} */
-        >
+        <div id="subtitle" className="subtitle">
           <h6 className="fill-in-your-informa">
             Fill in your information to generate your email signature
           </h6>
         </div>
 
-        <form
-          onSubmit={this.handleSubmit}
-          className="col s12"
-          id="myForm"
-          /* style={{ border: "1px solid orange" }} */
-        >
+        <form onSubmit={this.handleSubmit} className="col s12" id="myForm">
           <div className="row input">
             <div className="input-field col s12">
               <input
@@ -172,8 +162,9 @@ export default class Form extends React.Component {
                 value={position}
                 onChange={this.handleChange}
                 options={options}
-                placeholder={'Select something'}
-                /* value={this.state.value} */
+                placeholder={"Select something"}
+                /* ==== To-Do : little hack to make placeholder prop work ==== */
+                //value={this.state.value}
               />
 
               <label className="active" htmlFor="position" id="word">
@@ -281,12 +272,12 @@ export default class Form extends React.Component {
                 {fullName} {position.label}...
               </div>
             </div>
-           
+
             <div>
               <button
                 className="footer-small-cage"
                 onClick={() => {
-                    const text = this.getFormattedSignature(
+                  const text = this.getFormattedSignature(
                     fullName,
                     position.label,
                     str,
