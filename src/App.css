@@ -55,7 +55,7 @@ select option {
   color:red;
 } */
 
-ul.dropdown-content.select-dropdown li:not(.disabled) span {
+/* ul.dropdown-content.select-dropdown li:not(.disabled) span {
   height: 19px;
   width: 162px;
   color: #000000;
@@ -67,7 +67,7 @@ ul.dropdown-content.select-dropdown li:not(.disabled) span {
 ul.dropdown-content.select-dropdown li:hover {
   background-color: #fdc68c;
 }
-
+ */
 #word {
   height: 16px;
   color: #000000;

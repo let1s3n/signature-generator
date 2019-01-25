@@ -2,18 +2,22 @@ import React from "react";
 import $ from "jquery";
 import "materialize-css";
 import "materialize-css/dist/css/materialize.min.css";
-import Select from 'react-select';
+import chroma from 'chroma-js';
+
+
+import Select from "react-select";
+import styled from "styled-components";
 import PropTypes from "prop-types";
 import { CopyToClipboard } from "react-copy-to-clipboard";
-import { html } from 'common-tags';
+import { html } from "common-tags";
 
-import { copyFormatted } from './copy-to-clipboard';
+import { copyFormatted } from "./copy-to-clipboard";
 
 const options = [
-  { value: 'UX Designer', label: 'UX Designer' },
-  { value: 'UI Designer', label: 'UI Designer' },
-  { value: 'Development Intern', label: 'Development Intern' }
-]
+  { value: "UX Designer", label: "UX Designer" },
+  { value: "UI Designer", label: "UI Designer" },
+  { value: "Development Intern", label: "Development Intern" }
+];
 
 export default class Form extends React.Component {
   constructor(props) {
@@ -41,15 +45,12 @@ export default class Form extends React.Component {
     });
   };
 
-  handleChange = (position) => {
-    console.log({position});
-    this.setState({ 
-      position : position,
-
+  handleChange = position => {
+    console.log({ position });
+    this.setState({
+      position: position
     });
-    
-  }
-
+  };
 
   /* handleButtonClick = event => {
     event.preventDefault();
@@ -58,11 +59,56 @@ export default class Form extends React.Component {
     $('.fixed').show(1).delay(1000).hide(1);
     
   }; */
-  
 
   render() {
-    const { fullName, position, email, skypeId, emailService,  } = this.state;
-    const str="<b>Belatrix Software</b>";
+    const { fullName, position, email, skypeId, emailService } = this.state;
+    const str = "<b>Belatrix Software</b>";
+
+    /* const Select = styled.input`
+      font-size: 1.5em;
+      text-align: center;
+      color: palevioletred;
+    `; */
+
+    const dot = (color = '#ccc') => ({
+      alignItems: 'center',
+      display: 'flex',
+    
+      ':before': {
+        backgroundColor: color,
+        borderRadius: 10,
+        content: '" "',
+        display: 'block',
+        marginRight: 8,
+        height: 10,
+        width: 10,
+      },
+    });
+
+    const colourStyles = {
+      control: styles => ({ ...styles, height:'10px', border:'none', borderBottom:'2px solid black',  backgroundColor: 'white' }),
+      /* option: (styles, { data, isDisabled, isFocused, isSelected }) => {
+        const color = chroma('#9BC04B');
+        return {
+          ...styles,
+          backgroundColor: isDisabled
+            ? null
+            : isSelected ? color: isFocused ? color.alpha(0.1).css() : null,
+          color: isDisabled
+            ? '#ccc'
+            : isSelected
+              ? chroma.contrast(color, 'white') > 2 ? 'white' : 'black'
+              : color,
+          cursor: isDisabled ? 'not-allowed' : 'default',
+        };
+      }, */
+      input: styles => ({ ...styles}),
+      placeholder: styles => ({ ...styles}),
+      singleValue: (styles, { data }) => ({ ...styles}),
+
+    };
+    
+    
 
     return (
       <div className="row main" /* style={{ border: "1px solid green" }} */>
@@ -102,18 +148,27 @@ export default class Form extends React.Component {
           </div>
           <div className="row input">
             <div className="input-field col s12">
-              
-             <input type="text"/>
-              
-             <Select
-              className="select-validate"
-              required
-              name="position"
-              value={position}
-              onChange={this.handleChange}
-              options={options} />
+              <Select
+                
+                styles={colourStyles}
+                required
+                name="position"
+                value={position}
+                onChange={this.handleChange}
+                options={options}
+                /* theme={(theme) => ({
+                  ...theme,
+                  borderRadius: 0,
+                  colors: {
+                  ...theme.colors,
+                    text: 'red',
+                    primary25: 'grey',
+                    primary: '',
+                  },
+                })} */
+              />
 
-              <label htmlFor="position" id="word">
+              <label className="active" htmlFor="position" id="word">
                 Position *
               </label>
             </div>
@@ -227,17 +282,32 @@ export default class Form extends React.Component {
               </button>
             </CopyToClipboard> */}
             <div>
-              <button className="footer-small-cage" onClick={() => {
-                /* event.preventDefault(); */
-                const text=this.getFormattedSignature(fullName, position.label, str, email , skypeId)
-                copyFormatted(text)
-                $('.fixed').show(1).delay(1000).hide(1);
-              }}>Copy Info</button>
+              <button
+                className="footer-small-cage"
+                onClick={() => {
+                  /* event.preventDefault(); */
+                  const text = this.getFormattedSignature(
+                    fullName,
+                    position.label,
+                    str,
+                    email,
+                    skypeId
+                  );
+                  copyFormatted(text);
+                  $(".fixed")
+                    .show(1)
+                    .delay(1000)
+                    .hide(1);
+                }}
+              >
+                Copy Info
+              </button>
             </div>
           </div>
-          
         </div>
-        <div className="fixed"><div className="copied-to-clipboard">COPIED TO CLIPBOARD</div></div>
+        <div className="fixed">
+          <div className="copied-to-clipboard">COPIED TO CLIPBOARD</div>
+        </div>
       </div>
     );
   }
