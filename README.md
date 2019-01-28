@@ -1,7 +1,7 @@
 # Signature Generator
 
 ## Description
-This is a signature project generator to be used for gmail and other emails providers.
+This is a signature generator project to be used for gmail and other emails providers.
 
 ## Used Technologies
 - HTML
@@ -14,7 +14,7 @@ This is a signature project generator to be used for gmail and other emails prov
 
 Install all dependencies:
 ```
-npm run init
+npm install
 ```
 
 Run development server:
