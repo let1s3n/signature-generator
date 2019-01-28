@@ -2,7 +2,7 @@ import React from "react";
 import "materialize-css";
 import "materialize-css/dist/css/materialize.min.css";
 import Select from "react-select";
-import CopyContentButton from './CopyContentButton';
+import CopyContentButton from "./CopyContentButton";
 
 const options = [
   { value: "UX Designer", label: "UX Designer" },
@@ -28,9 +28,9 @@ export default class Form extends React.Component {
       /* ==== To-Do : little hack to make placeholder prop work ==== */
       //value: '',
       fullName: "",
-      position: {label:'',value:''},
+      position: { label: "", value: "" },
       email: "",
-      title: '<b>Belatrix Software</b>',
+      title: "<b>Belatrix Software</b>",
       skypeId: "",
       emailService: ""
     };
@@ -45,18 +45,14 @@ export default class Form extends React.Component {
   };
 
   handleChange = position => {
-    
     this.setState({
       position: position
     });
-    console.log(position);
     /* ==== To-Do : little hack to make placeholder prop work ==== */
 
     /* let obj ={value: position.value, label: position.label};
     this.setState({value: obj}); */
   };
-
-  
 
   render() {
     const { fullName, position } = this.state;
@@ -74,7 +70,7 @@ export default class Form extends React.Component {
           border: isFocused ? 0 : 0,
           borderBottom: "2px solid #3c3c3c"
         },
-        borderBottom: isFocused ? "2px solid #f89937" : "2px solid #3c3c3c",
+        borderBottom: isFocused ? "2px solid #f89937" : "2px solid #3c3c3c"
       }),
       option: (styles, { isDisabled, isFocused, isSelected }) => {
         return {
@@ -93,7 +89,7 @@ export default class Form extends React.Component {
       },
       input: styles => ({ ...styles }),
       placeholder: styles => ({ ...styles }),
-      singleValue: (styles, { data }) => ({ ...styles })
+      singleValue: styles => ({ ...styles })
     };
 
     return (
@@ -127,15 +123,12 @@ export default class Form extends React.Component {
           <div className="row input">
             <div className="input-field col s12">
               <Select
-              /* placeholder={"Select something"} */
                 styles={colourStyles}
                 required
                 name="position"
                 value={this.state.position}
                 onChange={this.handleChange}
                 options={options}
-                placeholder={"Select something"}
-                
                 /* ==== To-Do : little hack to make placeholder prop work ==== */
                 //value={this.state.value}
               />
@@ -256,9 +249,6 @@ export default class Form extends React.Component {
       </div>
     );
   }
-
-  
 }
 
 Form.propTypes = {};
-
