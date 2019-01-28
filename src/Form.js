@@ -2,26 +2,40 @@ import React from "react";
 import $ from "jquery";
 import "materialize-css";
 import "materialize-css/dist/css/materialize.min.css";
-import PropTypes from "prop-types";
-import { CopyToClipboard } from "react-copy-to-clipboard";
-import { html } from 'common-tags';
+import Select from "react-select";
+import { copyFormatted } from "./copy-to-clipboard";
+
+const options = [
+  { value: "UX Designer", label: "UX Designer" },
+  { value: "UI Designer", label: "UI Designer" },
+  { value: "Development Intern", label: "Development Intern" },
+  { value: "Option 4", label: "Option 4" },
+  { value: "Option 5", label: "Option 5" },
+  { value: "Option 6", label: "Option 6" },
+  { value: "Option 7", label: "Option 7" },
+  { value: "Option 8", label: "Option 8" },
+  { value: "Option 9", label: "Option 9" },
+  { value: "Option 10", label: "Option 10" },
+  { value: "Option 12", label: "Option 12" },
+  { value: "Option 13", label: "Option 13" },
+  { value: "Option 14", label: "Option 14" },
+  { value: "Option 15", label: "Option 15" }
+];
+
 export default class Form extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      /* ==== To-Do : little hack to make placeholder prop work ==== */
+      //value: '',
       fullName: "",
-      position: "",
+      position: {},
       email: "",
+      title: '<b>Belatrix Software</b>',
       skypeId: "",
       emailService: ""
     };
   }
-
-  handleSubmit = event => {
-    event.preventDefault();
-    const data = this.state;
-    console.log("Final data is", data);
-  };
 
   handleInputChange = event => {
     event.preventDefault();
@@ -31,39 +45,83 @@ export default class Form extends React.Component {
     });
   };
 
-  handleButtonClick = event => {
-    event.preventDefault();
-    /* $('.fixed').css('display', 'block'); */
-    $('.fixed').show(1).delay(1000).hide(1);
-    
+  handleChange = position => {
+    this.setState({
+      position: position
+    });
+
+    /* ==== To-Do : little hack to make placeholder prop work ==== */
+
+    /* let obj ={value: position.value, label: position.label};
+    this.setState({value: obj}); */
   };
-  
+
+  handleCopy = event => {
+    const text = this.getFormattedSignature(
+      this.state.fullName,
+      this.state.position.label,
+      this.state.title,
+      this.state.email,
+      this.state.skypeId
+    );
+    copyFormatted(text);
+    $(".fixed")
+      .show(1)
+      .delay(1000)
+      .hide(1);
+  };
 
   render() {
-    const { fullName, position, email, skypeId, emailService } = this.state;
-    const str="Belatrix Software";
+    const { fullName, position } = this.state;
+
+    const colourStyles = {
+      control: (styles, { isFocused, isSelected, isDisabled }) => ({
+        ...styles,
+        height: "10px",
+        borderRadius: 0,
+        backgroundColor: "white",
+        border: isFocused ? 0 : 0,
+        boxShadow: isFocused ? 0 : 0,
+
+        "&:hover": {
+          border: isFocused ? 0 : 0,
+          borderBottom: "2px solid #3c3c3c"
+        },
+        borderBottom: isFocused ? "2px solid #f89937" : "2px solid #3c3c3c",
+      }),
+      option: (styles, { isDisabled, isFocused, isSelected }) => {
+        return {
+          ...styles,
+
+          backgroundColor: isDisabled
+            ? null
+            : isSelected
+            ? "orange"
+            : isFocused
+            ? "orange"
+            : null,
+
+          cursor: isDisabled ? "not-allowed" : "default"
+        };
+      },
+      input: styles => ({ ...styles }),
+      placeholder: styles => ({ ...styles }),
+      singleValue: (styles, { data }) => ({ ...styles })
+    };
 
     return (
-      <div className="row main" /* style={{ border: "1px solid green" }} */>
-        <div className="title" /* style={{ border: "1px solid brown" }} */>
+      <div className="row main">
+        <div className="title">
           <h2 className="signature-generator">Signature Generator</h2>
         </div>
         <div className="divider" />
-        <div
-          id="subtitle"
-          className="subtitle" /* style={{ border: "1px solid red" }} */
-        >
+        <div id="subtitle" className="subtitle">
           <h6 className="fill-in-your-informa">
             Fill in your information to generate your email signature
           </h6>
         </div>
 
-        <form
-          onSubmit={this.handleSubmit}
-          className="col s12"
-          id="myForm"
-          /* style={{ border: "1px solid orange" }} */
-        >
+        <form className="col s12" id="myForm">
           <div className="row input">
             <div className="input-field col s12">
               <input
@@ -81,23 +139,19 @@ export default class Form extends React.Component {
           </div>
           <div className="row input">
             <div className="input-field col s12">
-              <select
-                className="validate"
+              <Select
+                styles={colourStyles}
                 required
                 name="position"
-                onChange={this.handleInputChange}
-              >
-                <option id="zxc" value="" disabled selected>
-                  Type or select your position
-                </option>
-                <option value="UX Designer">UX Designer</option>
-                <option value="UI Desginer">UI Designer</option>
-                <option value="Option 3">Option 3</option>
-                <option value="Option 4">Option 4</option>
-                <option value="Option 5">Option 5</option>
-                <option value="Option 6">Option 6</option>
-              </select>
-              <label htmlFor="position" id="word">
+                value={position}
+                onChange={this.handleChange}
+                options={options}
+                placeholder={"Select something"}
+                /* ==== To-Do : little hack to make placeholder prop work ==== */
+                //value={this.state.value}
+              />
+
+              <label className="active" htmlFor="position" id="word">
                 Position *
               </label>
             </div>
@@ -144,7 +198,7 @@ export default class Form extends React.Component {
               <div className="row">
                 <div className="col s12">
                   <span className="email-service-span">
-                    For which email service?
+                    Available for these email providers:
                   </span>
                 </div>
               </div>
@@ -152,23 +206,22 @@ export default class Form extends React.Component {
                 <div className="row-buttons">
                   <div className="col s12" onChange={this.handleInputChange}>
                     <div className="rectangle">
-                      <a className="btn-flat" name="contact" value="gmail">
+                      <span className="btn-flat no-cursor">
                         <img src={require("./gmail.png")} alt="" />
                         <span className="button-text">Gmail</span>
-                      </a>
+                      </span>
                     </div>
-
                     <div className="rectangle">
-                      <a className="btn-flat" name="contact" value="outlook">
+                      <span className="btn-flat no-cursor">
                         <img src={require("./outlook.png")} alt="" />
                         <span className="button-text">Outlook</span>
-                      </a>
+                      </span>
                     </div>
                     <div className="rectangle">
-                      <a className="btn-flat" name="contact" value="roundcube">
+                      <span className="btn-flat no-cursor">
                         <img src={require("./roundcube.png")} alt="" />
                         <span className="button-text">Roundcube</span>
-                      </a>
+                      </span>
                     </div>
                   </div>
                 </div>
@@ -178,7 +231,7 @@ export default class Form extends React.Component {
           <div className="button-final-container">
             <button
               className="button-final btn-flat modal-trigger"
-              type="submit"
+              type="button"
               name="action"
               data-target="modal1"
             >
@@ -199,39 +252,43 @@ export default class Form extends React.Component {
           <div className="modal-footer">
             <div className="footer-cage">
               <div className="footer-cage-text">
-                {fullName} {position}...
+                {fullName} {position.label}...
               </div>
             </div>
-            <CopyToClipboard text={`${fullName}
-${position}
-${str.bold()}
-${email}
-USA Phone +1 (617) 608-1413 
-PE Phone (0051-1) 7173350 Ax. 1602
-Skype ID: ${skypeId}
-http://www.belatrixsf.com
 
-
-
-
-WARNING OF CONFIDENTIALITY: The information contained and transmitted here is CONFIDENTIAL and it is for exclusive use of the addressee indicated above, and for his/her specific use. If you are not the addressee, we apologize for any inconvenience. It is hereby notified that it is prohibited to revise, retransmit or broadcast or any other type of use of the information contained herein by people who are not the original addressee. If you have received this information by mistake, please contact the sender and eliminate the information contained here from all computers.
-
-AVISO DE CONFIDENCIALIDAD: La información aquí contenida y transmitida es CONFIDENCIAL, para uso exclusivo del destinatario arriba indicado y para su utilización específica. Si usted no es el destinatario, sepa disculpar la molestia. Se le notifica por el presente que está prohibida su revisión, retransmisión, difusión, y/o cualquier otro tipo de uso de la información contenida por personas extrañas al destinatario original. Si Ud. Ha recibido por error esta información, por favor contacte al remitente y elimine la información aquí contenida de toda computadora donde resida.
-`} >
-              <button
-                className="footer-small-cage"
-                onClick={this.handleButtonClick}
-              >
-                Copy info
+            <div>
+              <button className="footer-small-cage"
+                onClick={this.handleCopy}>
+                Copy Info
               </button>
-            </CopyToClipboard>
-            
+            </div>
           </div>
-          
         </div>
-        <div className="fixed"><div className="copied-to-clipboard">COPIED TO CLIPBOARD</div></div>
+        <div className="fixed">
+          <div className="copied-to-clipboard">COPIED TO CLIPBOARD</div>
+        </div>
       </div>
     );
+  }
+
+  getFormattedSignature(fullName, position, str, email, skypeId) {
+    return `${fullName}<br/>
+${position}</br>
+${str.bold()}</br>
+${email}</br>
+USA Phone +1 (617) 608-1413 </br> 
+PE Phone (0051-1) 7173350 Ax. 1602 </br>
+Skype ID: ${skypeId} </br>
+http://www.belatrixsf.com </br>
+</br>
+</br>
+</br>
+</br>
+WARNING OF CONFIDENTIALITY: The information contained and transmitted here is CONFIDENTIAL and it is for exclusive use of the addressee indicated above, and for his/her specific use. If you are not the addressee, we apologize for any inconvenience. It is hereby notified that it is prohibited to revise, retransmit or broadcast or any other type of use of the information contained herein by people who are not the original addressee. If you have received this information by mistake, please contact the sender and eliminate the information contained here from all computers.
+</br>
+</br>
+AVISO DE CONFIDENCIALIDAD: La información aquí contenida y transmitida es CONFIDENCIAL, para uso exclusivo del destinatario arriba indicado y para su utilización específica. Si usted no es el destinatario, sepa disculpar la molestia. Se le notifica por el presente que está prohibida su revisión, retransmisión, difusión, y/o cualquier otro tipo de uso de la información contenida por personas extrañas al destinatario original. Si Ud. Ha recibido por error esta información, por favor contacte al remitente y elimine la información aquí contenida de toda computadora donde resida.
+`;
   }
 }
 
