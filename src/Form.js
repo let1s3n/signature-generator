@@ -59,7 +59,7 @@ export default class Form extends React.Component {
   handleCopy = event => {
     const text = this.getFormattedSignature(
       this.state.fullName,
-      this.state.position,
+      this.state.position.label,
       this.state.title,
       this.state.email,
       this.state.skypeId

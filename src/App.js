@@ -12,9 +12,9 @@ class App extends Component {
       <div className="App">
         <nav>
           <div className="nav-wrapper">
-            <center>
-            <img src={require("./logoBela.png")} alt="" />
-            </center>
+            
+            <img id="logo" src={require("./logoBela.png")} alt="" />
+            
           </div>
         </nav>
         <div className="container" /* style={{border: '1px solid blue'}} */>
