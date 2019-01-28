@@ -2,10 +2,7 @@ import React from "react";
 import $ from "jquery";
 import "materialize-css";
 import "materialize-css/dist/css/materialize.min.css";
-import chroma from "chroma-js";
 import Select from "react-select";
-import styled from "styled-components";
-import { CopyToClipboard } from "react-copy-to-clipboard";
 import { copyFormatted } from "./copy-to-clipboard";
 
 const options = [
@@ -34,16 +31,11 @@ export default class Form extends React.Component {
       fullName: "",
       position: {},
       email: "",
+      title: '<b>Belatrix Software</b>',
       skypeId: "",
       emailService: ""
     };
   }
-
-  handleSubmit = event => {
-    event.preventDefault();
-    const data = this.state;
-    console.log("Final data is", data);
-  };
 
   handleInputChange = event => {
     event.preventDefault();
@@ -54,7 +46,6 @@ export default class Form extends React.Component {
   };
 
   handleChange = position => {
-    console.log({ position });
     this.setState({
       position: position
     });
@@ -65,47 +56,40 @@ export default class Form extends React.Component {
     this.setState({value: obj}); */
   };
 
+  handleCopy = event => {
+    const text = this.getFormattedSignature(
+      this.state.fullName,
+      this.state.position,
+      this.state.title,
+      this.state.email,
+      this.state.skypeId
+    );
+    copyFormatted(text);
+    $(".fixed")
+      .show(1)
+      .delay(1000)
+      .hide(1);
+  };
+
   render() {
-    const { fullName, position, email, skypeId, emailService } = this.state;
-    const str = "<b>Belatrix Software</b>";
-
-    const dot = (color = "#ccc") => ({
-      alignItems: "center",
-      display: "flex",
-
-      ":before": {
-        backgroundColor: color,
-        borderRadius: 10,
-        content: '" "',
-        display: "block",
-        marginRight: 8,
-        height: 10,
-        width: 10
-      }
-    });
+    const { fullName, position } = this.state;
 
     const colourStyles = {
       control: (styles, { isFocused, isSelected, isDisabled }) => ({
         ...styles,
         height: "10px",
-        border: "none",
-        borderBottom: "2px solid #3c3c3c",
         borderRadius: 0,
         backgroundColor: "white",
         border: isFocused ? 0 : 0,
         boxShadow: isFocused ? 0 : 0,
 
         "&:hover": {
-          border: isFocused ? 0 : 0
+          border: isFocused ? 0 : 0,
+          borderBottom: "2px solid #3c3c3c"
         },
         borderBottom: isFocused ? "2px solid #f89937" : "2px solid #3c3c3c",
-
-        "&:hover": {
-          borderBottom: "2px solid #3c3c3c"
-        }
       }),
       option: (styles, { isDisabled, isFocused, isSelected }) => {
-        const color = chroma("#9BC04B");
         return {
           ...styles,
 
@@ -137,7 +121,7 @@ export default class Form extends React.Component {
           </h6>
         </div>
 
-        <form onSubmit={this.handleSubmit} className="col s12" id="myForm">
+        <form className="col s12" id="myForm">
           <div className="row input">
             <div className="input-field col s12">
               <input
@@ -214,7 +198,7 @@ export default class Form extends React.Component {
               <div className="row">
                 <div className="col s12">
                   <span className="email-service-span">
-                    For which email service?
+                    Available for these email providers:
                   </span>
                 </div>
               </div>
@@ -222,23 +206,22 @@ export default class Form extends React.Component {
                 <div className="row-buttons">
                   <div className="col s12" onChange={this.handleInputChange}>
                     <div className="rectangle">
-                      <a className="btn-flat" name="contact" value="gmail">
+                      <span className="btn-flat no-cursor">
                         <img src={require("./gmail.png")} alt="" />
                         <span className="button-text">Gmail</span>
-                      </a>
+                      </span>
                     </div>
-
                     <div className="rectangle">
-                      <a className="btn-flat" name="contact" value="outlook">
+                      <span className="btn-flat no-cursor">
                         <img src={require("./outlook.png")} alt="" />
                         <span className="button-text">Outlook</span>
-                      </a>
+                      </span>
                     </div>
                     <div className="rectangle">
-                      <a className="btn-flat" name="contact" value="roundcube">
+                      <span className="btn-flat no-cursor">
                         <img src={require("./roundcube.png")} alt="" />
                         <span className="button-text">Roundcube</span>
-                      </a>
+                      </span>
                     </div>
                   </div>
                 </div>
@@ -248,7 +231,7 @@ export default class Form extends React.Component {
           <div className="button-final-container">
             <button
               className="button-final btn-flat modal-trigger"
-              type="submit"
+              type="button"
               name="action"
               data-target="modal1"
             >
@@ -274,23 +257,8 @@ export default class Form extends React.Component {
             </div>
 
             <div>
-              <button
-                className="footer-small-cage"
-                onClick={() => {
-                  const text = this.getFormattedSignature(
-                    fullName,
-                    position.label,
-                    str,
-                    email,
-                    skypeId
-                  );
-                  copyFormatted(text);
-                  $(".fixed")
-                    .show(1)
-                    .delay(1000)
-                    .hide(1);
-                }}
-              >
+              <button className="footer-small-cage"
+                onClick={this.handleCopy}>
                 Copy Info
               </button>
             </div>

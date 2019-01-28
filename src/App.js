@@ -12,14 +12,11 @@ class App extends Component {
       <div className="App">
         <nav>
           <div className="nav-wrapper">
-            <a href="#" className="brand-logo center">
+            <center>
             <img src={require("./logoBela.png")} alt="" />
-            </a>
-            
+            </center>
           </div>
         </nav>
-
-      
         <div className="container" /* style={{border: '1px solid blue'}} */>
           <div className="row">
             <div className="col s10">
