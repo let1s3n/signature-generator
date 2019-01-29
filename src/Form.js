@@ -36,6 +36,12 @@ export default class Form extends React.Component {
     };
   }
 
+  handleSubmit = event => {
+    event.preventDefault();
+    const data = this.state;
+    console.log("Final data is", data);
+  };
+
   handleInputChange = event => {
     event.preventDefault();
 
@@ -60,6 +66,10 @@ export default class Form extends React.Component {
     const colourStyles = {
       control: (styles, { isFocused, isSelected, isDisabled }) => ({
         ...styles,
+        color: '#000000',
+        fontFamily: 'roboto',
+        fontSize: '16px',
+        lineHeight: '19px',
         height: "10px",
         borderRadius: 0,
         backgroundColor: "white",
@@ -75,6 +85,10 @@ export default class Form extends React.Component {
       option: (styles, { isDisabled, isFocused, isSelected }) => {
         return {
           ...styles,
+          color: '#000000',
+          fontFamily: 'roboto',
+          fontSize: '16px',
+          lineHeight: '19px',
 
           backgroundColor: isDisabled
             ? null
@@ -104,10 +118,11 @@ export default class Form extends React.Component {
           </h6>
         </div>
 
-        <form className="col s12" id="myForm">
+        <form onSubmit={this.handleSubmit} className="col s12" id="myForm">
           <div className="row input">
             <div className="input-field col s12">
               <input
+                required
                 placeholder="Enter your full name"
                 id="full_name"
                 name="fullName"
@@ -213,8 +228,9 @@ export default class Form extends React.Component {
           <div className="button-final-container">
             <button
               className="button-final btn-flat modal-trigger"
-              type="button"
+              type="submit"
               name="action"
+              // chequear conflicto del data-target con validaciones de las entradas
               data-target="modal1"
             >
               GENERATE SIGNATURE
