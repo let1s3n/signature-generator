@@ -2,32 +2,31 @@ import React from "react";
 import $ from "jquery";
 import { copyFormatted } from "./copy-to-clipboard";
 export default class CopyContentButton extends React.Component {
-    handleCopy = event => {
-      const text = this.getFormattedSignature(
-        this.props.userData.fullName,
-        this.props.userData.position.label,
-        this.props.userData.title,
-        this.props.userData.email,
-        this.props.userData.skypeId
-      );
-      copyFormatted(text);
-      $(".fixed")
-        .show(1)
-        .delay(1000)
-        .hide(1);
-    };
-  
-    render() {
-      return (
-        <button className="footer-small-cage"
-                  onClick={this.handleCopy}>
-                  Copy Info
-                </button>
-      )
-    }
-  
-    getFormattedSignature(fullName, position, str, email, skypeId) {
-      return `${fullName}<br/>
+  handleCopy = event => {
+    const text = this.getFormattedSignature(
+      this.props.userData.fullName,
+      this.props.userData.position.label,
+      this.props.userData.title,
+      this.props.userData.email,
+      this.props.userData.skypeId
+    );
+    copyFormatted(text);
+    $(".fixed")
+      .show(1)
+      .delay(1000)
+      .hide(1);
+  };
+
+  render() {
+    return (
+      <button className='footer-small-cage' onClick={this.handleCopy}>
+        Copy Info
+      </button>
+    );
+  }
+
+  getFormattedSignature(fullName, position, str, email, skypeId) {
+    return `${fullName}<br/>
   ${position}</br>
   ${str.bold()}</br>
   <a href="mailto:${email}">${email} </a></br>
@@ -44,6 +43,5 @@ export default class CopyContentButton extends React.Component {
   </br>
   <p style="text-align: justify;">AVISO DE CONFIDENCIALIDAD: La información aquí contenida y transmitida es CONFIDENCIAL, para uso exclusivo del destinatario arriba indicado y para su utilización específica. Si usted no es el destinatario, sepa disculpar la molestia. Se le notifica por el presente que está prohibida su revisión, retransmisión, difusión, y/o cualquier otro tipo de uso de la información contenida por personas extrañas al destinatario original. Si Ud. Ha recibido por error esta información, por favor contacte al remitente y elimine la información aquí contenida de toda computadora donde resida.</p>
   `;
-    }
+  }
 }
-
