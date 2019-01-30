@@ -14,7 +14,7 @@ This is a signature generator project to be used for gmail and other emails prov
 
 Install all dependencies:
 ```
-npm install
+npm run init
 ```
 
 Run development server:
