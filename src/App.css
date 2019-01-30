@@ -135,7 +135,7 @@ form.col.s12 {
   width: 96px;
   text-transform: capitalize;
   display: inline-block;
-  padding: 15px 20px 10px 15px;  
+  padding: 15px 20px 10px 15px;
 }
 
 .no-cursor {
@@ -276,8 +276,7 @@ input[type="submit" i] {
   height: 342px;
   width: 592px;
   background-color: #ffffff;
-  margin-top:60px;
-  
+  margin-top: 60px;
 }
 .modal-content {
   text-align: center;
@@ -350,7 +349,7 @@ input[type="submit" i] {
 
 div.fixed {
   position: fixed;
-  top:60px;
+  top: 60px;
   right: 100px;
   height: 56px;
   width: 269px;
@@ -361,20 +360,49 @@ div.fixed {
 }
 
 .copied-to-clipboard {
-  position:absolute;
-  left:60px;
-  top:19px;
-  bottom:18px;
+  position: absolute;
+  left: 60px;
+  top: 19px;
+  bottom: 18px;
   height: 19px;
-	width: 176px;
-	color: #FFFFFF;
-	font-family: Roboto;
-	font-size: 16px;
-	font-weight: bold;
+  width: 176px;
+  color: #ffffff;
+  font-family: Roboto;
+  font-size: 16px;
+  font-weight: bold;
   line-height: 19px;
-  
 }
 
-#logo{
-  margin-top:15px;
+#logo {
+  margin-top: 15px;
+}
+
+input.valid:not([type]), input.valid:not([type]):focus,
+input.valid[type="text"]:not(.browser-default),
+input.valid[type="text"]:not(.browser-default):focus,
+input.valid[type="password"]:not(.browser-default),
+input.valid[type="password"]:not(.browser-default):focus,
+input.valid[type="email"]:not(.browser-default),
+input.valid[type="email"]:not(.browser-default):focus,
+input.valid[type="url"]:not(.browser-default),
+input.valid[type="url"]:not(.browser-default):focus,
+input.valid[type="time"]:not(.browser-default),
+input.valid[type="time"]:not(.browser-default):focus,
+input.valid[type="date"]:not(.browser-default),
+input.valid[type="date"]:not(.browser-default):focus,
+input.valid[type="datetime"]:not(.browser-default),
+input.valid[type="datetime"]:not(.browser-default):focus,
+input.valid[type="datetime-local"]:not(.browser-default),
+input.valid[type="datetime-local"]:not(.browser-default):focus,
+input.valid[type="tel"]:not(.browser-default),
+input.valid[type="tel"]:not(.browser-default):focus,
+input.valid[type="number"]:not(.browser-default),
+input.valid[type="number"]:not(.browser-default):focus,
+input.valid[type="search"]:not(.browser-default),
+input.valid[type="search"]:not(.browser-default):focus,
+textarea.materialize-textarea.valid,
+textarea.materialize-textarea.valid:focus,
+.select-wrapper.valid > input.select-dropdown {
+  border-bottom: 2px solid #3c3c3c;
+  box-shadow: none;
 }
