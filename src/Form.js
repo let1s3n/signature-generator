@@ -25,7 +25,7 @@ export default class Form extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      /* ==== To-Do : little hack to make placeholder prop work ==== */
+      /* === To-Do : little hack to make placeholder prop work === */
       //value: '',
       fullName: '',
       position: { label: '', value: '' },
