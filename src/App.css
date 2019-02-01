@@ -46,7 +46,7 @@ input.select-dropdown {
 
 .container {
   background-color: #fff;
-  height: 784px;
+  height: auto;
   width: 736px;
 }
 
