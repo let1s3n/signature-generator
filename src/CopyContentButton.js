@@ -26,29 +26,31 @@ export default class CopyContentButton extends React.Component {
   }
 
   getSignatureHeader(fullName, position, str, email, skypeId) {
-    return `${fullName}<br/>
+    return `<p style="@import url('https://fonts.googleapis.com/css?family=Lato');font-family: 'Lato', sans-serif;line-height:15px;font-size:9pt;">
+      ${fullName}<br/>
       ${position}</br>
       ${str.bold()}</br>
       <a href="mailto:${email}">${email} </a></br>
       USA Phone: <a href="tel:+16176081413">+1 (617) 608-1413</a> </br> 
-      PE Phone: <a href="tel:+005117173350">(0051-1) 7173350 Ax. 1602</a> </br>
+      PE Phone: <a href="tel:+005117173350">(0051-1) 7173350</a> </br>
       Skype ID: ${skypeId} </br>
-      <a href="http://www.belatrixsf.com">http://www.belatrixsf.com</a> </br>
+      <a href="http://www.belatrixsf.com">http://www.belatrixsf.com</a>
       </br>
-      </br>`;
+      </br>
+      </p>`;
   }
 
   getConfidentialityWarning() {
-    return `<p style="text-align: justify;">
-      WARNING OF CONFIDENTIALITY: The information contained and transmitted here is CONFIDENTIAL and it 
+    return `<p style="@import url('https://fonts.googleapis.com/css?family=Lato');font-family: 'Lato', sans-serif;text-align:justify;line-height:15px;font-size:7pt;color: rgb(127,127,127)">
+      <u>WARNING OF CONFIDENTIALITY</u>: The information contained and transmitted here is CONFIDENTIAL and it 
       is for exclusive use of the addressee indicated above, and for his/her specific use. If you are not 
       the addressee, we apologize for any inconvenience. It is hereby notified that it is prohibited to 
       revise, retransmit or broadcast or any other type of use of the information contained herein by 
       people who are not the original addressee. If you have received this information by mistake, 
-      please contact the sender and eliminate the information contained here from all computers.</p>
+      please contact the sender and eliminate the information contained here from all computers.
       </br>
-      <p style="text-align: justify;">
-      AVISO DE CONFIDENCIALIDAD: La información aquí contenida y transmitida es CONFIDENCIAL, para uso 
+      </br>
+      <u>AVISO DE CONFIDENCIALIDAD</u>: La información aquí contenida y transmitida es CONFIDENCIAL, para uso 
       exclusivo del destinatario arriba indicado y para su utilización específica. Si usted no es el 
       destinatario, sepa disculpar la molestia. Se le notifica por el presente que está prohibida su 
       revisión, retransmisión, difusión, y/o cualquier otro tipo de uso de la información contenida 

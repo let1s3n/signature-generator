@@ -8,7 +8,7 @@ const options = [
   { value: "UX Designer", label: "UX Designer" },
   { value: "UI Designer", label: "UI Designer" },
   { value: "Development Intern", label: "Development Intern" },
-  { value: "Senior Frontend Developer", label: "enior Frontend Developer" },
+  { value: "Senior Frontend Developer", label: "Senior Frontend Developer" },
   { value: "Senior PHP Developer", label: "Senior PHP Developer" },
   { value: "Senior NodeJS Developer", label: "Senior NodeJS Developer" },
   { value: "Senior .Net Developer", label: "Senior .Net Developer" },
@@ -25,7 +25,7 @@ export default class Form extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      /* ==== To-Do : little hack to make placeholder prop work ==== */
+      /* === To-Do : little hack to make placeholder prop work === */
       //value: '',
       fullName: '',
       position: { label: '', value: '' },
