@@ -32,7 +32,7 @@ export default class CopyContentButton extends React.Component {
       ${str.bold()}</br>
       <a href="mailto:${email}">${email} </a></br>
       USA Phone: <a href="tel:+16176081413">+1 (617) 608-1413</a> </br> 
-      PE Phone: <a href="tel:+005117173350">(0051-1) 7173350</a> </br>
+      PE Phone: <a href="tel:+005117173350">+51 (1) 717-3350</a> </br>
       Skype ID: ${skypeId} </br>
       <a href="http://www.belatrixsf.com">http://www.belatrixsf.com</a>
       </br>

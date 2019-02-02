@@ -1,5 +1,4 @@
 import React from "react";
-import $ from "jquery";
 import "materialize-css";
 import "materialize-css/dist/css/materialize.min.css";
 import Select from "react-select";
@@ -22,12 +21,6 @@ const options = [
   { value: "Office Manager", label: "Office Manager" },
   { value: "RRHH", label: "RRHH" }
 ];
-/* const locationOptions = [
-  { value: "1111111111", label: "Perú" },
-  { value: "2222222222", label: "Colombia" },
-  { value: "3333333333", label: "Argentina" },
-  { value: "4444444444", label: "USA" }
-]; */
 
 export default class Form extends React.Component {
   constructor(props) {
@@ -77,10 +70,6 @@ export default class Form extends React.Component {
 
   toggleCheckbox = number => {
     console.log(number.value);
-
-    /* this.componentDidMount(){
-     $("#personalPhoneInput").show()
-    } */
   };
 
   modal = React.createRef();
@@ -329,8 +318,6 @@ export default class Form extends React.Component {
               className="button-final btn-flat modal-trigger"
               type="submit"
               name="action"
-
-              /* data-target='modal1' */
             >
               GENERATE SIGNATURE
             </button>
