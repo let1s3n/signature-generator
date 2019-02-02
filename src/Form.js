@@ -4,7 +4,7 @@ import "materialize-css";
 import "materialize-css/dist/css/materialize.min.css";
 import Select from "react-select";
 import CopyContentButton from "./CopyContentButton";
-import M from 'materialize-css'
+import M from "materialize-css";
 
 const options = [
   { value: "UX Designer", label: "UX Designer" },
@@ -41,20 +41,18 @@ export default class Form extends React.Component {
       title: "<b>Belatrix Software</b>",
       skypeId: "",
       emailService: "",
-      phoneNumbers:""
+      phoneNumbers: ""
     };
   }
 
   handleSubmit = event => {
-
     // Se llama después de que el navegador ya valida los required, etc...
     event.preventDefault();
 
-    const buttonMaterializeInstance = M.Modal.getInstance(this.modal.current)
+    const buttonMaterializeInstance = M.Modal.getInstance(this.modal.current);
     const validoAdicional = true;
     if (validoAdicional) {
-
-      buttonMaterializeInstance.open()
+      buttonMaterializeInstance.open();
     }
     /* const data = this.state; */
   };
@@ -77,15 +75,15 @@ export default class Form extends React.Component {
     this.setState({value: obj}); */
   };
 
-  toggleCheckbox = number =>{
-   console.log(number.value);
+  toggleCheckbox = number => {
+    console.log(number.value);
 
-   /* this.componentDidMount(){
+    /* this.componentDidMount(){
      $("#personalPhoneInput").show()
     } */
   };
 
-  modal = React.createRef()
+  modal = React.createRef();
 
   render() {
     const { fullName, position } = this.state;
@@ -134,46 +132,46 @@ export default class Form extends React.Component {
     };
 
     return (
-      <div className='row main'>
-        <div className='title'>
-          <h2 className='signature-generator'>Signature Generator</h2>
+      <div className="row main">
+        <div className="title">
+          <h2 className="signature-generator">Signature Generator</h2>
         </div>
-        <div className='divider' />
-        <div id='subtitle' className='subtitle'>
-          <h6 className='fill-in-your-informa'>
+        <div className="divider" />
+        <div id="subtitle" className="subtitle">
+          <h6 className="fill-in-your-informa">
             Fill in your information to generate your email signature
           </h6>
         </div>
 
         <form
-          id='myForm'
-          ref='form'
+          id="myForm"
+          ref="form"
           onSubmit={this.handleSubmit}
-          className='col s12'
-          id='myForm'
+          className="col s12"
+          id="myForm"
         >
-          <div className='row input'>
-            <div className='input-field col s12'>
+          <div className="row input">
+            <div className="input-field col s12">
               <input
                 required
-                placeholder='Enter your full name'
-                id='full_name'
-                name='fullName'
-                type='text'
-                className='validate'
+                placeholder="Enter your full name"
+                id="full_name"
+                name="fullName"
+                type="text"
+                className="validate"
                 onChange={this.handleInputChange}
               />
-              <label className='active' htmlFor='first_name'>
+              <label className="active" htmlFor="first_name">
                 Full Name *
               </label>
             </div>
           </div>
-          <div className='row input'>
-            <div className='input-field col s12'>
+          <div className="row input">
+            <div className="input-field col s12">
               <Select
                 styles={colourStyles}
                 required
-                name='position'
+                name="position"
                 value={this.state.position}
                 onChange={this.handleChange}
                 options={options}
@@ -181,49 +179,77 @@ export default class Form extends React.Component {
                 //value={this.state.value}
               />
 
-              <label className='active' htmlFor='position' id='word'>
+              <label className="active" htmlFor="position" id="word">
                 Position *
               </label>
             </div>
           </div>
-          <div className='row input'>
-            <div className='input-field col s12'>
+          <div className="row input">
+            <div className="input-field col s12">
               <input
-                placeholder='email@belatrixsf.com'
-                id='email'
-                type='email'
-                className='validate'
-                name='email'
+                placeholder="email@belatrixsf.com"
+                id="email"
+                type="email"
+                className="validate"
+                name="email"
                 onChange={this.handleInputChange}
               />
               <label
-                className='active'
-                htmlFor='email'
-                data-error='Please add @'
-                required='required'
-                aria-required='true'
+                className="active"
+                htmlFor="email"
+                data-error="Please add @"
+                required="required"
+                aria-required="true"
               >
                 Email *
               </label>
             </div>
           </div>
-          <div className='row input'>
-            <div className='input-field col s12'>
+          <div className="row input">
+            <div className="input-field col s12">
               <input
-                placeholder='Enter your Skype ID'
-                id='skypeId'
-                name='skypeId'
-                type='text'
-                className='validate'
+                placeholder="Enter your Skype ID"
+                id="skypeId"
+                name="skypeId"
+                type="text"
+                className="validate"
                 onChange={this.handleInputChange}
               />
-              <label className='active' htmlFor='skypeId'>
+              <label className="active" htmlFor="skypeId">
                 Skype ID *
               </label>
             </div>
           </div>
 
-          <div className='row input'>
+          <div className="row input">
+            <div className="input-field col s12">
+              <div className="input-field col s5">
+                <input type="text" className="validate" placeholder="Enter phone country" />
+                <label className="active">
+                  Location
+                </label>
+              </div>
+              <div className="input-field col s5">
+                <input type="text" className="validate" placeholder="ex. +51 (1) 999-9999"/>
+                <label className="active">
+                  Phone number
+                </label>
+              </div>
+              <div className="input-field col s2">
+                <a
+                  id="btn-phones"
+                  class="btn-floating btn-large waves-effect waves-light red btn-small"
+                >
+                  <i class="material-icons">add</i>
+                </a>
+              </div>
+              <label className="active">
+                Add phone number:
+              </label>
+            </div>
+          </div>
+          {/* implementation of the 'Add phone number' section using checkboxes. To erase if necessary.*/}
+          {/* <div className='row input'>
             <div className='input-field col s12'>
               <p>
                 <label>
@@ -255,43 +281,42 @@ export default class Form extends React.Component {
                   <span>Personal</span>
                 </label>
               </p>
-              {/* input to show for personal phone numbers when personal checkbox is checked */}
-              {/* <input id="personalPhoneInput" type="text" hidden/> */}
+              
 
               <label className='active' htmlFor='skypeId'>
                 Add phone number from:
               </label>
             </div>
-          </div>
+          </div> */}
 
-          <div className='row email-services-section'>
-            <div className='col s12'>
-              <div className='row'>
-                <div className='col s12'>
-                  <span className='email-service-span'>
+          <div className="row email-services-section">
+            <div className="col s12">
+              <div className="row">
+                <div className="col s12">
+                  <span className="email-service-span">
                     Available for these email providers:
                   </span>
                 </div>
               </div>
-              <div className='email-service-container'>
-                <div className='row-buttons'>
-                  <div className='col s12' onChange={this.handleInputChange}>
-                    <div className='rectangle'>
-                      <span className='btn-flat no-cursor'>
-                        <img src={require("./gmail.png")} alt='' />
-                        <span className='button-text'>Gmail</span>
+              <div className="email-service-container">
+                <div className="row-buttons">
+                  <div className="col s12" onChange={this.handleInputChange}>
+                    <div className="rectangle">
+                      <span className="btn-flat no-cursor">
+                        <img src={require("./gmail.png")} alt="" />
+                        <span className="button-text">Gmail</span>
                       </span>
                     </div>
-                    <div className='rectangle'>
-                      <span className='btn-flat no-cursor'>
-                        <img src={require("./outlook.png")} alt='' />
-                        <span className='button-text'>Outlook</span>
+                    <div className="rectangle">
+                      <span className="btn-flat no-cursor">
+                        <img src={require("./outlook.png")} alt="" />
+                        <span className="button-text">Outlook</span>
                       </span>
                     </div>
-                    <div className='rectangle'>
-                      <span className='btn-flat no-cursor'>
-                        <img src={require("./roundcube.png")} alt='' />
-                        <span className='button-text'>Roundcube</span>
+                    <div className="rectangle">
+                      <span className="btn-flat no-cursor">
+                        <img src={require("./roundcube.png")} alt="" />
+                        <span className="button-text">Roundcube</span>
                       </span>
                     </div>
                   </div>
@@ -299,31 +324,31 @@ export default class Form extends React.Component {
               </div>
             </div>
           </div>
-          <div className='button-final-container'>
+          
             <button
-              className='button-final btn-flat modal-trigger'
-              type='submit'
-              name='action'
-              
+              className="button-final btn-flat modal-trigger"
+              type="submit"
+              name="action"
+
               /* data-target='modal1' */
             >
               GENERATE SIGNATURE
             </button>
-          </div>
+          
         </form>
 
-        <div id='modal1' className='modal' ref={this.modal}>
-          <div className='modal-content'>
-            <img id='img-confirm' src={require("./confirmation.png")} alt='' />
+        <div id="modal1" className="modal" ref={this.modal}>
+          <div className="modal-content">
+            <img id="img-confirm" src={require("./confirmation.png")} alt="" />
 
-            <h2 className='signature-generated'>Signature Generated</h2>
-            <h4 className='subtitle'>
+            <h2 className="signature-generated">Signature Generated</h2>
+            <h4 className="subtitle">
               Just copy the information below to add it to your email
             </h4>
           </div>
-          <div className='modal-footer'>
-            <div className='footer-cage'>
-              <div className='footer-cage-text'>
+          <div className="modal-footer">
+            <div className="footer-cage">
+              <div className="footer-cage-text">
                 {fullName} {position.label}...
               </div>
             </div>
@@ -333,8 +358,8 @@ export default class Form extends React.Component {
             </div>
           </div>
         </div>
-        <div className='fixed'>
-          <div className='copied-to-clipboard'>COPIED TO CLIPBOARD</div>
+        <div className="fixed">
+          <div className="copied-to-clipboard">COPIED TO CLIPBOARD</div>
         </div>
       </div>
     );
