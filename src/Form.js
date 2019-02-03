@@ -4,6 +4,7 @@ import "materialize-css/dist/css/materialize.min.css";
 import Select from "react-select";
 import CopyContentButton from "./CopyContentButton";
 import M from "materialize-css";
+import PhoneBox from "./PhoneBox";
 
 const options = [
   { value: "UX Designer", label: "UX Designer" },
@@ -34,9 +35,9 @@ export default class Form extends React.Component {
       title: "<b>Belatrix Software</b>",
       skypeId: "",
       emailService: "",
-      currentLocation:"",
-      currentPhoneNumber:"",
-      location:[],
+      currentLocation: "",
+      currentPhoneNumber: "",
+      location: [],
       phoneNumber: []
     };
   }
@@ -73,27 +74,24 @@ export default class Form extends React.Component {
 
   handleLocationChange = event => {
     this.setState({
-      currentLocation:event.target.value
-      
+      currentLocation: event.target.value
     });
-    
-    
   };
 
   handlePhoneChange = event => {
     this.setState({
-      currentPhoneNumber:event.target.value
+      currentPhoneNumber: event.target.value
     });
-  }
+  };
 
-  handlePhoneSubmit = event =>{
+  handlePhoneSubmit = event => {
     this.setState({
-      location:[...this.state.location,this.state.currentLocation],
-      phoneNumber:[...this.state.phoneNumber, this.state.currentPhoneNumber],
-      currentLocation:"",
-      currentPhoneNumber:""
+      location: [...this.state.location, this.state.currentLocation],
+      phoneNumber: [...this.state.phoneNumber, this.state.currentPhoneNumber],
+      currentLocation: "",
+      currentPhoneNumber: ""
     });
-  }
+  };
 
   toggleCheckbox = number => {
     console.log(number.value);
@@ -102,7 +100,7 @@ export default class Form extends React.Component {
   modal = React.createRef();
 
   render() {
-    const { fullName, position,location,phoneNumber } = this.state;
+    const { fullName, position, location, phoneNumber } = this.state;
 
     const colourStyles = {
       control: (styles, { isFocused, isSelected, isDisabled }) => ({
@@ -239,13 +237,27 @@ export default class Form extends React.Component {
           <div className="row input">
             <div className="input-field col s12">
               <div className="input-field col s5">
-                <input name="location" value={this.state.currentLocation} type="text" className="validate" placeholder="Enter phone country" onChange={this.handleLocationChange} />
+                <input
+                  name="location"
+                  value={this.state.currentLocation}
+                  type="text"
+                  className="validate"
+                  placeholder="Enter phone country"
+                  onChange={this.handleLocationChange}
+                />
                 <label className="active" htmlFor="location">
                   Location
                 </label>
               </div>
               <div className="input-field col s5">
-                <input name="phoneNumber" value={this.state.currentPhoneNumber} type="text" className="validate" placeholder="ex. +51 (1) 999-9999" onChange={this.handlePhoneChange} />
+                <input
+                  name="phoneNumber"
+                  value={this.state.currentPhoneNumber}
+                  type="text"
+                  className="validate"
+                  placeholder="ex. +51 (1) 999-9999"
+                  onChange={this.handlePhoneChange}
+                />
                 <label className="active" htmlFor="phoneNumber">
                   Phone number
                 </label>
@@ -259,51 +271,15 @@ export default class Form extends React.Component {
                   <i className="material-icons">add</i>
                 </a>
               </div>
-              <label className="active">
-                Add phone number:
-              </label>
+              <label className="active">Add phone number:</label>
             </div>
           </div>
-          {/* implementation of the 'Add phone number' section using checkboxes. To erase if necessary.*/}
-          {/* <div className='row input'>
-            <div className='input-field col s12'>
-              <p>
-                <label>
-                  <input type='checkbox' />
-                  <span>Perú</span>
-                </label>
-              </p>
-              <p>
-                <label>
-                  <input type='checkbox' />
-                  <span>Colombia</span>
-                </label>
-              </p>
-              <p>
-                <label>
-                  <input type='checkbox' />
-                  <span>Argentina</span>
-                </label>
-              </p>
-              <p>
-                <label>
-                  <input type='checkbox'/>
-                  <span>USA</span>
-                </label>
-              </p>
-              <p>
-                <label>
-                  <input id="personalNumber" value="98789798" type='checkbox' checked={this.state.active} className="filled-in" onChange={this.toggleCheckbox}/>
-                  <span>Personal</span>
-                </label>
-              </p>
-              
 
-              <label className='active' htmlFor='skypeId'>
-                Add phone number from:
-              </label>
+          <div className="row input">
+            <div className="input-field col s12">
+              <PhoneBox userData={this.state}/>
             </div>
-          </div> */}
+          </div>
 
           <div className="row email-services-section">
             <div className="col s12">
@@ -340,15 +316,14 @@ export default class Form extends React.Component {
               </div>
             </div>
           </div>
-          
-            <button
-              className="button-final btn-flat modal-trigger"
-              type="submit"
-              name="action"
-            >
-              GENERATE SIGNATURE
-            </button>
-          
+
+          <button
+            className="button-final btn-flat modal-trigger"
+            type="submit"
+            name="action"
+          >
+            GENERATE SIGNATURE
+          </button>
         </form>
 
         <div id="modal1" className="modal" ref={this.modal}>

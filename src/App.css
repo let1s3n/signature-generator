@@ -408,3 +408,9 @@ textarea.materialize-textarea.valid:focus,
   border-bottom: 2px solid #3c3c3c;
   box-shadow: none;
 }
+
+.phone-box{
+  background-color: #e5e5e5;
+  border-radius: 5px;
+  box-shadow: 0 2px 8px 0 rgba(209, 209, 209, 0.5);
+}

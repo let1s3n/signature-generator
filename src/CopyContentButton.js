@@ -39,7 +39,7 @@ export default class CopyContentButton extends React.Component {
 
   getSignatureHeader(fullName, position, str, email, skypeId,location,phoneNumber) {
     return `<p style="@import url('https://fonts.googleapis.com/css?family=Lato');font-family: 'Lato', sans-serif;line-height:15px;font-size:9pt;">
-      ${fullName}<br/>
+      ${fullName}</br>
       ${position}</br>
       ${str.bold()}</br>
       <a href="mailto:${email}">${email} </a></br>
