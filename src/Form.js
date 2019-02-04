@@ -39,7 +39,8 @@ export default class Form extends React.Component {
         location: '',
         phone: ''
       },
-      phoneNumbers: []
+      phoneNumbers: [],
+      showComponent:false
     };
   }
 
@@ -89,6 +90,7 @@ export default class Form extends React.Component {
 
   addNewPhone = event => {  
     this.setState({
+      showComponent:true,
       phoneNumbers: [...this.state.phoneNumbers,this.state.defaultPhoneNumber],
       defaultPhoneNumber:{location:'',phone:''}
     });
@@ -275,7 +277,7 @@ export default class Form extends React.Component {
 
           <div className='row input'>
             <div className='input-field col s12'>
-              <PhoneBox userData={this.state.phoneNumbers}/>
+              {this.state.showComponent && (<PhoneBox userData={this.state.phoneNumbers}/>)}
             </div>
           </div>
 

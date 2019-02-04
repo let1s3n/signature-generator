@@ -9,15 +9,9 @@ export default class PhoneBox extends React.Component {
   }
 
   presentNumbers(phoneNumbers) {
-    /* let str = "";
-    for (let i = 0; i < phoneNumbers.length; i++) {
-      str += `${phoneNumbers[i].location} Phone: <a href="tel:${phoneNumbers[i].phone}">${
-        phoneNumbers[i].phone
-      }</a></br>`;
-    }
-    return str; */
     return (
     <React.Fragment>
+      <center><span> <u>Phones to be add</u>: </span></center> <br/>
     {phoneNumbers.map( (item, i) => (<React.Fragment key={i}>
       {item.location} Phone: <a href={`tel:${item.phone}`}>{item.phone}</a><br/>
     </React.Fragment>
