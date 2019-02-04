@@ -8,7 +8,9 @@ export default class CopyContentButton extends React.Component {
       this.props.userData.position.label,
       this.props.userData.title,
       this.props.userData.email,
-      this.props.userData.skypeId
+      this.props.userData.skypeId,
+      this.props.userData.location,
+      this.props.userData.phoneNumber
     );
     copyFormatted(text);
     $(".fixed")
@@ -25,7 +27,17 @@ export default class CopyContentButton extends React.Component {
     );
   }
 
-  getSignatureHeader(fullName, position, str, email, skypeId) {
+  presentNumbers(location,phoneNumber){
+    let str="";
+    for(let i=0;i<location.length;i++){
+      str += `${location[i]} Phone: ${phoneNumber[i]}</br>`
+
+
+    }
+    return str;
+  }
+
+  getSignatureHeader(fullName, position, str, email, skypeId,location,phoneNumber) {
     return `<p style="@import url('https://fonts.googleapis.com/css?family=Lato');font-family: 'Lato', sans-serif;line-height:15px;font-size:9pt;">
       ${fullName}<br/>
       ${position}</br>
@@ -33,6 +45,7 @@ export default class CopyContentButton extends React.Component {
       <a href="mailto:${email}">${email} </a></br>
       USA Phone: <a href="tel:+16176081413">+1 (617) 608-1413</a> </br> 
       PE Phone: <a href="tel:+005117173350">+51 (1) 717-3350</a> </br>
+      ${this.presentNumbers(location,phoneNumber)}
       Skype ID: ${skypeId} </br>
       <a href="http://www.belatrixsf.com">http://www.belatrixsf.com</a>
       </br>
@@ -60,8 +73,8 @@ export default class CopyContentButton extends React.Component {
       </p>`;
   }
 
-  getFormattedSignature(fullName, position, str, email, skypeId) {
-    return this.getSignatureHeader(fullName, position, str, email, skypeId) + 
+  getFormattedSignature(fullName, position, str, email, skypeId, location, phoneNumber) {
+    return this.getSignatureHeader(fullName, position, str, email, skypeId, location, phoneNumber) + 
       this.getConfidentialityWarning();
   }
 }

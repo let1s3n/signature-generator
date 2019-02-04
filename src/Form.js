@@ -34,7 +34,10 @@ export default class Form extends React.Component {
       title: "<b>Belatrix Software</b>",
       skypeId: "",
       emailService: "",
-      phoneNumbers: ""
+      currentLocation:"",
+      currentPhoneNumber:"",
+      location:[],
+      phoneNumber: []
     };
   }
 
@@ -68,6 +71,30 @@ export default class Form extends React.Component {
     this.setState({value: obj}); */
   };
 
+  handleLocationChange = event => {
+    this.setState({
+      currentLocation:event.target.value
+      
+    });
+    
+    
+  };
+
+  handlePhoneChange = event => {
+    this.setState({
+      currentPhoneNumber:event.target.value
+    });
+  }
+
+  handlePhoneSubmit = event =>{
+    this.setState({
+      location:[...this.state.location,this.state.currentLocation],
+      phoneNumber:[...this.state.phoneNumber, this.state.currentPhoneNumber],
+      currentLocation:"",
+      currentPhoneNumber:""
+    });
+  }
+
   toggleCheckbox = number => {
     console.log(number.value);
   };
@@ -75,7 +102,7 @@ export default class Form extends React.Component {
   modal = React.createRef();
 
   render() {
-    const { fullName, position } = this.state;
+    const { fullName, position,location,phoneNumber } = this.state;
 
     const colourStyles = {
       control: (styles, { isFocused, isSelected, isDisabled }) => ({
@@ -137,7 +164,6 @@ export default class Form extends React.Component {
           ref="form"
           onSubmit={this.handleSubmit}
           className="col s12"
-          id="myForm"
         >
           <div className="row input">
             <div className="input-field col s12">
@@ -213,23 +239,24 @@ export default class Form extends React.Component {
           <div className="row input">
             <div className="input-field col s12">
               <div className="input-field col s5">
-                <input type="text" className="validate" placeholder="Enter phone country" />
-                <label className="active">
+                <input name="location" value={this.state.currentLocation} type="text" className="validate" placeholder="Enter phone country" onChange={this.handleLocationChange} />
+                <label className="active" htmlFor="location">
                   Location
                 </label>
               </div>
               <div className="input-field col s5">
-                <input type="text" className="validate" placeholder="ex. +51 (1) 999-9999"/>
-                <label className="active">
+                <input name="phoneNumber" value={this.state.currentPhoneNumber} type="text" className="validate" placeholder="ex. +51 (1) 999-9999" onChange={this.handlePhoneChange} />
+                <label className="active" htmlFor="phoneNumber">
                   Phone number
                 </label>
               </div>
               <div className="input-field col s2">
                 <a
                   id="btn-phones"
-                  class="btn-floating btn-large waves-effect waves-light red btn-small"
+                  className="btn-floating btn-large waves-effect waves-light red btn-small"
+                  onClick={this.handlePhoneSubmit}
                 >
-                  <i class="material-icons">add</i>
+                  <i className="material-icons">add</i>
                 </a>
               </div>
               <label className="active">
