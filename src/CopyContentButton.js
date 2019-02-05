@@ -21,23 +21,31 @@ export default class CopyContentButton extends React.Component {
 
   render() {
     return (
-      <button className="footer-small-cage" onClick={this.handleCopy}>
+      <button className='footer-small-cage' onClick={this.handleCopy}>
         Copy Info
       </button>
     );
   }
 
-  presentNumbers(location,phoneNumber){
-    let str="";
-    for(let i=0;i<location.length;i++){
-      str += `${location[i]} Phone:<a href="tel:${phoneNumber[i]}">${phoneNumber[i]}</a></br>`
-
-
+  presentNumbers(location, phoneNumber) {
+    let str = "";
+    for (let i = 0; i < location.length; i++) {
+      str += `${location[i]} Phone: <a href="tel:${phoneNumber[i]}">${
+        phoneNumber[i]
+      }</a></br>`;
     }
     return str;
   }
 
-  getSignatureHeader(fullName, position, str, email, skypeId,location,phoneNumber) {
+  getSignatureHeader(
+    fullName,
+    position,
+    str,
+    email,
+    skypeId,
+    location,
+    phoneNumber
+  ) {
     return `<p style="@import url('https://fonts.googleapis.com/css?family=Lato');font-family: 'Lato', sans-serif;line-height:15px;font-size:9pt;">
       ${fullName}</br>
       ${position}</br>
@@ -45,7 +53,7 @@ export default class CopyContentButton extends React.Component {
       <a href="mailto:${email}">${email} </a></br>
       USA Phone: <a href="tel:+16176081413">+1 (617) 608-1413</a> </br> 
       PE Phone: <a href="tel:+005117173350">+51 (1) 717-3350</a> </br>
-      ${this.presentNumbers(location,phoneNumber)}
+      ${this.presentNumbers(location, phoneNumber)}
       Skype ID: ${skypeId} </br>
       <a href="http://www.belatrixsf.com">http://www.belatrixsf.com</a>
       </br>
@@ -73,8 +81,25 @@ export default class CopyContentButton extends React.Component {
       </p>`;
   }
 
-  getFormattedSignature(fullName, position, str, email, skypeId, location, phoneNumber) {
-    return this.getSignatureHeader(fullName, position, str, email, skypeId, location, phoneNumber) + 
-      this.getConfidentialityWarning();
+  getFormattedSignature(
+    fullName,
+    position,
+    str,
+    email,
+    skypeId,
+    location,
+    phoneNumber
+  ) {
+    return (
+      this.getSignatureHeader(
+        fullName,
+        position,
+        str,
+        email,
+        skypeId,
+        location,
+        phoneNumber
+      ) + this.getConfidentialityWarning()
+    );
   }
 }
