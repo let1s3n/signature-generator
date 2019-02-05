@@ -9,8 +9,7 @@ export default class CopyContentButton extends React.Component {
       this.props.userData.title,
       this.props.userData.email,
       this.props.userData.skypeId,
-      this.props.userData.location,
-      this.props.userData.phoneNumber
+      this.props.userData.phoneNumbers
     );
     copyFormatted(text);
     $(".fixed")
@@ -27,11 +26,11 @@ export default class CopyContentButton extends React.Component {
     );
   }
 
-  presentNumbers(location, phoneNumber) {
+  presentNumbers(phoneNumbers) {
     let str = "";
-    for (let i = 0; i < location.length; i++) {
-      str += `${location[i]} Phone: <a href="tel:${phoneNumber[i]}">${
-        phoneNumber[i]
+    for (let i = 0; i < phoneNumbers.length; i++) {
+      str += `${phoneNumbers[i].location} Phone: <a href="tel:${phoneNumbers[i].phone}">${
+        phoneNumbers[i].phone
       }</a></br>`;
     }
     return str;
@@ -43,8 +42,7 @@ export default class CopyContentButton extends React.Component {
     str,
     email,
     skypeId,
-    location,
-    phoneNumber
+    phoneNumbers
   ) {
     return `<p style="@import url('https://fonts.googleapis.com/css?family=Lato');font-family: 'Lato', sans-serif;line-height:15px;font-size:9pt;">
       ${fullName}</br>
@@ -53,7 +51,7 @@ export default class CopyContentButton extends React.Component {
       <a href="mailto:${email}">${email} </a></br>
       USA Phone: <a href="tel:+16176081413">+1 (617) 608-1413</a> </br> 
       PE Phone: <a href="tel:+005117173350">+51 (1) 717-3350</a> </br>
-      ${this.presentNumbers(location, phoneNumber)}
+      ${this.presentNumbers(phoneNumbers)}
       Skype ID: ${skypeId} </br>
       <a href="http://www.belatrixsf.com">http://www.belatrixsf.com</a>
       </br>
@@ -87,8 +85,7 @@ export default class CopyContentButton extends React.Component {
     str,
     email,
     skypeId,
-    location,
-    phoneNumber
+    phoneNumbers
   ) {
     return (
       this.getSignatureHeader(
@@ -97,8 +94,7 @@ export default class CopyContentButton extends React.Component {
         str,
         email,
         skypeId,
-        location,
-        phoneNumber
+        phoneNumbers
       ) + this.getConfidentialityWarning()
     );
   }

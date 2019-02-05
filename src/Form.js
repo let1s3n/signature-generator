@@ -87,26 +87,17 @@ export default class Form extends React.Component {
     });
   };
 
-  addNewPhone = event => {
-    const newPhone = this.state.defaultPhoneNumber;
-    const phones = this.state.phoneNumbers;
-    
-    phones.push(newPhone);
-    
-    let defaultNumber = this.state.defaultPhoneNumber;
-    defaultNumber.location = '';
-    defaultNumber.phone = '';
-  
+  addNewPhone = event => {  
     this.setState({
-      defaultPhoneNumber: defaultNumber,
-      phoneNumbers: phones
+      phoneNumbers: [...this.state.phoneNumbers,this.state.defaultPhoneNumber],
+      defaultPhoneNumber:{location:'',phone:''}
     });
   };
 
   modal = React.createRef();
 
   render() {
-    const { fullName, defaultPhoneNumber, position } = this.state;
+    const { fullName,position } = this.state;
 
     const colourStyles = {
       control: (styles, { isFocused }) => ({
@@ -271,12 +262,12 @@ export default class Form extends React.Component {
                 </label>
               </div>
               <div className='input-field col s2'>
-                <button
+                <a
                   id='btn-phones'
                   className='btn-floating btn-large waves-effect waves-light red btn-small'
                   onClick={this.addNewPhone}>
                   <i className='material-icons'>add</i>
-                </button>
+                </a>
               </div>
               <label className='active'>Add phone number:</label>
             </div>
@@ -284,7 +275,7 @@ export default class Form extends React.Component {
 
           <div className='row input'>
             <div className='input-field col s12'>
-              
+              <PhoneBox userData={this.state.phoneNumbers}/>
             </div>
           </div>
 
