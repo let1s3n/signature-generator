@@ -35,10 +35,11 @@ export default class Form extends React.Component {
       title: "<b>Belatrix Software</b>",
       skypeId: "",
       emailService: "",
-      currentLocation: "",
-      currentPhoneNumber: "",
-      location: [],
-      phoneNumber: []
+      defaultPhoneNumber: {
+        location: '',
+        phone: ''
+      },
+      phoneNumbers: []
     };
   }
 
@@ -71,34 +72,41 @@ export default class Form extends React.Component {
   };
 
   handleLocationChange = event => {
+    let defaultNumber = this.state.defaultPhoneNumber;
+    defaultNumber.location = event.target.value;
     this.setState({
-      currentLocation: event.target.value
+      defaultPhoneNumber: defaultNumber
     });
   };
 
   handlePhoneChange = event => {
+    let defaultNumber = this.state.defaultPhoneNumber;
+    defaultNumber.phone = event.target.value;
     this.setState({
-      currentPhoneNumber: event.target.value
+      defaultPhoneNumber: defaultNumber
     });
   };
 
-  handlePhoneSubmit = event => {
+  addNewPhone = event => {
+    const newPhone = this.state.defaultPhoneNumber;
+    const phones = this.state.phoneNumbers;
+    
+    phones.push(newPhone);
+    
+    let defaultNumber = this.state.defaultPhoneNumber;
+    defaultNumber.location = '';
+    defaultNumber.phone = '';
+  
     this.setState({
-      location: [...this.state.location, this.state.currentLocation],
-      phoneNumber: [...this.state.phoneNumber, this.state.currentPhoneNumber],
-      currentLocation: "",
-      currentPhoneNumber: ""
+      defaultPhoneNumber: defaultNumber,
+      phoneNumbers: phones
     });
-  };
-
-  toggleCheckbox = number => {
-    console.log(number.value);
   };
 
   modal = React.createRef();
 
   render() {
-    const { fullName, position } = this.state;
+    const { fullName, defaultPhoneNumber, position } = this.state;
 
     const colourStyles = {
       control: (styles, { isFocused }) => ({
@@ -239,7 +247,7 @@ export default class Form extends React.Component {
               <div className='input-field col s5'>
                 <input
                   name='location'
-                  value={this.state.currentLocation}
+                  value={this.state.defaultPhoneNumber.location}
                   type='text'
                   className='validate'
                   placeholder='Enter phone country'
@@ -252,7 +260,7 @@ export default class Form extends React.Component {
               <div className='input-field col s5'>
                 <input
                   name='phoneNumber'
-                  value={this.state.currentPhoneNumber}
+                  value={this.state.defaultPhoneNumber.phone}
                   type='text'
                   className='validate'
                   placeholder='ex. +51 (1) 999-9999'
@@ -263,13 +271,12 @@ export default class Form extends React.Component {
                 </label>
               </div>
               <div className='input-field col s2'>
-                <a
+                <button
                   id='btn-phones'
                   className='btn-floating btn-large waves-effect waves-light red btn-small'
-                  onClick={this.handlePhoneSubmit}
-                >
+                  onClick={this.addNewPhone}>
                   <i className='material-icons'>add</i>
-                </a>
+                </button>
               </div>
               <label className='active'>Add phone number:</label>
             </div>
@@ -277,7 +284,7 @@ export default class Form extends React.Component {
 
           <div className='row input'>
             <div className='input-field col s12'>
-              <PhoneBox userData={this.state} />
+              
             </div>
           </div>
 
