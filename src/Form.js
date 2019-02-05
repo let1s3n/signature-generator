@@ -182,8 +182,8 @@ export default class Form extends React.Component {
           <div className="row input">
             <div className="input-field col s12">
               <Select
+                Required
                 styles={colourStyles}
-                required
                 name="position"
                 value={this.state.position}
                 onChange={this.handleChange}
@@ -200,6 +200,7 @@ export default class Form extends React.Component {
           <div className="row input">
             <div className="input-field col s12">
               <input
+                required
                 placeholder="email@belatrixsf.com"
                 id="email"
                 type="email"
@@ -221,6 +222,7 @@ export default class Form extends React.Component {
           <div className="row input">
             <div className="input-field col s12">
               <input
+                required
                 placeholder="Enter your Skype ID"
                 id="skypeId"
                 name="skypeId"

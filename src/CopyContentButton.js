@@ -30,7 +30,7 @@ export default class CopyContentButton extends React.Component {
   presentNumbers(location,phoneNumber){
     let str="";
     for(let i=0;i<location.length;i++){
-      str += `${location[i]} Phone: ${phoneNumber[i]}</br>`
+      str += `${location[i]} Phone:<a href="tel:${phoneNumber[i]}">${phoneNumber[i]}</a></br>`
 
 
     }
