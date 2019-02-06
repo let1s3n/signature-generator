@@ -5,27 +5,7 @@ import Select from 'react-select';
 import CopyContentButton from './CopyContentButton';
 import M from 'materialize-css';
 import PhoneBox from './PhoneBox';
-<<<<<<< HEAD
 import { apiGetAll } from './dataService';
-=======
-
-const options = [
-  { value: 'UX Designer', label: 'UX Designer' },
-  { value: 'UI Designer', label: 'UI Designer' },
-  { value: 'Development Intern', label: 'Development Intern' },
-  { value: 'Senior Frontend Developer', label: 'Senior Frontend Developer' },
-  { value: 'Senior PHP Developer', label: 'Senior PHP Developer' },
-  { value: 'Senior NodeJS Developer', label: 'Senior NodeJS Developer' },
-  { value: 'Senior .Net Developer', label: 'Senior .Net Developer' },
-  { value: 'Senior QA Automation', label: 'Senior QA Automation' },
-  { value: 'Scrum Master', label: 'Scrum Master' },
-  { value: 'Senior Java Developer', label: 'Senior Java Developer' },
-  { value: 'Business Analytics', label: 'Business Analytics' },
-  { value: 'Technical Consultant', label: 'Technical Consultant' },
-  { value: 'Office Manager', label: 'Office Manager' },
-  { value: 'RRHH', label: 'RRHH' }
-];
->>>>>>> development
 
 export default class Form extends React.Component {
   constructor(props) {
@@ -104,10 +84,7 @@ export default class Form extends React.Component {
 
   addNewPhone = event => {
     this.setState({
-<<<<<<< HEAD
       showComponent: true,
-=======
->>>>>>> development
       phoneNumbers: [...this.state.phoneNumbers, this.state.defaultPhoneNumber],
       defaultPhoneNumber: { location: '', phone: '' }
     });
@@ -295,13 +272,9 @@ export default class Form extends React.Component {
 
           <div className="row input">
             <div className="input-field col s12">
-<<<<<<< HEAD
               {this.state.showComponent && (
                 <PhoneBox userData={this.state.phoneNumbers} />
               )}
-=======
-              <PhoneBox userData={this.state.phoneNumbers} />
->>>>>>> development
             </div>
           </div>
 
