@@ -7,7 +7,6 @@ import M from 'materialize-css';
 import PhoneBox from './PhoneBox';
 import { apiGetAll } from './dataService';
 
-
 export default class Form extends React.Component {
   constructor(props) {
     super(props);
