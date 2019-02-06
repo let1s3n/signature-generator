@@ -1,6 +1,6 @@
 export function doSomething(activeSheets, option) {
   // [5.1]
-  document.execCommand("copy");
+  document.execCommand('copy');
 
   // [5.2]
   for (var i = 0; i < activeSheets.length; i++) {
@@ -11,13 +11,13 @@ export function doSomething(activeSheets, option) {
 export function copyFormatted(html) {
   // Create container for the HTML
   // [1]
-  var container = document.createElement("div");
+  var container = document.createElement('div');
   container.innerHTML = html;
 
   // Hide element
   // [2]
-  container.style.position = "fixed";
-  container.style.pointerEvents = "none";
+  container.style.position = 'fixed';
+  container.style.pointerEvents = 'none';
   container.style.opacity = 0;
 
   // Detect all style sheets of the page

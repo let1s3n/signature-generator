@@ -1,6 +1,6 @@
-import React from "react";
-import $ from "jquery";
-import { copyFormatted } from "./copy-to-clipboard";
+import React from 'react';
+import $ from 'jquery';
+import { copyFormatted } from './copy-to-clipboard';
 export default class CopyContentButton extends React.Component {
   handleCopy = event => {
     const text = this.getFormattedSignature(
@@ -12,7 +12,7 @@ export default class CopyContentButton extends React.Component {
       this.props.userData.phoneNumbers
     );
     copyFormatted(text);
-    $(".fixed")
+    $('.fixed')
       .show(1)
       .delay(1000)
       .hide(1);
@@ -20,30 +20,23 @@ export default class CopyContentButton extends React.Component {
 
   render() {
     return (
-      <button className='footer-small-cage' onClick={this.handleCopy}>
+      <button className="footer-small-cage" onClick={this.handleCopy}>
         Copy Info
       </button>
     );
   }
 
   presentNumbers(phoneNumbers) {
-    let str = "";
+    let str = '';
     for (let i = 0; i < phoneNumbers.length; i++) {
-      str += `${phoneNumbers[i].location} Phone: <a href="tel:${phoneNumbers[i].phone}">${
+      str += `${phoneNumbers[i].location} Phone: <a href="tel:${
         phoneNumbers[i].phone
-      }</a></br>`;
+      }">${phoneNumbers[i].phone}</a></br>`;
     }
     return str;
   }
 
-  getSignatureHeader(
-    fullName,
-    position,
-    str,
-    email,
-    skypeId,
-    phoneNumbers
-  ) {
+  getSignatureHeader(fullName, position, str, email, skypeId, phoneNumbers) {
     return `<p style="@import url('https://fonts.googleapis.com/css?family=Lato');font-family: 'Lato', sans-serif;line-height:15px;font-size:9pt;">
       ${fullName}</br>
       ${position}</br>
@@ -79,14 +72,7 @@ export default class CopyContentButton extends React.Component {
       </p>`;
   }
 
-  getFormattedSignature(
-    fullName,
-    position,
-    str,
-    email,
-    skypeId,
-    phoneNumbers
-  ) {
+  getFormattedSignature(fullName, position, str, email, skypeId, phoneNumbers) {
     return (
       this.getSignatureHeader(
         fullName,

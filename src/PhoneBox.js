@@ -1,8 +1,8 @@
-import React from "react";
+import React from 'react';
 export default class PhoneBox extends React.Component {
   render() {
     return (
-      <div className='select-validate phone-box'>
+      <div className="select-validate phone-box">
         {this.presentNumbers(this.props.userData)}
       </div>
     );
@@ -17,12 +17,15 @@ export default class PhoneBox extends React.Component {
     }
     return str; */
     return (
-    <React.Fragment>
-    {phoneNumbers.map( (item, i) => (<React.Fragment key={i}>
-      {item.location} Phone: <a href={`tel:${item.phone}`}>{item.phone}</a><br/>
-    </React.Fragment>
-    ))}
-    </React.Fragment>
-    )
+      <React.Fragment>
+        {phoneNumbers.map((item, i) => (
+          <React.Fragment key={i}>
+            {item.location} Phone:{' '}
+            <a href={`tel:${item.phone}`}>{item.phone}</a>
+            <br />
+          </React.Fragment>
+        ))}
+      </React.Fragment>
+    );
   }
 }

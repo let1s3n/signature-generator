@@ -1,8 +1,8 @@
-import React, { Component } from "react";
-import "materialize-css";
-import "materialize-css/dist/css/materialize.min.css";
-import "./App.css";
-import Form from "./Form";
+import React, { Component } from 'react';
+import 'materialize-css';
+import 'materialize-css/dist/css/materialize.min.css';
+import './App.css';
+import Form from './Form';
 
 class App extends Component {
   render() {
@@ -10,7 +10,7 @@ class App extends Component {
       <div className="App">
         <nav>
           <div className="nav-wrapper">
-            <img id="logo" src={require("./logoBela.png")} alt="Logo"/>
+            <img id="logo" src={require('./logoBela.png')} alt="Logo" />
           </div>
         </nav>
         <div className="container">
