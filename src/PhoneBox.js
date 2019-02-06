@@ -9,13 +9,6 @@ export default class PhoneBox extends React.Component {
   }
 
   presentNumbers(phoneNumbers) {
-    /* let str = "";
-    for (let i = 0; i < phoneNumbers.length; i++) {
-      str += `${phoneNumbers[i].location} Phone: <a href="tel:${phoneNumbers[i].phone}">${
-        phoneNumbers[i].phone
-      }</a></br>`;
-    }
-    return str; */
     return (
       <React.Fragment>
         {phoneNumbers.map((item, i) => (
