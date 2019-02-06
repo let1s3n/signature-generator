@@ -11,6 +11,7 @@ export default class PhoneBox extends React.Component {
   presentNumbers(phoneNumbers) {
     return (
       <React.Fragment>
+<<<<<<< HEAD
         <center>
           <span>
             {' '}
@@ -18,6 +19,8 @@ export default class PhoneBox extends React.Component {
           </span>
         </center>{' '}
         <br />
+=======
+>>>>>>> development
         {phoneNumbers.map((item, i) => (
           <React.Fragment key={i}>
             {item.location} Phone:{' '}
