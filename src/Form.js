@@ -1,24 +1,26 @@
-import React from "react";
-import "materialize-css";
-import "materialize-css/dist/css/materialize.min.css";
-import Select from "react-select";
-import CopyContentButton from "./CopyContentButton";
+import React from 'react';
+import 'materialize-css';
+import 'materialize-css/dist/css/materialize.min.css';
+import Select from 'react-select';
+import CopyContentButton from './CopyContentButton';
+import M from 'materialize-css';
+import PhoneBox from './PhoneBox';
 
 const options = [
-  { value: "UX Designer", label: "UX Designer" },
-  { value: "UI Designer", label: "UI Designer" },
-  { value: "Development Intern", label: "Development Intern" },
-  { value: "Senior Frontend Developer", label: "Senior Frontend Developer" },
-  { value: "Senior PHP Developer", label: "Senior PHP Developer" },
-  { value: "Senior NodeJS Developer", label: "Senior NodeJS Developer" },
-  { value: "Senior .Net Developer", label: "Senior .Net Developer" },
-  { value: "Senior QA Automation", label: "Senior QA Automation" },
-  { value: "Scrum Master", label: "Scrum Master" },
-  { value: "Senior Java Developer", label: "Senior Java Developer" },
-  { value: "Business Analytics", label: "Business Analytics" },
-  { value: "Technical Consultant", label: "Technical Consultant" },
-  { value: "Office Manager", label: "Office Manager" },
-  { value: "RRHH", label: "RRHH" }
+  { value: 'UX Designer', label: 'UX Designer' },
+  { value: 'UI Designer', label: 'UI Designer' },
+  { value: 'Development Intern', label: 'Development Intern' },
+  { value: 'Senior Frontend Developer', label: 'Senior Frontend Developer' },
+  { value: 'Senior PHP Developer', label: 'Senior PHP Developer' },
+  { value: 'Senior NodeJS Developer', label: 'Senior NodeJS Developer' },
+  { value: 'Senior .Net Developer', label: 'Senior .Net Developer' },
+  { value: 'Senior QA Automation', label: 'Senior QA Automation' },
+  { value: 'Scrum Master', label: 'Scrum Master' },
+  { value: 'Senior Java Developer', label: 'Senior Java Developer' },
+  { value: 'Business Analytics', label: 'Business Analytics' },
+  { value: 'Technical Consultant', label: 'Technical Consultant' },
+  { value: 'Office Manager', label: 'Office Manager' },
+  { value: 'RRHH', label: 'RRHH' }
 ];
 
 export default class Form extends React.Component {
@@ -32,13 +34,23 @@ export default class Form extends React.Component {
       email: '',
       title: '<b>Belatrix Software</b>',
       skypeId: '',
-      emailService: ''
+      emailService: '',
+      defaultPhoneNumber: {
+        location: '',
+        phone: ''
+      },
+      phoneNumbers: []
     };
   }
 
   handleSubmit = event => {
+    // Se llama después de que el navegador ya valida los required, etc...
     event.preventDefault();
-    const data = this.state;
+    const buttonMaterializeInstance = M.Modal.getInstance(this.modal.current);
+    const validoAdicional = true;
+    if (validoAdicional) {
+      buttonMaterializeInstance.open();
+    }
   };
 
   handleInputChange = event => {
@@ -59,45 +71,70 @@ export default class Form extends React.Component {
     this.setState({value: obj}); */
   };
 
+  handleLocationChange = event => {
+    let defaultNumber = this.state.defaultPhoneNumber;
+    defaultNumber.location = event.target.value;
+    this.setState({
+      defaultPhoneNumber: defaultNumber
+    });
+  };
+
+  handlePhoneChange = event => {
+    let defaultNumber = this.state.defaultPhoneNumber;
+    defaultNumber.phone = event.target.value;
+    this.setState({
+      defaultPhoneNumber: defaultNumber
+    });
+  };
+
+  addNewPhone = event => {
+    this.setState({
+      phoneNumbers: [...this.state.phoneNumbers, this.state.defaultPhoneNumber],
+      defaultPhoneNumber: { location: '', phone: '' }
+    });
+  };
+
+  modal = React.createRef();
+
   render() {
     const { fullName, position } = this.state;
 
     const colourStyles = {
-      control: (styles, { isFocused, isSelected, isDisabled }) => ({
+      control: (styles, { isFocused }) => ({
         ...styles,
-        color: "#000000",
-        fontFamily: "roboto",
-        fontSize: "16px",
-        lineHeight: "19px",
-        height: "10px",
+        color: '#000000',
+        fontFamily: 'roboto',
+        fontSize: '16px',
+        lineHeight: '19px',
+        height: '10px',
         borderRadius: 0,
-        backgroundColor: "white",
+        backgroundColor: 'white',
         border: isFocused ? 0 : 0,
         boxShadow: isFocused ? 0 : 0,
 
-        "&:hover": {
+        '&:hover': {
           border: isFocused ? 0 : 0,
-          borderBottom: "2px solid #3c3c3c"
+          borderBottom: '2px solid #3c3c3c'
         },
-        borderBottom: isFocused ? "2px solid #f89937" : "2px solid #3c3c3c"
+        borderBottom: isFocused ? '2px solid #f89937' : '2px solid #3c3c3c'
       }),
       option: (styles, { isDisabled, isFocused, isSelected }) => {
         return {
           ...styles,
-          color: "#000000",
-          fontFamily: "roboto",
-          fontSize: "16px",
-          lineHeight: "19px",
+          color: '#000000',
+          fontFamily: 'roboto',
+          fontSize: '16px',
+          lineHeight: '19px',
 
           backgroundColor: isDisabled
             ? null
             : isSelected
-            ? "orange"
+            ? 'orange'
             : isFocused
-            ? "orange"
+            ? 'orange'
             : null,
 
-          cursor: isDisabled ? "not-allowed" : "default"
+          cursor: isDisabled ? 'not-allowed' : 'default'
         };
       },
       input: styles => ({ ...styles }),
@@ -110,14 +147,19 @@ export default class Form extends React.Component {
         <div className="title">
           <h2 className="signature-generator">Signature Generator</h2>
         </div>
-        <div className="divider"/>
+        <div className="divider" />
         <div id="subtitle" className="subtitle">
           <h6 className="fill-in-your-informa">
             Fill in your information to generate your email signature
           </h6>
         </div>
 
-        <form onSubmit={this.handleSubmit} className="col s12" id="myForm">
+        <form
+          id="myForm"
+          ref="form"
+          onSubmit={this.handleSubmit}
+          className="col s12"
+        >
           <div className="row input">
             <div className="input-field col s12">
               <input
@@ -137,8 +179,8 @@ export default class Form extends React.Component {
           <div className="row input">
             <div className="input-field col s12">
               <Select
+                Required
                 styles={colourStyles}
-                required
                 name="position"
                 value={this.state.position}
                 onChange={this.handleChange}
@@ -155,6 +197,7 @@ export default class Form extends React.Component {
           <div className="row input">
             <div className="input-field col s12">
               <input
+                required
                 placeholder="email@belatrixsf.com"
                 id="email"
                 type="email"
@@ -176,6 +219,7 @@ export default class Form extends React.Component {
           <div className="row input">
             <div className="input-field col s12">
               <input
+                required
                 placeholder="Enter your Skype ID"
                 id="skypeId"
                 name="skypeId"
@@ -186,6 +230,53 @@ export default class Form extends React.Component {
               <label className="active" htmlFor="skypeId">
                 Skype ID *
               </label>
+            </div>
+          </div>
+
+          <div className="row input">
+            <div className="input-field col s12">
+              <div className="input-field col s5">
+                <input
+                  name="location"
+                  value={this.state.defaultPhoneNumber.location}
+                  type="text"
+                  className="validate"
+                  placeholder="Enter phone country"
+                  onChange={this.handleLocationChange}
+                />
+                <label className="active" htmlFor="location">
+                  Location
+                </label>
+              </div>
+              <div className="input-field col s5">
+                <input
+                  name="phoneNumber"
+                  value={this.state.defaultPhoneNumber.phone}
+                  type="text"
+                  className="validate"
+                  placeholder="ex. +51 (1) 999-9999"
+                  onChange={this.handlePhoneChange}
+                />
+                <label className="active" htmlFor="phoneNumber">
+                  Phone number
+                </label>
+              </div>
+              <div className="input-field col s2">
+                <a
+                  id="btn-phones"
+                  className="btn-floating btn-large waves-effect waves-light red btn-small"
+                  onClick={this.addNewPhone}
+                >
+                  <i className="material-icons">add</i>
+                </a>
+              </div>
+              <label className="active">Add phone number:</label>
+            </div>
+          </div>
+
+          <div className="row input">
+            <div className="input-field col s12">
+              <PhoneBox userData={this.state.phoneNumbers} />
             </div>
           </div>
 
@@ -203,19 +294,19 @@ export default class Form extends React.Component {
                   <div className="col s12" onChange={this.handleInputChange}>
                     <div className="rectangle">
                       <span className="btn-flat no-cursor">
-                        <img src={require("./gmail.png")} alt="" />
+                        <img src={require('./gmail.png')} alt="" />
                         <span className="button-text">Gmail</span>
                       </span>
                     </div>
                     <div className="rectangle">
                       <span className="btn-flat no-cursor">
-                        <img src={require("./outlook.png")} alt="" />
+                        <img src={require('./outlook.png')} alt="" />
                         <span className="button-text">Outlook</span>
                       </span>
                     </div>
                     <div className="rectangle">
                       <span className="btn-flat no-cursor">
-                        <img src={require("./roundcube.png")} alt="" />
+                        <img src={require('./roundcube.png')} alt="" />
                         <span className="button-text">Roundcube</span>
                       </span>
                     </div>
@@ -224,21 +315,19 @@ export default class Form extends React.Component {
               </div>
             </div>
           </div>
-          <div className="button-final-container">
-            <button
-              className="button-final btn-flat modal-trigger"
-              type="submit"
-              name="action"
-              data-target="modal1"
-            >
-              GENERATE SIGNATURE
-            </button>
-          </div>
+
+          <button
+            className="button-final btn-flat modal-trigger"
+            type="submit"
+            name="action"
+          >
+            GENERATE SIGNATURE
+          </button>
         </form>
 
-        <div id="modal1" className="modal">
+        <div id="modal1" className="modal" ref={this.modal}>
           <div className="modal-content">
-            <img id="img-confirm" src={require("./confirmation.png")} alt="" />
+            <img id="img-confirm" src={require('./confirmation.png')} alt="" />
 
             <h2 className="signature-generated">Signature Generated</h2>
             <h4 className="subtitle">

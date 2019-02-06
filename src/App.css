@@ -46,7 +46,6 @@ input.select-dropdown {
 
 .container {
   background-color: #fff;
-  height: 784px;
   width: 736px;
 }
 
@@ -99,10 +98,15 @@ nav {
 
 .main {
   width: 498px;
+  height:100%;
 }
 
 form.col.s12 {
   margin-top: 22px;
+}
+
+.input-field .input-field {
+  margin-top: 50px;
 }
 
 .row.input {
@@ -159,7 +163,7 @@ button:visited,
 
 .row.email-services-section {
   height: 175px;
-  width: 450spx;
+  width: 450px;
   margin-bottom: 18px;
 }
 
@@ -234,11 +238,7 @@ input[type="submit" i] {
   border-style: none;
   border-color: #f89937;
 }
-.button-final-container {
-  height: 70px;
-  width: 230px;
-  margin: 0 auto;
-}
+
 .button-final {
   height: 64px;
   width: 235px;
@@ -247,6 +247,8 @@ input[type="submit" i] {
   font-family: Roboto;
   font-size: 16px;
   line-height: 19px;
+  display:block;
+  margin: 0 auto;
 }
 .dropdown-content {
   max-height: 250px;
@@ -405,4 +407,10 @@ textarea.materialize-textarea.valid:focus,
 .select-wrapper.valid > input.select-dropdown {
   border-bottom: 2px solid #3c3c3c;
   box-shadow: none;
+}
+
+.phone-box{
+  background-color: #e5e5e5;
+  border-radius: 5px;
+  box-shadow: 0 2px 8px 0 rgba(209, 209, 209, 0.5);
 }

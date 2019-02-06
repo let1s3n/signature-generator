@@ -1,6 +1,6 @@
-import React from "react";
-import $ from "jquery";
-import { copyFormatted } from "./copy-to-clipboard";
+import React from 'react';
+import $ from 'jquery';
+import { copyFormatted } from './copy-to-clipboard';
 export default class CopyContentButton extends React.Component {
   handleCopy = event => {
     const text = this.getFormattedSignature(
@@ -8,10 +8,11 @@ export default class CopyContentButton extends React.Component {
       this.props.userData.position.label,
       this.props.userData.title,
       this.props.userData.email,
-      this.props.userData.skypeId
+      this.props.userData.skypeId,
+      this.props.userData.phoneNumbers
     );
     copyFormatted(text);
-    $(".fixed")
+    $('.fixed')
       .show(1)
       .delay(1000)
       .hide(1);
@@ -25,14 +26,25 @@ export default class CopyContentButton extends React.Component {
     );
   }
 
-  getSignatureHeader(fullName, position, str, email, skypeId) {
+  presentNumbers(phoneNumbers) {
+    let str = '';
+    for (let i = 0; i < phoneNumbers.length; i++) {
+      str += `${phoneNumbers[i].location} Phone: <a href="tel:${
+        phoneNumbers[i].phone
+      }">${phoneNumbers[i].phone}</a></br>`;
+    }
+    return str;
+  }
+
+  getSignatureHeader(fullName, position, str, email, skypeId, phoneNumbers) {
     return `<p style="@import url('https://fonts.googleapis.com/css?family=Lato');font-family: 'Lato', sans-serif;line-height:15px;font-size:9pt;">
-      ${fullName}<br/>
+      ${fullName}</br>
       ${position}</br>
       ${str.bold()}</br>
       <a href="mailto:${email}">${email} </a></br>
       USA Phone: <a href="tel:+16176081413">+1 (617) 608-1413</a> </br> 
-      PE Phone: <a href="tel:+005117173350">(0051-1) 7173350</a> </br>
+      PE Phone: <a href="tel:+005117173350">+51 (1) 717-3350</a> </br>
+      ${this.presentNumbers(phoneNumbers)}
       Skype ID: ${skypeId} </br>
       <a href="http://www.belatrixsf.com">http://www.belatrixsf.com</a>
       </br>
@@ -60,8 +72,16 @@ export default class CopyContentButton extends React.Component {
       </p>`;
   }
 
-  getFormattedSignature(fullName, position, str, email, skypeId) {
-    return this.getSignatureHeader(fullName, position, str, email, skypeId) + 
-      this.getConfidentialityWarning();
+  getFormattedSignature(fullName, position, str, email, skypeId, phoneNumbers) {
+    return (
+      this.getSignatureHeader(
+        fullName,
+        position,
+        str,
+        email,
+        skypeId,
+        phoneNumbers
+      ) + this.getConfidentialityWarning()
+    );
   }
 }
