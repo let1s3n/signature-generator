@@ -240,14 +240,6 @@ export default class Form extends React.Component {
           <div className="row input">
             <div className="input-field col s12">
               <div className="input-field col s5">
-                {/* <input
-                  name="location"
-                  value={this.state.defaultPhoneNumber.location}
-                  type="text"
-                  className="validate"
-                  placeholder="Enter phone country"
-                  onChange={this.handleLocationChange}
-                /> */}
                 <Select
                 styles={colourStyles}
                 name="location"
