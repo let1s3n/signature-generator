@@ -30,7 +30,6 @@ export default class Form extends React.Component {
   }
 
   componentDidMount() {
-    console.log('Component did mount');
     apiGetAll().then(data => {
       this.setState({
         options: data
