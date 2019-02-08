@@ -6,6 +6,7 @@ import CopyContentButton from './CopyContentButton';
 import M from 'materialize-css';
 import PhoneBox from './PhoneBox';
 import { apiGetAll } from './dataService';
+import { apiGetLocations } from './dataService';
 
 export default class Form extends React.Component {
   constructor(props) {
@@ -25,6 +26,7 @@ export default class Form extends React.Component {
       },
       phoneNumbers: [],
       options: [],
+      optionsLocations:[],
       showComponent: false
     };
   }
@@ -33,6 +35,13 @@ export default class Form extends React.Component {
     apiGetAll().then(data => {
       this.setState({
         options: data
+      });
+    });
+
+    apiGetLocations().then(data => {
+      this.setState({
+        optionsLocations:data
+
       });
     });
   }
@@ -65,9 +74,9 @@ export default class Form extends React.Component {
     this.setState({value: obj}); */
   };
 
-  handleLocationChange = event => {
+  handleLocationChange =location => {
     let defaultNumber = this.state.defaultPhoneNumber;
-    defaultNumber.location = event.target.value;
+    defaultNumber.location = location;
     this.setState({
       defaultPhoneNumber: defaultNumber
     });
@@ -231,14 +240,23 @@ export default class Form extends React.Component {
           <div className="row input">
             <div className="input-field col s12">
               <div className="input-field col s5">
-                <input
+                {/* <input
                   name="location"
                   value={this.state.defaultPhoneNumber.location}
                   type="text"
                   className="validate"
                   placeholder="Enter phone country"
                   onChange={this.handleLocationChange}
-                />
+                /> */}
+                <Select
+                styles={colourStyles}
+                name="location"
+                value={this.state.defaultPhoneNumber.location}
+                onChange={this.handleLocationChange}
+                options={this.state.optionsLocations}
+                /* ==== To-Do : little hack to make placeholder prop work ==== */
+                //value={this.state.value}
+              />
                 <label className="active" htmlFor="location">
                   Location
                 </label>
