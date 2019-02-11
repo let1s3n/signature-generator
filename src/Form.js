@@ -5,23 +5,8 @@ import Select from 'react-select';
 import CopyContentButton from './CopyContentButton';
 import M from 'materialize-css';
 import PhoneBox from './PhoneBox';
-
-const options = [
-  { value: 'UX Designer', label: 'UX Designer' },
-  { value: 'UI Designer', label: 'UI Designer' },
-  { value: 'Development Intern', label: 'Development Intern' },
-  { value: 'Senior Frontend Developer', label: 'Senior Frontend Developer' },
-  { value: 'Senior PHP Developer', label: 'Senior PHP Developer' },
-  { value: 'Senior NodeJS Developer', label: 'Senior NodeJS Developer' },
-  { value: 'Senior .Net Developer', label: 'Senior .Net Developer' },
-  { value: 'Senior QA Automation', label: 'Senior QA Automation' },
-  { value: 'Scrum Master', label: 'Scrum Master' },
-  { value: 'Senior Java Developer', label: 'Senior Java Developer' },
-  { value: 'Business Analytics', label: 'Business Analytics' },
-  { value: 'Technical Consultant', label: 'Technical Consultant' },
-  { value: 'Office Manager', label: 'Office Manager' },
-  { value: 'RRHH', label: 'RRHH' }
-];
+import { apiGetAll } from './dataService';
+import { apiGetLocations } from './dataService';
 
 export default class Form extends React.Component {
   constructor(props) {
@@ -39,8 +24,25 @@ export default class Form extends React.Component {
         location: '',
         phone: ''
       },
-      phoneNumbers: []
+      phoneNumbers: [],
+      availablePositions: [],
+      optionsLocations: [],
+      showComponent: false
     };
+  }
+
+  componentDidMount() {
+    apiGetAll().then(data => {
+      this.setState({
+        availablePositions: data
+      });
+    });
+
+    apiGetLocations().then(data => {
+      this.setState({
+        optionsLocations: data
+      });
+    });
   }
 
   handleSubmit = event => {
@@ -71,9 +73,9 @@ export default class Form extends React.Component {
     this.setState({value: obj}); */
   };
 
-  handleLocationChange = event => {
+  handleLocationChange = location => {
     let defaultNumber = this.state.defaultPhoneNumber;
-    defaultNumber.location = event.target.value;
+    defaultNumber.location = location;
     this.setState({
       defaultPhoneNumber: defaultNumber
     });
@@ -89,6 +91,7 @@ export default class Form extends React.Component {
 
   addNewPhone = event => {
     this.setState({
+      showComponent: true,
       phoneNumbers: [...this.state.phoneNumbers, this.state.defaultPhoneNumber],
       defaultPhoneNumber: { location: '', phone: '' }
     });
@@ -184,7 +187,7 @@ export default class Form extends React.Component {
                 name="position"
                 value={this.state.position}
                 onChange={this.handleChange}
-                options={options}
+                options={this.state.availablePositions}
                 /* ==== To-Do : little hack to make placeholder prop work ==== */
                 //value={this.state.value}
               />
@@ -236,13 +239,14 @@ export default class Form extends React.Component {
           <div className="row input">
             <div className="input-field col s12">
               <div className="input-field col s5">
-                <input
+                <Select
+                  styles={colourStyles}
                   name="location"
                   value={this.state.defaultPhoneNumber.location}
-                  type="text"
-                  className="validate"
-                  placeholder="Enter phone country"
                   onChange={this.handleLocationChange}
+                  options={this.state.optionsLocations}
+                  /* ==== To-Do : little hack to make placeholder prop work ==== */
+                  //value={this.state.value}
                 />
                 <label className="active" htmlFor="location">
                   Location
@@ -276,7 +280,9 @@ export default class Form extends React.Component {
 
           <div className="row input">
             <div className="input-field col s12">
-              <PhoneBox userData={this.state.phoneNumbers} />
+              {this.state.showComponent && (
+                <PhoneBox userData={this.state.phoneNumbers} />
+              )}
             </div>
           </div>
 
