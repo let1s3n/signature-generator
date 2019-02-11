@@ -13,14 +13,13 @@ export default class PhoneBox extends React.Component {
       <React.Fragment>
         <center>
           <span>
-            {' '}
-            <u>Phones to be add</u>:{' '}
+            <u>Phones to be add</u>:
           </span>
-        </center>{' '}
+        </center>
         <br />
         {phoneNumbers.map((item, i) => (
           <React.Fragment key={i}>
-            {item.location.value} Phone:{' '}
+            {item.location.value} Phone:
             <a href={`tel:${item.phone}`}>{item.phone}</a>
             <br />
           </React.Fragment>

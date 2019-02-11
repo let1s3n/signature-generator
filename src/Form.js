@@ -26,7 +26,7 @@ export default class Form extends React.Component {
       },
       phoneNumbers: [],
       availablePositions: [],
-      optionsLocations:[],
+      optionsLocations: [],
       showComponent: false
     };
   }
@@ -40,8 +40,7 @@ export default class Form extends React.Component {
 
     apiGetLocations().then(data => {
       this.setState({
-        optionsLocations:data
-
+        optionsLocations: data
       });
     });
   }
@@ -241,14 +240,14 @@ export default class Form extends React.Component {
             <div className="input-field col s12">
               <div className="input-field col s5">
                 <Select
-                styles={colourStyles}
-                name="location"
-                value={this.state.defaultPhoneNumber.location}
-                onChange={this.handleLocationChange}
-                options={this.state.optionsLocations}
-                /* ==== To-Do : little hack to make placeholder prop work ==== */
-                //value={this.state.value}
-              />
+                  styles={colourStyles}
+                  name="location"
+                  value={this.state.defaultPhoneNumber.location}
+                  onChange={this.handleLocationChange}
+                  options={this.state.optionsLocations}
+                  /* ==== To-Do : little hack to make placeholder prop work ==== */
+                  //value={this.state.value}
+                />
                 <label className="active" htmlFor="location">
                   Location
                 </label>
