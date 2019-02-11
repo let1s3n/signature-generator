@@ -30,4 +30,6 @@ class ModalComponent extends Component {
   }
 }
 
-export default React.forwardRef((props,ref) => <ModalComponent {...props} forwardedRef={ref} />);
+export default React.forwardRef((props, ref) => (
+  <ModalComponent {...props} forwardedRef={ref} />
+));

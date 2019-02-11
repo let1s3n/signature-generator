@@ -2,7 +2,6 @@ import React from 'react';
 import 'materialize-css';
 import 'materialize-css/dist/css/materialize.min.css';
 import Select from 'react-select';
-import CopyContentButton from './CopyContentButton';
 import M from 'materialize-css';
 import PhoneBox from './PhoneBox';
 import { apiGetAll } from './dataService';
@@ -27,7 +26,7 @@ export default class Form extends React.Component {
       },
       phoneNumbers: [],
       availablePositions: [],
-      optionsLocations: [],
+      availableLocations: [],
       showComponent: false
     };
   }
@@ -41,7 +40,7 @@ export default class Form extends React.Component {
 
     apiGetLocations().then(data => {
       this.setState({
-        optionsLocations: data
+        availableLocations: data
       });
     });
   }
@@ -245,7 +244,7 @@ export default class Form extends React.Component {
                   name="location"
                   value={this.state.defaultPhoneNumber.location}
                   onChange={this.handleLocationChange}
-                  options={this.state.optionsLocations}
+                  options={this.state.availableLocations}
                   /* ==== To-Do : little hack to make placeholder prop work ==== */
                   //value={this.state.value}
                 />
@@ -337,7 +336,6 @@ export default class Form extends React.Component {
         <div className="fixed">
           <div className="copied-to-clipboard">COPIED TO CLIPBOARD</div>
         </div>
-
       </div>
     );
   }
