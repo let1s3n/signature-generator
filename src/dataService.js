@@ -7,7 +7,6 @@ export async function apiGetAll() {
     const resp = await fetch(URL);
     return resp.json();
   } catch (err) {
-    console.log(err);
   }
 }
 
@@ -16,6 +15,5 @@ export async function apiGetLocations() {
     const resp2 = await fetch(locationsURL);
     return resp2.json();
   } catch (err) {
-    console.log(err);
   }
 }

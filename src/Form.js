@@ -25,7 +25,7 @@ export default class Form extends React.Component {
         phone: ''
       },
       phoneNumbers: [],
-      options: [],
+      availablePositions: [],
       optionsLocations:[],
       showComponent: false
     };
@@ -34,7 +34,7 @@ export default class Form extends React.Component {
   componentDidMount() {
     apiGetAll().then(data => {
       this.setState({
-        options: data
+        availablePositions: data
       });
     });
 
@@ -188,7 +188,7 @@ export default class Form extends React.Component {
                 name="position"
                 value={this.state.position}
                 onChange={this.handleChange}
-                options={this.state.options}
+                options={this.state.availablePositions}
                 /* ==== To-Do : little hack to make placeholder prop work ==== */
                 //value={this.state.value}
               />
