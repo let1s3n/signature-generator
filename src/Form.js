@@ -74,12 +74,14 @@ export default class Form extends React.Component {
     this.setState({value: obj}); */
   };
 
-  handleLocationChange =location => {
+  handleLocationChange = location => {
     let defaultNumber = this.state.defaultPhoneNumber;
     defaultNumber.location = location;
     this.setState({
       defaultPhoneNumber: defaultNumber
     });
+    console.log(defaultNumber.location);
+    
   };
 
   handlePhoneChange = event => {
