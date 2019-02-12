@@ -2,11 +2,11 @@ import React from 'react';
 import 'materialize-css';
 import 'materialize-css/dist/css/materialize.min.css';
 import Select from 'react-select';
-import CopyContentButton from './CopyContentButton';
 import M from 'materialize-css';
 import PhoneBox from './PhoneBox';
 import { apiGetAll } from './dataService';
 import { apiGetLocations } from './dataService';
+import ModalComponent from './ModalComponent';
 
 export default class Form extends React.Component {
   constructor(props) {
@@ -26,7 +26,7 @@ export default class Form extends React.Component {
       },
       phoneNumbers: [],
       availablePositions: [],
-      optionsLocations: [],
+      availableLocations: [],
       showComponent: false
     };
   }
@@ -40,7 +40,7 @@ export default class Form extends React.Component {
 
     apiGetLocations().then(data => {
       this.setState({
-        optionsLocations: data
+        availableLocations: data
       });
     });
   }
@@ -100,8 +100,6 @@ export default class Form extends React.Component {
   modal = React.createRef();
 
   render() {
-    const { fullName, position } = this.state;
-
     const colourStyles = {
       control: (styles, { isFocused }) => ({
         ...styles,
@@ -244,7 +242,7 @@ export default class Form extends React.Component {
                   name="location"
                   value={this.state.defaultPhoneNumber.location}
                   onChange={this.handleLocationChange}
-                  options={this.state.optionsLocations}
+                  options={this.state.availableLocations}
                   /* ==== To-Do : little hack to make placeholder prop work ==== */
                   //value={this.state.value}
                 />
@@ -331,27 +329,8 @@ export default class Form extends React.Component {
           </button>
         </form>
 
-        <div id="modal1" className="modal" ref={this.modal}>
-          <div className="modal-content">
-            <img id="img-confirm" src={require('./confirmation.png')} alt="" />
+        <ModalComponent ref={this.modal} data={this.state} />
 
-            <h2 className="signature-generated">Signature Generated</h2>
-            <h4 className="subtitle">
-              Just copy the information below to add it to your email
-            </h4>
-          </div>
-          <div className="modal-footer">
-            <div className="footer-cage">
-              <div className="footer-cage-text">
-                {fullName} {position.label}...
-              </div>
-            </div>
-
-            <div>
-              <CopyContentButton userData={this.state} />
-            </div>
-          </div>
-        </div>
         <div className="fixed">
           <div className="copied-to-clipboard">COPIED TO CLIPBOARD</div>
         </div>
