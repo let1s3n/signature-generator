@@ -13,10 +13,8 @@ export default class Form extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      /* === To-Do : little hack to make placeholder prop work === */
-      //value: '',
       fullName: '',
-      position: { label: '', value: '' },
+      position: null,
       email: '',
       title: '<b>Belatrix Software</b>',
       skypeId: '',
@@ -68,9 +66,6 @@ export default class Form extends React.Component {
     this.setState({
       position: position
     });
-    /* ==== To-Do : little hack to make placeholder prop work ==== */
-    /* let obj ={value: position.value, label: position.label};
-    this.setState({value: obj}); */
   };
 
   handleLocationChange = location => {
@@ -142,8 +137,7 @@ export default class Form extends React.Component {
                 value={this.state.position}
                 onChange={this.handleChange}
                 options={this.state.availablePositions}
-                /* ==== To-Do : little hack to make placeholder prop work ==== */
-                //value={this.state.value}
+                placeholder={'Type or select your position'}
               />
 
               <label className="active" htmlFor="position" id="word">

@@ -17,7 +17,7 @@ class ModalComponent extends Component {
         <div className="modal-footer">
           <div className="footer-cage">
             <div className="footer-cage-text">
-              {this.props.data.fullName} {this.props.data.position.label}...
+              {this.props.data.fullName} {this.props.data.position && this.props.data.position.label}...
             </div>
           </div>
 
