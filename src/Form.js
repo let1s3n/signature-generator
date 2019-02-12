@@ -193,8 +193,6 @@ export default class Form extends React.Component {
                   value={this.state.defaultPhoneNumber.location}
                   onChange={this.handleLocationChange}
                   options={this.state.availableLocations}
-                  /* ==== To-Do : little hack to make placeholder prop work ==== */
-                  //value={this.state.value}
                 />
                 <label className="active" htmlFor="location">
                   Location
