@@ -7,15 +7,14 @@ import PhoneBox from './PhoneBox';
 import { apiGetAll } from './dataService';
 import { apiGetLocations } from './dataService';
 import ModalComponent from './ModalComponent';
+import { colourStyles, selectLocationsStyles } from './SelectComponentStyles';
 
 export default class Form extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      /* === To-Do : little hack to make placeholder prop work === */
-      //value: '',
       fullName: '',
-      position: { label: '', value: '' },
+      position: null,
       email: '',
       title: '<b>Belatrix Software</b>',
       skypeId: '',
@@ -67,10 +66,6 @@ export default class Form extends React.Component {
     this.setState({
       position: position
     });
-    /* ==== To-Do : little hack to make placeholder prop work ==== */
-
-    /* let obj ={value: position.value, label: position.label};
-    this.setState({value: obj}); */
   };
 
   handleLocationChange = location => {
@@ -100,49 +95,6 @@ export default class Form extends React.Component {
   modal = React.createRef();
 
   render() {
-    const colourStyles = {
-      control: (styles, { isFocused }) => ({
-        ...styles,
-        color: '#000000',
-        fontFamily: 'roboto',
-        fontSize: '16px',
-        lineHeight: '19px',
-        height: '10px',
-        borderRadius: 0,
-        backgroundColor: 'white',
-        border: isFocused ? 0 : 0,
-        boxShadow: isFocused ? 0 : 0,
-
-        '&:hover': {
-          border: isFocused ? 0 : 0,
-          borderBottom: '2px solid #3c3c3c'
-        },
-        borderBottom: isFocused ? '2px solid #f89937' : '2px solid #3c3c3c'
-      }),
-      option: (styles, { isDisabled, isFocused, isSelected }) => {
-        return {
-          ...styles,
-          color: '#000000',
-          fontFamily: 'roboto',
-          fontSize: '16px',
-          lineHeight: '19px',
-
-          backgroundColor: isDisabled
-            ? null
-            : isSelected
-            ? 'orange'
-            : isFocused
-            ? 'orange'
-            : null,
-
-          cursor: isDisabled ? 'not-allowed' : 'default'
-        };
-      },
-      input: styles => ({ ...styles }),
-      placeholder: styles => ({ ...styles }),
-      singleValue: styles => ({ ...styles })
-    };
-
     return (
       <div className="row main">
         <div className="title">
@@ -180,14 +132,14 @@ export default class Form extends React.Component {
           <div className="row input">
             <div className="input-field col s12">
               <Select
-                Required
+                className="react-select-container"
+                classNamePrefix="react-select"
                 styles={colourStyles}
                 name="position"
                 value={this.state.position}
                 onChange={this.handleChange}
                 options={this.state.availablePositions}
-                /* ==== To-Do : little hack to make placeholder prop work ==== */
-                //value={this.state.value}
+                placeholder={'Type or select your position'}
               />
 
               <label className="active" htmlFor="position" id="word">
@@ -238,13 +190,13 @@ export default class Form extends React.Component {
             <div className="input-field col s12">
               <div className="input-field col s5">
                 <Select
-                  styles={colourStyles}
+                  className="react-select-container"
+                  classNamePrefix="react-select"
+                  styles={selectLocationsStyles}
                   name="location"
                   value={this.state.defaultPhoneNumber.location}
                   onChange={this.handleLocationChange}
                   options={this.state.availableLocations}
-                  /* ==== To-Do : little hack to make placeholder prop work ==== */
-                  //value={this.state.value}
                 />
                 <label className="active" htmlFor="location">
                   Location
