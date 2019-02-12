@@ -132,6 +132,8 @@ export default class Form extends React.Component {
           <div className="row input">
             <div className="input-field col s12">
               <Select
+                className="react-select-container"
+                classNamePrefix="react-select"
                 styles={colourStyles}
                 name="position"
                 value={this.state.position}
@@ -188,6 +190,8 @@ export default class Form extends React.Component {
             <div className="input-field col s12">
               <div className="input-field col s5">
                 <Select
+                  className="react-select-container"
+                  classNamePrefix="react-select"
                   styles={selectLocationsStyles}
                   name="location"
                   value={this.state.defaultPhoneNumber.location}
