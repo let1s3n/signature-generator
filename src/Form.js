@@ -100,8 +100,6 @@ export default class Form extends React.Component {
   modal = React.createRef();
 
   render() {
-    /* const { fullName, position } = this.state; */
-
     const colourStyles = {
       control: (styles, { isFocused }) => ({
         ...styles,
