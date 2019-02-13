@@ -19,7 +19,7 @@ export default class PhoneBox extends React.Component {
         <br />
         {phoneNumbers.map((item, i) => (
           <React.Fragment key={i}>
-            {item.location.value} Phone:
+            {item.location.value} Phone:{' '}
             <a href={`tel:${item.phone}`}>{item.phone}</a>
             <br />
           </React.Fragment>

@@ -8,7 +8,9 @@ class ModalComponent extends Component {
       <div id="modal1" className="modal" ref={this.props.forwardedRef}>
         <div className="modal-content">
           <img id="img-confirm" src={require('./confirmation.png')} alt="" />
-
+          <button id="img-close">
+            <img src={require('./close.png')} alt=""/>
+          </button>
           <h2 className="signature-generated">Signature Generated</h2>
           <h4 className="subtitle">
             Just copy the information below to add it to your email

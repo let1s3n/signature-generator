@@ -186,7 +186,7 @@ export default class Form extends React.Component {
             </div>
           </div>
 
-          <div className="row input">
+          <div className="row input last">
             <div className="input-field col s12">
               <div className="input-field col s5">
                 <Select
