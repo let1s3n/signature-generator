@@ -1,3 +1,7 @@
+
+import React, { type ElementConfig } from 'react';
+import {components} from 'react-select';
+
 export const colourStyles = {
   control: (styles, { isFocused }) => ({
     ...styles,
@@ -43,6 +47,12 @@ export const colourStyles = {
   }),
   singleValue: styles => ({
     ...styles
+  }),
+  indicatorSeparator: styles => ({
+    display: 'none'
+  }),
+  DropdownIndicator: styles => ({
+    color: '#000000'
   })
 };
 
@@ -88,5 +98,17 @@ export const selectLocationsStyles = {
   placeholder: styles => ({
     ...styles
   }),
-  singleValue: styles => ({ ...styles })
+  singleValue: styles => ({ ...styles }),
+  indicatorSeparator: styles => ({ display: 'none' }),
+  DropdownIndicator: styles => ({
+    border: '1px solid red'
+  })
+};
+
+export const DropdownIndicator = ( props: ElementConfig<typeof components.DropdownIndicator> ) => {
+  return (
+    <components.DropdownIndicator {...props}>
+      <img src={require('./dropdown.png')} alt="" />
+    </components.DropdownIndicator>
+  );
 };

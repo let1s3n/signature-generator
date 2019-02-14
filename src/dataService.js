@@ -1,7 +1,7 @@
 const URL =
-  'https://my-json-server.typicode.com/letisendev/fakeJSONServer/posts';
+  'http://localhost:3000/posts';
 const locationsURL=
-  'https://my-json-server.typicode.com/letisendev/fakeJSONServer/locations';
+  'http://localhost:3000/locations';
 export async function apiGetAll() {
   try {
     const resp = await fetch(URL);

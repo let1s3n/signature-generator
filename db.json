@@ -1,0 +1,28 @@
+{
+    "posts": [
+      { "value": "UX Designer", "label": "UX Designer" },
+      { "value": "UI Designer", "label": "UI Designer" },
+      { "value": "Development Intern", "label": "Development Intern" },
+      { "value": "Senior Frontend Developer", "label": "Senior Frontend Developer" },
+      { "value": "Senior PHP Developer", "label": "Senior PHP Developer" },
+      { "value": "Senior NodeJS Developer", "label": "Senior NodeJS Developer" },
+      { "value": "Senior .Net Developer", "label": "Senior .Net Developer" },
+      { "value": "Senior QA Automation", "label": "Senior QA Automation" },
+      { "value": "Scrum Master", "label": "Scrum Master" },
+      { "value": "Senior Java Developer", "label": "Senior Java Developer" },
+      { "value": "Business Analytics", "label": "Business Analytics" },
+      { "value": "Technical Consultant", "label": "Technical Consultant" },
+      { "value": "Office Manager", "label": "Office Manager" },
+      { "value": "RRHH", "label": "RRHH" }
+    ],
+    "locations": [
+      {"value":"USA", "label":"USA"},
+      {"value": "Perú", "label": "Perú"},
+      {"value":"Argentina", "label":"Argentina"},
+      {"value":"Colombia", "label":"Colombia"},
+      {"value":"España", "label":"España"}
+    ],
+    "profile": {
+      "name": "typicode"
+    }
+  }
