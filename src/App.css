@@ -455,3 +455,9 @@ input[type]:-webkit-autofill:active {
 .react-select__value-container {
   padding: 0 !important;
 }
+
+.btn-floating i{
+  background-color: #f89937;
+  border: 1px solid #f89937;
+
+}

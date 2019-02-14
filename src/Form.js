@@ -7,7 +7,7 @@ import PhoneBox from './PhoneBox';
 import { apiGetAll } from './dataService';
 import { apiGetLocations } from './dataService';
 import ModalComponent from './ModalComponent';
-import { colourStyles, selectLocationsStyles } from './SelectComponentStyles';
+import { colourStyles, selectLocationsStyles, DropdownIndicator } from './SelectComponentStyles';
 
 export default class Form extends React.Component {
   constructor(props) {
@@ -134,6 +134,7 @@ export default class Form extends React.Component {
               <Select
                 className="react-select-container"
                 classNamePrefix="react-select"
+                components={{ DropdownIndicator }}
                 styles={colourStyles}
                 name="position"
                 value={this.state.position}
@@ -192,6 +193,7 @@ export default class Form extends React.Component {
                 <Select
                   className="react-select-container"
                   classNamePrefix="react-select"
+                  components={{ DropdownIndicator }}
                   styles={selectLocationsStyles}
                   name="location"
                   value={this.state.defaultPhoneNumber.location}
