@@ -35,6 +35,9 @@ export default class PhoneBox extends React.Component {
       case 'España':
         return 'flag-icon flag-icon-es';
         break;
+
+      default:
+        return 'Error!' ;
     }
   }
 
@@ -66,7 +69,7 @@ export default class PhoneBox extends React.Component {
     return (
       <React.Fragment>
         <div className="phoneDefaultContainer">
-          <img src={require('./phone.png')} alt="" />{' '}{' '}
+          <img id="phoneImg" src={require('./phone.png')} alt="" />{' '}{' '}
           <span>The added phone numbers will appear here</span>
         </div>
       </React.Fragment>

@@ -343,7 +343,7 @@ input[type='submit' i] {
 }
 
 .footer-cage {
-  height: 48px;
+  height: 55px;
   width: 368px;
   border: 1px solid #9c9c9c;
   border-radius: 4px 0 0 4px;
@@ -354,7 +354,7 @@ input[type='submit' i] {
 }
 
 .footer-small-cage {
-  height: 48px;
+  height: 55px;
   width: 128px;
   border: 1px solid #9c9c9c;
   border-radius: 0 4px 4px 0;
@@ -462,6 +462,7 @@ input[type]:-webkit-autofill:active {
   background-color: #f89937;
   border: 1px solid #f89937;
 }
+
 .chip {
   
   width:176px;
@@ -487,5 +488,9 @@ input[type]:-webkit-autofill:active {
   padding: 20px;
 }
 
+#phoneImg{
+  float:left;
+  margin-right:10px;
+}
 
 

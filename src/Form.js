@@ -12,11 +12,15 @@ import {
   selectLocationsStyles,
   DropdownIndicator
 } from './SelectComponentStyles';
+import $ from 'jquery';
 
 
 
 
 export default class Form extends React.Component {
+
+  cont=0;
+
   constructor(props) {
     super(props);
     this.state = {
@@ -33,7 +37,8 @@ export default class Form extends React.Component {
       phoneNumbers: [],
       availablePositions: [],
       availableLocations: [],
-      showComponent: false
+      showComponent: false,
+      showAddButton:false
     };
   }
 
@@ -50,6 +55,8 @@ export default class Form extends React.Component {
         availableLocations: data
       });
     });
+
+    
   }
 
   handleSubmit = event => {
@@ -93,11 +100,18 @@ export default class Form extends React.Component {
   };
 
   addNewPhone = event => {
+    this.cont++;
     this.setState({
       showComponent: true,
       phoneNumbers: [...this.state.phoneNumbers, this.state.defaultPhoneNumber],
       defaultPhoneNumber: { location: '', phone: '' }
     });
+  };
+
+  handleCount = event =>{
+    
+
+
   };
 
   modal = React.createRef();
@@ -226,13 +240,9 @@ export default class Form extends React.Component {
                 </label>
               </div>
               <div className="input-field col s2">
-                <a
-                  id="btn-phones"
-                  className="btn-floating btn-large waves-effect waves-light red btn-small"
-                  onClick={this.addNewPhone}
-                >
-                  <i className="material-icons">add</i>
-                </a>
+                
+                {/* ACA VAAAAAAAAAA */}
+                {this.maximumAditionalPhonesValidation()}
               </div>
               <label className="active">Phone number</label>
             </div>
@@ -302,6 +312,37 @@ export default class Form extends React.Component {
         </div>
       </div>
     );
+  }
+
+  maximumAditionalPhonesValidation() {
+    if (this.cont <= 2) {
+      return (
+        <React.Fragment>
+          <a
+            id="btn-phones"
+            className="btn-floating btn-large waves-effect waves-light red btn-small"
+            onClick={this.addNewPhone}
+          >
+            <i className="material-icons">add</i>
+          </a>
+        </React.Fragment>
+      );
+    } else {
+      return(
+      <React.Fragment>
+        <a
+          id="btn-phones"
+          className="btn-floating btn-large waves-effect waves-light red btn-small"
+          className="btn tooltipped disabled"
+          onClick={this.addNewPhone}
+          data-position="bottom"
+          data-tooltip="The maximum number of phone additions has been reached" 
+        >
+          <i className="material-icons">add</i>
+        </a>
+      </React.Fragment>
+      );
+    }
   }
 }
 
