@@ -307,7 +307,7 @@ input[type='submit' i] {
   background: none;
   box-shadow: none;
 }
-#img-close:hover{
+#img-close:hover {
   padding: 0;
   box-shadow: none;
   border: none;
@@ -434,13 +434,15 @@ textarea.materialize-textarea.valid:focus,
 }
 
 .phone-box {
-  background-color: #f9f9f9;
-  border-radius: 5px;
+  height: auto;
+  width: 497px;
+  border-radius: 8px;
+  background-color: #f2f2f2;
   box-shadow: 0 2px 8px 0 rgba(209, 209, 209, 0.5);
   font-family: 'roboto';
-  font-size: 16px;
-  line-height: 19px;
-  margin-bottom:20px;
+  font-size: 14px;
+  line-height: 16px;
+  margin-bottom: 20px;
 }
 
 /* To get rid of yellow background when enter a value on input fields */
@@ -456,8 +458,34 @@ input[type]:-webkit-autofill:active {
   padding: 0 !important;
 }
 
-.btn-floating i{
+.btn-floating i {
   background-color: #f89937;
   border: 1px solid #f89937;
-
 }
+.chip {
+  
+  width:176px;
+  border-radius: 12px;
+  background-color: #b4b4b4;
+  margin-top: 10px !important;
+  text-align: center;
+  
+}
+
+.chip > span{
+  font-weight: normal;
+  color: #000000 !important;
+  font-family: Roboto;
+  font-size: 14px;
+  font-style: normal;
+  line-height: 15px;
+}
+
+.phoneDefaultContainer{
+  width: 400px;
+  margin:0 auto;
+  padding: 20px;
+}
+
+
+

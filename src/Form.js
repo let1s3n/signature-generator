@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{components} from 'react';
 import 'materialize-css';
 import 'materialize-css/dist/css/materialize.min.css';
 import Select from 'react-select';
@@ -7,7 +7,14 @@ import PhoneBox from './PhoneBox';
 import { apiGetAll } from './dataService';
 import { apiGetLocations } from './dataService';
 import ModalComponent from './ModalComponent';
-import { colourStyles, selectLocationsStyles, DropdownIndicator } from './SelectComponentStyles';
+import {
+  colourStyles,
+  selectLocationsStyles,
+  DropdownIndicator
+} from './SelectComponentStyles';
+
+
+
 
 export default class Form extends React.Component {
   constructor(props) {
@@ -30,6 +37,7 @@ export default class Form extends React.Component {
     };
   }
 
+  
   componentDidMount() {
     apiGetAll().then(data => {
       this.setState({
@@ -189,7 +197,7 @@ export default class Form extends React.Component {
 
           <div className="row input last">
             <div className="input-field col s12">
-              <div className="input-field col s5">
+              <div className="input-field col s4">
                 <Select
                   className="react-select-container"
                   classNamePrefix="react-select"
@@ -201,10 +209,10 @@ export default class Form extends React.Component {
                   options={this.state.availableLocations}
                 />
                 <label className="active" htmlFor="location">
-                  Location
+                  Location *
                 </label>
               </div>
-              <div className="input-field col s5">
+              <div className="input-field col s6">
                 <input
                   name="phoneNumber"
                   value={this.state.defaultPhoneNumber.phone}
@@ -214,7 +222,7 @@ export default class Form extends React.Component {
                   onChange={this.handlePhoneChange}
                 />
                 <label className="active" htmlFor="phoneNumber">
-                  Phone number
+                  Phone number *
                 </label>
               </div>
               <div className="input-field col s2">
@@ -226,15 +234,19 @@ export default class Form extends React.Component {
                   <i className="material-icons">add</i>
                 </a>
               </div>
-              <label className="active">Add phone number:</label>
+              <label className="active">Phone number</label>
             </div>
           </div>
 
           <div className="row input">
             <div className="input-field col s12">
-              {this.state.showComponent && (
+
+              {/* conditional display of phoneBox component*/}
+              {/* {this.state.showComponent && (
                 <PhoneBox userData={this.state.phoneNumbers} />
-              )}
+              )} */}
+
+              <PhoneBox userData={this.state.phoneNumbers} displayCheck={this.state.showComponent} />
             </div>
           </div>
 
