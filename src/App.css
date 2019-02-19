@@ -73,12 +73,10 @@ nav {
 }
 
 .signature-generator {
-  /* height: 32px; */
   width: 303px;
   color: #3c3c3c;
   font-family: 'Exo', sans-serif;
   font-size: 32px;
-  /* font-size: 2.132em; */
   font-weight: bold;
   line-height: 32px;
   margin-bottom: 21px;
@@ -86,7 +84,6 @@ nav {
 
 @-moz-document url-prefix() {
   .signature-generator {
-    /* height: 32px; */
     width: 303px;
     color: #3c3c3c;
     font-family: 'Exo', sans-serif;
@@ -468,10 +465,6 @@ input[type]:-webkit-autofill:active {
     -webkit-box-shadow: inset 0 0 0 500px transparent;
 } */
 
-/* .react-select__value-container {
-  padding: 0 !important;
-} */
-
 .btn-floating i {
   background-color: #f89937;
   border: 1px solid #f89937;
@@ -506,9 +499,5 @@ input[type]:-webkit-autofill:active {
   float:left;
   margin-right:10px;
 }
-
-/* #react-select-2-input{
-  visibility: hidden;
-} */
 
 

@@ -3,13 +3,16 @@ import 'materialize-css';
 import 'materialize-css/dist/css/materialize.min.css';
 import CopyContentButton from './CopyContentButton';
 import M from 'materialize-css';
+
 class ModalComponent extends Component {
+  
   handleClose = () => {
     const buttonMaterializeInstance = M.Modal.getInstance(this.props.forwardedRef.current);
     buttonMaterializeInstance.close();
     window.location.reload();
     window.scrollTo(0, 0)
   };
+
   render() {
     return (
       <div id="modal1" className="modal" ref={this.props.forwardedRef}>

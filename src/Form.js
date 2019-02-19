@@ -154,8 +154,6 @@ export default class Form extends React.Component {
           <div className="row input">
             <div className="input-field col s12">
               <CreatableSelect
-                className="react-select-container"
-                classNamePrefix="react-select"
                 components={{ DropdownIndicator }}
                 styles={colourStyles}
                 name="position"
@@ -238,8 +236,6 @@ export default class Form extends React.Component {
                 </label>
               </div>
               <div className="input-field col s2">
-                
-                {/* ACA VAAAAAAAAAA */}
                 {this.maximumAditionalPhonesValidation()}
               </div>
               <label className="active">Phone number</label>
@@ -248,12 +244,6 @@ export default class Form extends React.Component {
 
           <div className="row input">
             <div className="input-field col s12">
-
-              {/* conditional display of phoneBox component*/}
-              {/* {this.state.showComponent && (
-                <PhoneBox userData={this.state.phoneNumbers} />
-              )} */}
-
               <PhoneBox userData={this.state.phoneNumbers} displayCheck={this.state.showComponent} />
             </div>
           </div>

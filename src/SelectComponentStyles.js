@@ -1,4 +1,3 @@
-
 import React, { type ElementConfig } from 'react';
 import {components} from 'react-select';
 

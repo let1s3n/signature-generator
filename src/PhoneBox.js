@@ -3,7 +3,9 @@ import 'materialize-css';
 import 'materialize-css/dist/css/materialize.min.css';
 import 'flag-icon-css/css/flag-icon.css';
 import 'flag-icon-css/css/flag-icon.min.css';
+
 export default class PhoneBox extends React.Component {
+  
   render() {
     if (this.props.displayCheck) {
       return (
