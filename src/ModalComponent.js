@@ -3,7 +3,7 @@ import 'materialize-css';
 import 'materialize-css/dist/css/materialize.min.css';
 import CopyContentButton from './CopyContentButton';
 import Materialize from 'materialize-css';
-
+import {presentNumbers} from './CopyContentButton'
 class ModalComponent extends Component {
   
   handleClose = () => {
@@ -17,9 +17,9 @@ class ModalComponent extends Component {
     return (
       <div id="modal1" className="modal" ref={this.props.forwardedRef}>
         <div className="modal-content">
-          <img id="img-confirm" src={require('./confirmation.png')} alt="" />
+          <img id="img-confirm" src={require('./images/confirmation.png')} alt="" />
           <button onClick={this.handleClose} id="img-close">
-            <img src={require('./close.png')} alt="" />
+            <img src={require('./images/close.png')} alt="" />
           </button>
           <h2 className="signature-generated">Signature Generated</h2>
           <h4 className="subtitle">
@@ -29,8 +29,8 @@ class ModalComponent extends Component {
         <div className="modal-footer">
           <div className="footer-cage">
             <div className="footer-cage-text">
-              {this.props.data.fullName}{' '}
-              {this.props.data.position && this.props.data.position.label}...
+              <p>Aca aparecerá el preview de la firma !</p>
+          
             </div>
           </div>
 
