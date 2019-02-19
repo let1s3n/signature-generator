@@ -2,14 +2,21 @@ import React from 'react';
 import 'materialize-css';
 import 'materialize-css/dist/css/materialize.min.css';
 import Select from 'react-select';
-import M from 'materialize-css';
+import Materialize from 'materialize-css';
 import PhoneBox from './PhoneBox';
 import { apiGetAll } from './dataService';
 import { apiGetLocations } from './dataService';
 import ModalComponent from './ModalComponent';
-import { colourStyles, selectLocationsStyles, DropdownIndicator } from './SelectComponentStyles';
+import {
+  colourStyles,
+  selectLocationsStyles,
+  DropdownIndicator
+} from './SelectComponentStyles';
+import CreatableSelect from 'react-select/lib/Creatable';
 
 export default class Form extends React.Component {
+  cont = 0;
+
   constructor(props) {
     super(props);
     this.state = {
@@ -26,7 +33,8 @@ export default class Form extends React.Component {
       phoneNumbers: [],
       availablePositions: [],
       availableLocations: [],
-      showComponent: false
+      showComponent: false,
+      showAddButton: false
     };
   }
 
@@ -47,7 +55,9 @@ export default class Form extends React.Component {
   handleSubmit = event => {
     // Se llama después de que el navegador ya valida los required, etc...
     event.preventDefault();
-    const buttonMaterializeInstance = M.Modal.getInstance(this.modal.current);
+    const buttonMaterializeInstance = Materialize.Modal.getInstance(
+      this.modal.current
+    );
     const validoAdicional = true;
     if (validoAdicional) {
       buttonMaterializeInstance.open();
@@ -85,6 +95,7 @@ export default class Form extends React.Component {
   };
 
   addNewPhone = event => {
+    this.cont++;
     this.setState({
       showComponent: true,
       phoneNumbers: [...this.state.phoneNumbers, this.state.defaultPhoneNumber],
@@ -131,9 +142,7 @@ export default class Form extends React.Component {
           </div>
           <div className="row input">
             <div className="input-field col s12">
-              <Select
-                className="react-select-container"
-                classNamePrefix="react-select"
+              <CreatableSelect
                 components={{ DropdownIndicator }}
                 styles={colourStyles}
                 name="position"
@@ -189,10 +198,8 @@ export default class Form extends React.Component {
 
           <div className="row input last">
             <div className="input-field col s12">
-              <div className="input-field col s5">
+              <div className="input-field col s4">
                 <Select
-                  className="react-select-container"
-                  classNamePrefix="react-select"
                   components={{ DropdownIndicator }}
                   styles={selectLocationsStyles}
                   name="location"
@@ -201,10 +208,10 @@ export default class Form extends React.Component {
                   options={this.state.availableLocations}
                 />
                 <label className="active" htmlFor="location">
-                  Location
+                  Location *
                 </label>
               </div>
-              <div className="input-field col s5">
+              <div className="input-field col s6">
                 <input
                   name="phoneNumber"
                   value={this.state.defaultPhoneNumber.phone}
@@ -214,27 +221,22 @@ export default class Form extends React.Component {
                   onChange={this.handlePhoneChange}
                 />
                 <label className="active" htmlFor="phoneNumber">
-                  Phone number
+                  Phone number *
                 </label>
               </div>
               <div className="input-field col s2">
-                <a
-                  id="btn-phones"
-                  className="btn-floating btn-large waves-effect waves-light red btn-small"
-                  onClick={this.addNewPhone}
-                >
-                  <i className="material-icons">add</i>
-                </a>
+                {this.maximumAditionalPhonesValidation()}
               </div>
-              <label className="active">Add phone number:</label>
+              <label className="active">Phone number</label>
             </div>
           </div>
 
           <div className="row input">
             <div className="input-field col s12">
-              {this.state.showComponent && (
-                <PhoneBox userData={this.state.phoneNumbers} />
-              )}
+              <PhoneBox
+                userData={this.state.phoneNumbers}
+                displayCheck={this.state.showComponent}
+              />
             </div>
           </div>
 
@@ -290,6 +292,37 @@ export default class Form extends React.Component {
         </div>
       </div>
     );
+  }
+
+  maximumAditionalPhonesValidation() {
+    if (this.cont <= 2) {
+      return (
+        <React.Fragment>
+          <a
+            id="btn-phones"
+            className="btn-floating btn-large waves-effect waves-light red btn-small"
+            onClick={this.addNewPhone}
+          >
+            <i className="material-icons">add</i>
+          </a>
+        </React.Fragment>
+      );
+    } else {
+      return (
+        <React.Fragment>
+          <a
+            id="btn-phones"
+            className="btn-floating btn-large waves-effect waves-light red btn-small"
+            className="btn tooltipped disabled"
+            onClick={this.addNewPhone}
+            data-position="bottom"
+            data-tooltip="The maximum number of phone additions has been reached"
+          >
+            <i className="material-icons">add</i>
+          </a>
+        </React.Fragment>
+      );
+    }
   }
 }
 

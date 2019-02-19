@@ -1,4 +1,3 @@
-
 import React, { type ElementConfig } from 'react';
 import {components} from 'react-select';
 
@@ -40,19 +39,40 @@ export const colourStyles = {
     };
   },
   input: styles => ({
-    ...styles
+    ...styles,
+    padding:0
   }),
   placeholder: styles => ({
-    ...styles
+    ...styles,
+    position:'static'
   }),
   singleValue: styles => ({
-    ...styles
+    ...styles,
+    position:'static'
+  }),
+  valueContainer: styles =>({
+    ...styles,
+    padding:0
   }),
   indicatorSeparator: styles => ({
-    display: 'none'
+    ...styles,
+    display:'none',
+    position:'absolute'
   }),
-  DropdownIndicator: styles => ({
-    color: '#000000'
+  indicators: styles =>({
+    ...styles,
+    color:'red'
+  }),
+  indicator: styles => ({
+    ...styles,
+    color:'red'
+  }),
+  dropdownIndicator: styles => ({
+    ...styles,
+    position:'relative',
+    padding:0,
+    top:'-5px',
+    right:'15px'
   })
 };
 
@@ -94,14 +114,41 @@ export const selectLocationsStyles = {
       cursor: isDisabled ? 'not-allowed' : 'default'
     };
   },
-  input: styles => ({ ...styles }),
-  placeholder: styles => ({
+  input: styles => ({ 
     ...styles
   }),
-  singleValue: styles => ({ ...styles }),
-  indicatorSeparator: styles => ({ display: 'none' }),
-  DropdownIndicator: styles => ({
-    border: '1px solid red'
+  placeholder: styles => ({
+    ...styles,
+    position:'static'
+  }),
+  singleValue: styles => ({ 
+    ...styles,
+    position:'static',
+    padding: '0 !important'
+  }),
+  valueContainer:styles =>({
+    ...styles,
+    padding:0
+  }),
+  indicators:styles =>({
+    ...styles,
+    padding:0
+  }),
+  indicatorSeparator: styles => ({ 
+    ...styles,
+    display: 'none',
+    padding:0
+  }),
+  indicator:styles => ({
+    ...styles,
+    padding:0
+    }),
+  dropdownIndicator: styles => ({
+    ...styles,
+    position:'relative',
+    padding:0,
+    top:'-5px',
+    right:'15px'
   })
 };
 
