@@ -15,7 +15,7 @@ export default class PhoneBox extends React.Component {
       );
     } else {
       return (
-        <div className="select-validate phone-box">{this.presentdefault()}</div>
+        <div className="select-validate phone-box">{this.presentDefault()}</div>
       );
     }
   }
@@ -67,7 +67,7 @@ export default class PhoneBox extends React.Component {
     );
   }
 
-  presentdefault() {
+  presentDefault() {
     return (
       <React.Fragment>
         <div className="phoneDefaultContainer">

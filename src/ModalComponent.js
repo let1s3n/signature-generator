@@ -2,12 +2,12 @@ import React, { Component } from 'react';
 import 'materialize-css';
 import 'materialize-css/dist/css/materialize.min.css';
 import CopyContentButton from './CopyContentButton';
-import M from 'materialize-css';
+import Materialize from 'materialize-css';
 
 class ModalComponent extends Component {
   
   handleClose = () => {
-    const buttonMaterializeInstance = M.Modal.getInstance(this.props.forwardedRef.current);
+    const buttonMaterializeInstance = Materialize.Modal.getInstance(this.props.forwardedRef.current);
     buttonMaterializeInstance.close();
     window.location.reload();
     window.scrollTo(0, 0)

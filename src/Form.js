@@ -1,8 +1,8 @@
-import React,{components} from 'react';
+import React from 'react';
 import 'materialize-css';
 import 'materialize-css/dist/css/materialize.min.css';
 import Select from 'react-select';
-import M from 'materialize-css';
+import Materialize from 'materialize-css';
 import PhoneBox from './PhoneBox';
 import { apiGetAll } from './dataService';
 import { apiGetLocations } from './dataService';
@@ -14,12 +14,8 @@ import {
 } from './SelectComponentStyles';
 import CreatableSelect from 'react-select/lib/Creatable';
 
-
-
-
 export default class Form extends React.Component {
-
-  cont=0;
+  cont = 0;
 
   constructor(props) {
     super(props);
@@ -38,11 +34,10 @@ export default class Form extends React.Component {
       availablePositions: [],
       availableLocations: [],
       showComponent: false,
-      showAddButton:false
+      showAddButton: false
     };
   }
 
-  
   componentDidMount() {
     apiGetAll().then(data => {
       this.setState({
@@ -55,14 +50,14 @@ export default class Form extends React.Component {
         availableLocations: data
       });
     });
-
-    
   }
 
   handleSubmit = event => {
     // Se llama después de que el navegador ya valida los required, etc...
     event.preventDefault();
-    const buttonMaterializeInstance = M.Modal.getInstance(this.modal.current);
+    const buttonMaterializeInstance = Materialize.Modal.getInstance(
+      this.modal.current
+    );
     const validoAdicional = true;
     if (validoAdicional) {
       buttonMaterializeInstance.open();
@@ -106,12 +101,6 @@ export default class Form extends React.Component {
       phoneNumbers: [...this.state.phoneNumbers, this.state.defaultPhoneNumber],
       defaultPhoneNumber: { location: '', phone: '' }
     });
-  };
-
-  handleCount = event =>{
-    
-
-
   };
 
   modal = React.createRef();
@@ -244,7 +233,10 @@ export default class Form extends React.Component {
 
           <div className="row input">
             <div className="input-field col s12">
-              <PhoneBox userData={this.state.phoneNumbers} displayCheck={this.state.showComponent} />
+              <PhoneBox
+                userData={this.state.phoneNumbers}
+                displayCheck={this.state.showComponent}
+              />
             </div>
           </div>
 
@@ -316,19 +308,19 @@ export default class Form extends React.Component {
         </React.Fragment>
       );
     } else {
-      return(
-      <React.Fragment>
-        <a
-          id="btn-phones"
-          className="btn-floating btn-large waves-effect waves-light red btn-small"
-          className="btn tooltipped disabled"
-          onClick={this.addNewPhone}
-          data-position="bottom"
-          data-tooltip="The maximum number of phone additions has been reached" 
-        >
-          <i className="material-icons">add</i>
-        </a>
-      </React.Fragment>
+      return (
+        <React.Fragment>
+          <a
+            id="btn-phones"
+            className="btn-floating btn-large waves-effect waves-light red btn-small"
+            className="btn tooltipped disabled"
+            onClick={this.addNewPhone}
+            data-position="bottom"
+            data-tooltip="The maximum number of phone additions has been reached"
+          >
+            <i className="material-icons">add</i>
+          </a>
+        </React.Fragment>
       );
     }
   }
