@@ -12,7 +12,7 @@ import {
   selectLocationsStyles,
   DropdownIndicator
 } from './SelectComponentStyles';
-import $ from 'jquery';
+import CreatableSelect from 'react-select/lib/Creatable';
 
 
 
@@ -153,7 +153,7 @@ export default class Form extends React.Component {
           </div>
           <div className="row input">
             <div className="input-field col s12">
-              <Select
+              <CreatableSelect
                 className="react-select-container"
                 classNamePrefix="react-select"
                 components={{ DropdownIndicator }}
@@ -213,8 +213,6 @@ export default class Form extends React.Component {
             <div className="input-field col s12">
               <div className="input-field col s4">
                 <Select
-                  className="react-select-container"
-                  classNamePrefix="react-select"
                   components={{ DropdownIndicator }}
                   styles={selectLocationsStyles}
                   name="location"

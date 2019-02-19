@@ -17,10 +17,10 @@
     ],
     "locations": [
       {"value":"USA", "label":"USA"},
-      {"value": "Perú", "label": "Perú"},
+      {"value": "Peru", "label": "Peru"},
       {"value":"Argentina", "label":"Argentina"},
       {"value":"Colombia", "label":"Colombia"},
-      {"value":"España", "label":"España"}
+      {"value":"Spain", "label":"Spain"}
     ],
     "profile": {
       "name": "typicode"

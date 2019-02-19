@@ -23,7 +23,7 @@ export default class PhoneBox extends React.Component {
       case 'Argentina':
         return 'flag-icon flag-icon-ar';
         break;
-      case 'Perú':
+      case 'Peru':
         return 'flag-icon flag-icon-pe';
         break;
       case 'Colombia':
@@ -32,7 +32,7 @@ export default class PhoneBox extends React.Component {
       case 'USA':
         return 'flag-icon flag-icon-us';
         break;
-      case 'España':
+      case 'Spain':
         return 'flag-icon flag-icon-es';
         break;
 
