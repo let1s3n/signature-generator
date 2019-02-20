@@ -281,10 +281,10 @@ input[type='submit' i] {
 
 .modal {
   box-sizing: border-box;
-  height:610px;
+  height:650px;
   width: 664px;
   background-color: #ffffff;
-  margin-top: 60px;
+  margin-top: 5px;
 }
 .modal-content {
   text-align: center;
@@ -347,7 +347,7 @@ input[type='submit' i] {
 }
 
 .footer-cage {
-  height: 310px;
+  height: 350px;
   width: 568px;
   border: 1px solid #9c9c9c;
   border-radius: 4px 4px 0 0;

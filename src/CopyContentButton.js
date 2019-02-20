@@ -3,6 +3,7 @@ import $ from 'jquery';
 import { copyFormatted } from './copy-to-clipboard';
 import {presentNumbers} from './utilities/CommonFunctions';
 import {disclaimer} from './utilities/CommonFunctions'
+
 export default class CopyContentButton extends React.Component {
   handleCopy = event => {
     const text = this.getFormattedSignature(

@@ -57,6 +57,10 @@ class ModalComponent extends Component {
                   http://www.belatrixsf.com
                 </a>
                 <br />
+                <a href="https://www.linkedin.com/company/belatrix-software-factory/"><img style={{height:'14px',width:'14px',marginRight:'3px',marginTop:'3px'}} src={require('./images/LinkedIn.png')} /></a>
+                <a href="https://www.facebook.com/BelatrixSoftware/"><img style={{width:'14px',height:'14px',marginRight:'3px',marginTop:'3px'}} src={require('./images/Facebook.png')} /></a>
+                <a href="https://twitter.com/BelatrixSF"><img style={{width:'14px',height:'14px',marginRight:'3px',marginTop:'3px'}} src={require('./images/twitter.png')}  /></a>
+                <br />
                 <br />
               </p>
 
