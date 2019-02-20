@@ -350,7 +350,7 @@ input[type='submit' i] {
   height: 310px;
   width: 568px;
   border: 1px solid #9c9c9c;
-  border-radius: 4px 0 0 4px;
+  border-radius: 4px 4px 0 0;
   background-color: #f7f7f7;
   text-align: center;
   margin-left: 48px;
@@ -361,10 +361,15 @@ input[type='submit' i] {
   height: 48px;
   width: 568px;
   border: 1px solid #9c9c9c;
-  border-radius: 0 4px 4px 0;
+  border-radius: 0 0 4px 4px;
   background-color: #ffffff;
   margin-left: 48px;
   margin-bottom:20px;
+  color: #2174D4;
+  font-family: Roboto;
+  font-size: 16px;
+  line-height: 19px;
+  
 }
 
 .footer-cage-text {
@@ -496,4 +501,8 @@ input[type]:-webkit-autofill:active {
   margin-right:10px;
 }
 
+#position-preview{
+  font-style: normal;
+  color: #6D6D6D;
+}
 

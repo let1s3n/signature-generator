@@ -23,7 +23,7 @@ export default class CopyContentButton extends React.Component {
   render() {
     return (
       <button className="footer-small-cage" onClick={this.handleCopy}>
-        Copy Info
+        Copy Signature
       </button>
     );
   }

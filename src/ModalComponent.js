@@ -44,9 +44,10 @@ class ModalComponent extends Component {
               <p style={signatureBodystyles}>
                 {fullName}
                 <br />
-                {position && position.label}
+                <i id="position-preview">{position && position.label}</i>
                 <br />
                 <b>{title}</b>
+                <br />
                 <br />
                 <a href="">{email} </a>
                 <br />
