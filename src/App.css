@@ -281,7 +281,7 @@ input[type='submit' i] {
 
 .modal {
   box-sizing: border-box;
-  height:600px;
+  height:610px;
   width: 664px;
   background-color: #ffffff;
   margin-top: 60px;
@@ -347,7 +347,7 @@ input[type='submit' i] {
 }
 
 .footer-cage {
-  height: 297px;
+  height: 310px;
   width: 568px;
   border: 1px solid #9c9c9c;
   border-radius: 4px 0 0 4px;
@@ -364,17 +364,19 @@ input[type='submit' i] {
   border-radius: 0 4px 4px 0;
   background-color: #ffffff;
   margin-left: 48px;
-  margin-bottom:22px;
+  margin-bottom:20px;
 }
 
 .footer-cage-text {
   height: 19px;
-  width: 320px;
+  width: 500px;
   color: #9c9c9c;
   font-family: Roboto;
   font-size: 16px;
   line-height: 19px;
-  margin: 15px auto;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  margin-left:16px;
 }
 
 div.fixed {

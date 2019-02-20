@@ -1,6 +1,7 @@
 import React from 'react';
 import $ from 'jquery';
 import { copyFormatted } from './copy-to-clipboard';
+import {presentNumbers} from './utilities/CommonFunctions';
 export default class CopyContentButton extends React.Component {
   handleCopy = event => {
     const text = this.getFormattedSignature(
@@ -26,23 +27,13 @@ export default class CopyContentButton extends React.Component {
     );
   }
 
-  presentNumbers(phoneNumbers) {
-    let str = '';
-    for (let i = 0; i < phoneNumbers.length; i++) {
-      str += `${phoneNumbers[i].location.value} Phone: <a href="tel:${
-        phoneNumbers[i].phone
-      }">${phoneNumbers[i].phone}</a></br>`;
-    }
-    return str;
-  }
-
   getSignatureHeader(fullName, position, str, email, skypeId, phoneNumbers) {
     return `<p style="@import url('https://fonts.googleapis.com/css?family=Lato');font-family: 'Lato', sans-serif;line-height:15px;font-size:9pt;">
       ${fullName}</br>
       ${position}</br>
       ${str.bold()}</br>
       <a href="mailto:${email}">${email} </a></br>
-      ${this.presentNumbers(phoneNumbers)}
+      ${presentNumbers(phoneNumbers)}
       Skype ID: ${skypeId} </br>
       <a href="http://www.belatrixsf.com">http://www.belatrixsf.com</a>
       </br>

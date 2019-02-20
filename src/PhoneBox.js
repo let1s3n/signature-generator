@@ -50,14 +50,14 @@ export default class PhoneBox extends React.Component {
           {phoneNumbers.map((item, i) => (
             <React.Fragment key={i}>
               <div className="col s4 offset-s1">
-                <div class="chip">
+                <div className="chip">
                   <span
                     className={this.getSpanClassNameForItem(
                       item.location.value
                     )}
                   />{' '}
                   <span>{item.phone}</span>
-                  <i class="close material-icons">close</i>
+                  <i className="close material-icons">close</i>
                 </div>
               </div>
             </React.Fragment>

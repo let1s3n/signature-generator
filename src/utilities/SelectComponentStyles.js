@@ -155,7 +155,7 @@ export const selectLocationsStyles = {
 export const DropdownIndicator = ( props: ElementConfig<typeof components.DropdownIndicator> ) => {
   return (
     <components.DropdownIndicator {...props}>
-      <img src={require('./images/dropdown.png')} alt="" />
+      <img src={require('../images/dropdown.png')} alt="" />
     </components.DropdownIndicator>
   );
 };

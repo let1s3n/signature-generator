@@ -11,7 +11,7 @@ import {
   colourStyles,
   selectLocationsStyles,
   DropdownIndicator
-} from './SelectComponentStyles';
+} from './utilities/SelectComponentStyles';
 import CreatableSelect from 'react-select/lib/Creatable';
 import $ from 'jquery';
 
@@ -24,7 +24,7 @@ export default class Form extends React.Component {
       fullName: '',
       position: null,
       email: '',
-      title: '<b>Belatrix Software</b>',
+      title: 'Belatrix Software',
       skypeId: '',
       emailService: '',
       defaultPhoneNumber: {
