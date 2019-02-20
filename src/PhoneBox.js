@@ -50,14 +50,14 @@ export default class PhoneBox extends React.Component {
           {phoneNumbers.map((item, i) => (
             <React.Fragment key={i}>
               <div className="col s4 offset-s1">
-                <div class="chip">
+                <div className="chip">
                   <span
                     className={this.getSpanClassNameForItem(
                       item.location.value
                     )}
                   />{' '}
                   <span>{item.phone}</span>
-                  <i class="close material-icons">close</i>
+                  <i className="close material-icons">close</i>
                 </div>
               </div>
             </React.Fragment>
@@ -71,7 +71,7 @@ export default class PhoneBox extends React.Component {
     return (
       <React.Fragment>
         <div className="phoneDefaultContainer">
-          <img id="phoneImg" src={require('./phone.png')} alt="" />{' '}{' '}
+          <img id="phoneImg" src={require('./images/phone.png')} alt="" />{' '}{' '}
           <span>The added phone numbers will appear here</span>
         </div>
       </React.Fragment>

@@ -77,22 +77,11 @@ nav {
   color: #3c3c3c;
   font-family: 'Exo', sans-serif;
   font-size: 32px;
-  font-weight: bold;
+  font-weight: 700;
   line-height: 32px;
   margin-bottom: 21px;
 }
 
-@-moz-document url-prefix() {
-  .signature-generator {
-    width: 303px;
-    color: #3c3c3c;
-    font-family: 'Exo', sans-serif;
-    font-size: 32px;
-    font-weight:599.99;
-    line-height: 32px;
-    margin-bottom: 21px;
-  }
-}
 
 .fill-in-your-informa {
   height: 21px;
@@ -291,10 +280,11 @@ input[type='submit' i] {
 }
 
 .modal {
-  height: 342px;
-  width: 592px;
+  box-sizing: border-box;
+  height:650px;
+  width: 664px;
   background-color: #ffffff;
-  margin-top: 60px;
+  margin-top: 5px;
 }
 .modal-content {
   text-align: center;
@@ -329,8 +319,11 @@ input[type='submit' i] {
   padding: 0;
 }
 .modal-footer {
+  height:auto;
+  width:100%;
   background-color: #ffffff !important;
   margin-top: 26px;
+  margin-bottom:22px;
 }
 
 .signature-generated {
@@ -354,33 +347,41 @@ input[type='submit' i] {
 }
 
 .footer-cage {
-  height: 55px;
-  width: 368px;
+  height: 350px;
+  width: 568px;
   border: 1px solid #9c9c9c;
-  border-radius: 4px 0 0 4px;
+  border-radius: 4px 4px 0 0;
   background-color: #f7f7f7;
   text-align: center;
-  float: left;
   margin-left: 48px;
 }
 
 .footer-small-cage {
-  height: 55px;
-  width: 128px;
+  display:block;
+  height: 48px;
+  width: 568px;
   border: 1px solid #9c9c9c;
-  border-radius: 0 4px 4px 0;
+  border-radius: 0 0 4px 4px;
   background-color: #ffffff;
-  float: left;
+  margin-left: 48px;
+  margin-bottom:20px;
+  color: #2174D4;
+  font-family: Roboto;
+  font-size: 16px;
+  line-height: 19px;
+  
 }
 
 .footer-cage-text {
   height: 19px;
-  width: 320px;
+  width: 500px;
   color: #9c9c9c;
   font-family: Roboto;
   font-size: 16px;
   line-height: 19px;
-  margin: 15px auto;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  margin-left:16px;
 }
 
 div.fixed {
@@ -500,4 +501,8 @@ input[type]:-webkit-autofill:active {
   margin-right:10px;
 }
 
+#position-preview{
+  font-style: normal;
+  color: #6D6D6D;
+}
 

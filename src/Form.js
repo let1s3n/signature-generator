@@ -11,8 +11,9 @@ import {
   colourStyles,
   selectLocationsStyles,
   DropdownIndicator
-} from './SelectComponentStyles';
+} from './utilities/SelectComponentStyles';
 import CreatableSelect from 'react-select/lib/Creatable';
+import $ from 'jquery';
 
 export default class Form extends React.Component {
   cont = 0;
@@ -23,7 +24,7 @@ export default class Form extends React.Component {
       fullName: '',
       position: null,
       email: '',
-      title: '<b>Belatrix Software</b>',
+      title: 'Belatrix Software',
       skypeId: '',
       emailService: '',
       defaultPhoneNumber: {
@@ -254,19 +255,19 @@ export default class Form extends React.Component {
                   <div className="col s12" onChange={this.handleInputChange}>
                     <div className="rectangle">
                       <span className="btn-flat no-cursor">
-                        <img src={require('./gmail.png')} alt="" />
+                        <img src={require('./images/gmail.png')} alt="" />
                         <span className="button-text">Gmail</span>
                       </span>
                     </div>
                     <div className="rectangle">
                       <span className="btn-flat no-cursor">
-                        <img src={require('./outlook.png')} alt="" />
+                        <img src={require('./images/outlook.png')} alt="" />
                         <span className="button-text">Outlook</span>
                       </span>
                     </div>
                     <div className="rectangle">
                       <span className="btn-flat no-cursor">
-                        <img src={require('./roundcube.png')} alt="" />
+                        <img src={require('./images/roundcube.png')} alt="" />
                         <span className="button-text">Roundcube</span>
                       </span>
                     </div>
