@@ -514,3 +514,9 @@ input[type]:-webkit-autofill:active {
 .red{
   background-color: #f89937 !important; 
 }
+
+@-moz-document url-prefix() {
+  ::placeholder {
+    border:2px solid red;
+  }
+}
