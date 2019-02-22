@@ -1,5 +1,5 @@
 const URL =
-  'http://localhost:3000/posts';
+  'http://localhost:3000/positions';
 const locationsURL=
   'http://localhost:3000/locations';
 export async function apiGetAll() {

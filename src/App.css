@@ -35,6 +35,21 @@ input.select-dropdown {
   line-height: 19px;
 }
 
+@-moz-document url-prefix() {
+  ::placeholder,
+  input.select-dropdown {
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    font-style: italic;
+    line-height: 50px;
+  }
+
+  .input-field ::placeholder{
+    color: #567077;
+    opacity:1;
+  }
+}
+
 #word {
   height: 16px;
   color: #000000;
@@ -81,7 +96,6 @@ nav {
   line-height: 32px;
   margin-bottom: 21px;
 }
-
 
 .fill-in-your-informa {
   height: 21px;
@@ -151,8 +165,6 @@ button:focus,
 button:active,
 button:visited,
 .activate {
-  /* border: 1px solid #f89937; */
-  /* border-radius: 4px; */
   box-shadow: 1px 1px 2px 0 #f3af68;
 }
 
@@ -281,7 +293,7 @@ input[type='submit' i] {
 
 .modal {
   box-sizing: border-box;
-  height:650px;
+  height: 650px;
   width: 664px;
   background-color: #ffffff;
   margin-top: 5px;
@@ -319,11 +331,11 @@ input[type='submit' i] {
   padding: 0;
 }
 .modal-footer {
-  height:auto;
-  width:100%;
+  height: auto;
+  width: 100%;
   background-color: #ffffff !important;
   margin-top: 26px;
-  margin-bottom:22px;
+  margin-bottom: 22px;
 }
 
 .signature-generated {
@@ -357,19 +369,18 @@ input[type='submit' i] {
 }
 
 .footer-small-cage {
-  display:block;
+  display: block;
   height: 48px;
   width: 568px;
   border: 1px solid #9c9c9c;
   border-radius: 0 0 4px 4px;
   background-color: #ffffff;
   margin-left: 48px;
-  margin-bottom:20px;
-  color: #2174D4;
+  margin-bottom: 20px;
+  color: #2174d4;
   font-family: Roboto;
   font-size: 16px;
   line-height: 19px;
-  
 }
 
 .footer-cage-text {
@@ -381,7 +392,7 @@ input[type='submit' i] {
   line-height: 19px;
   margin-top: 15px;
   margin-bottom: 15px;
-  margin-left:16px;
+  margin-left: 16px;
 }
 
 div.fixed {
@@ -472,16 +483,14 @@ input[type]:-webkit-autofill:active {
 } */
 
 .chip {
-  
-  width:176px;
+  width: 176px;
   border-radius: 12px;
   background-color: #b4b4b4;
   margin-top: 10px !important;
   text-align: center;
-  
 }
 
-.chip > span{
+.chip > span {
   font-weight: normal;
   color: #000000 !important;
   font-family: Roboto;
@@ -490,33 +499,28 @@ input[type]:-webkit-autofill:active {
   line-height: 15px;
 }
 
-.phoneDefaultContainer{
+.phoneDefaultContainer {
   width: 400px;
-  margin:0 auto;
+  margin: 0 auto;
   padding: 20px;
 }
 
-#phoneImg{
-  float:left;
-  margin-right:10px;
+#phoneImg {
+  float: left;
+  margin-right: 10px;
 }
 
-#position-preview{
+#position-preview {
   font-style: normal;
-  color: #6D6D6D;
+  color: #6d6d6d;
 }
 
-.btn-floating.disabled{
+.btn-floating.disabled {
   background-color: #b4b4b4 !important;
 }
 
-
-.red{
-  background-color: #f89937 !important; 
+.red {
+  background-color: #f89937 !important;
 }
 
-@-moz-document url-prefix() {
-  ::placeholder {
-    border:2px solid red;
-  }
-}
+

@@ -44,7 +44,12 @@ export const colourStyles = {
   }),
   placeholder: styles => ({
     ...styles,
-    position:'static'
+    position:'static',
+    color:'#567077',
+    fontStyle:'italic',
+    fontFamily: 'Roboto',
+    fontSize: '16px',
+    lineHeight: '19px'
   }),
   singleValue: styles => ({
     ...styles,
@@ -119,7 +124,12 @@ export const selectLocationsStyles = {
   }),
   placeholder: styles => ({
     ...styles,
-    position:'static'
+    position:'static',
+    color:'#567077',
+    fontStyle:'italic',
+    fontFamily: 'Roboto',
+    fontSize: '16px',
+    lineHeight: '19px'
   }),
   singleValue: styles => ({ 
     ...styles,
