@@ -38,9 +38,9 @@ export default class CopyContentButton extends React.Component {
       Skype ID: ${skypeId} </br>
       <a href="http://www.belatrixsf.com">http://www.belatrixsf.com</a>
       </br>
-      <a href="https://www.linkedin.com/company/belatrix-software-factory/"><img style={{height:'14px',width:'14px',marginRight:'3px',marginTop:'3px'}} src={require('./images/LinkedIn.png')} /></a>
-      <a href="https://www.facebook.com/BelatrixSoftware/"><img style={{width:'14px',height:'14px',marginRight:'3px',marginTop:'3px'}} src={require('./images/Facebook.png')} /></a>
-      <a href="https://twitter.com/BelatrixSF"><img style={{width:'14px',height:'14px',marginRight:'3px',marginTop:'3px'}} src={require('./images/twitter.png')}  /></a>
+      <a href="https://www.linkedin.com/company/belatrix-software-factory/"><img style="height:14px;width:14px;margin-right:3px;margin-top:3px;" src="https://cdn1.iconfinder.com/data/icons/logotypes/32/square-linkedin-512.png" /></a>
+      <a href="https://www.facebook.com/BelatrixSoftware/"><img style="width:14px;height:14px;margin-right:3px;margin-top:3px;" src="https://cdn1.iconfinder.com/data/icons/logotypes/32/square-facebook-512.png" /></a>
+      <a href="https://twitter.com/BelatrixSF"><img style="width:14px;height:14px;margin-right:3px;margin-top:3px;" src="https://cdn1.iconfinder.com/data/icons/logotypes/32/square-twitter-256.png"  /></a>
       </br>
       </br>
       </p>`;
