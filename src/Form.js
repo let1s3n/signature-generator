@@ -143,7 +143,6 @@ export default class Form extends React.Component {
           <div className="row input">
             <div className="input-field col s12">
               <CreatableSelect
-                required
                 components={{ DropdownIndicator }}
                 styles={colourStyles}
                 name="position"
@@ -313,7 +312,7 @@ export default class Form extends React.Component {
         <React.Fragment>
           <a
             id="btn-phones"
-            className="btn-floating btn-large red btn-small disabled"
+            className="btn-floating btn-large btn-small red disabled"
             onClick={this.addNewPhone}
             data-position="bottom"
             data-tooltip="The maximum number of phone additions has been reached"
