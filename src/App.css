@@ -506,12 +506,12 @@ input[type]:-webkit-autofill:active {
   color: #6d6d6d;
 }
 
-.btn-floating.disabled {
+.btn-floating.custom-disabled-button-color{
   background-color: #b4b4b4 !important;
 }
 
-.red {
-  background-color: #f89937 !important;
+.custom-button-color, .custom-button-color:hover {
+  background-color: #f89937;
 }
 
 

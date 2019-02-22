@@ -300,7 +300,7 @@ export default class Form extends React.Component {
         <React.Fragment>
           <a
             id="btn-phones"
-            className="btn-floating btn-large waves-effect waves-light red btn-small"
+            className="btn-floating btn-small custom-button-color"
             onClick={this.addNewPhone}
           >
             <i className="material-icons">add</i>
@@ -312,7 +312,7 @@ export default class Form extends React.Component {
         <React.Fragment>
           <a
             id="btn-phones"
-            className="btn-floating btn-large btn-small red disabled"
+            className="btn-floating btn-small disabled custom-disabled-button-color"
             onClick={this.addNewPhone}
             data-position="bottom"
             data-tooltip="The maximum number of phone additions has been reached"
