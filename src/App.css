@@ -39,7 +39,7 @@ input.select-dropdown {
   input.select-dropdown {
     line-height: 50px;
   }
-
+  
   .input-field ::placeholder{
     color: #567077;
     opacity:1;
@@ -512,18 +512,6 @@ input[type]:-webkit-autofill:active {
 
 .red {
   background-color: #f89937 !important;
-}
-
-@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
-  .signature-generator{
-    width: 303px;
-  color: #3c3c3c;
-  font-family: 'Exo', sans-serif;
-  font-size: 32px;
-  font-weight: 700;
-  line-height: 32px;
-  margin-bottom: 21px;
-  }
 }
 
 
