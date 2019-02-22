@@ -30,14 +30,17 @@ export default class CopyContentButton extends React.Component {
   }
 
   getSignatureHeader(fullName, position, str, email, skypeId, phoneNumbers) {
-    return `<p style="@import url('https://fonts.googleapis.com/css?family=Lato');font-family: 'Lato', sans-serif;line-height:15px;font-size:9pt;">
-      ${fullName}</br>
-      ${position}</br>
-      ${str.bold()}</br>
+    return `<p style="@import url('https://fonts.googleapis.com/css?family=Lato');font-family: 'Lato', sans-serif;line-height:15px;font-size:9pt;">${fullName}</br>
+      <i style="font-style: normal;color: #6D6D6D;">${position}</i></br>
+      ${str.bold()}</br></br>
       <a href="mailto:${email}">${email} </a></br>
       ${presentNumbers(phoneNumbers)}
       Skype ID: ${skypeId} </br>
       <a href="http://www.belatrixsf.com">http://www.belatrixsf.com</a>
+      </br>
+      <a href="https://www.linkedin.com/company/belatrix-software-factory/"><img style="height:14px;width:14px;margin-right:3px;margin-top:3px;" src="https://cdn1.iconfinder.com/data/icons/logotypes/32/square-linkedin-512.png" /></a>
+      <a href="https://www.facebook.com/BelatrixSoftware/"><img style="width:14px;height:14px;margin-right:3px;margin-top:3px;" src="https://cdn1.iconfinder.com/data/icons/logotypes/32/square-facebook-512.png" /></a>
+      <a href="https://twitter.com/BelatrixSF"><img style="width:14px;height:14px;margin-right:3px;margin-top:3px;" src="https://cdn1.iconfinder.com/data/icons/logotypes/32/square-twitter-256.png"  /></a>
       </br>
       </br>
       </p>`;

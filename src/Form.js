@@ -4,8 +4,8 @@ import 'materialize-css/dist/css/materialize.min.css';
 import Select from 'react-select';
 import Materialize from 'materialize-css';
 import PhoneBox from './PhoneBox';
-import { apiGetAll } from './dataService';
-import { apiGetLocations } from './dataService';
+import { apiGetAll } from './utilities/dataService';
+import { apiGetLocations } from './utilities/dataService';
 import ModalComponent from './ModalComponent';
 import {
   colourStyles,
@@ -54,7 +54,6 @@ export default class Form extends React.Component {
   }
 
   handleSubmit = event => {
-    // Se llama después de que el navegador ya valida los required, etc...
     event.preventDefault();
     const buttonMaterializeInstance = Materialize.Modal.getInstance(
       this.modal.current
@@ -301,7 +300,7 @@ export default class Form extends React.Component {
         <React.Fragment>
           <a
             id="btn-phones"
-            className="btn-floating btn-large waves-effect waves-light red btn-small"
+            className="btn-floating btn-small custom-button-color"
             onClick={this.addNewPhone}
           >
             <i className="material-icons">add</i>
@@ -313,8 +312,7 @@ export default class Form extends React.Component {
         <React.Fragment>
           <a
             id="btn-phones"
-            className="btn-floating btn-large waves-effect waves-light red btn-small"
-            className="btn tooltipped disabled"
+            className="btn-floating btn-small disabled custom-disabled-button-color"
             onClick={this.addNewPhone}
             data-position="bottom"
             data-tooltip="The maximum number of phone additions has been reached"
