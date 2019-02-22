@@ -1,19 +1,15 @@
-const URL =
-  'http://localhost:3000/positions';
-const locationsURL=
-  'http://localhost:3000/locations';
 export async function apiGetAll() {
   try {
-    const resp = await fetch(URL);
-    return resp.json();
+    const resp = require('./positions.json');
+    return resp.positions;
   } catch (err) {
   }
 }
 
 export async function apiGetLocations() {
   try {
-    const resp2 = await fetch(locationsURL);
-    return resp2.json();
+    const resp = require('./positions.json');
+    return resp.locations;
   } catch (err) {
   }
 }
