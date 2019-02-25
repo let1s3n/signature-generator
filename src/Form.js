@@ -17,7 +17,6 @@ import $ from 'jquery';
 
 export default class Form extends React.Component {
   cont = 0;
-
   constructor(props) {
     super(props);
     this.state = {
@@ -112,8 +111,13 @@ export default class Form extends React.Component {
     }
   };
 
-  borrarNumero = (numero) => {
+  deletePhone = (numero) => {
     this.cont--;
+    if(this.cont==0){
+      this.setState({
+        showComponent: false
+      });
+    }
     this.setState(({phoneNumbers}) => {
       const newNumbers = phoneNumbers.filter(it => it.phone !== numero)
       return {
@@ -254,7 +258,7 @@ export default class Form extends React.Component {
             <div className="input-field col s12">
               <PhoneBox
                 userData={this.state.phoneNumbers}
-                deleteNumber={this.borrarNumero}
+                deletePhone={this.deletePhone}
                 displayCheck={this.state.showComponent}
               />
             </div>

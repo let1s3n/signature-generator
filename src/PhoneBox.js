@@ -3,9 +3,8 @@ import 'materialize-css';
 import 'materialize-css/dist/css/materialize.min.css';
 import 'flag-icon-css/css/flag-icon.css';
 import 'flag-icon-css/css/flag-icon.min.css';
+
 export default class PhoneBox extends React.Component {
-
-
   render() {
     if (this.props.displayCheck) {
       return (
@@ -57,7 +56,12 @@ export default class PhoneBox extends React.Component {
                     )}
                   />{' '}
                   <span>{item.phone}</span>
-                  <i className="material-icons close-icon" onClick={() => this.props.deleteNumber(item.phone)} >close</i>
+                  <i
+                    className="material-icons close-icon"
+                    onClick={() => this.props.deletePhone(item.phone)}
+                  >
+                    close
+                  </i>
                 </div>
               </div>
             </React.Fragment>
