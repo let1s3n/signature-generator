@@ -320,7 +320,7 @@ export default class Form extends React.Component {
     if (this.state.phoneNumbers.length < 3) {
       className += ' custom-button-color';
     } else {
-      className += ' disabled custom-disabled-button-color';
+      className += ' custom-disabled-button-color';
     }
     return className;
   };
