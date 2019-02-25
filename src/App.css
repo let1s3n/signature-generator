@@ -474,7 +474,6 @@ input[type]:-webkit-autofill:active {
 } */
 
 .chip {
-  position:relative;
   width: 176px;
   border-radius: 12px;
   background-color: #b4b4b4;
