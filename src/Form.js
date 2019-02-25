@@ -95,13 +95,32 @@ export default class Form extends React.Component {
   };
 
   addNewPhone = event => {
-    this.cont++;
-    this.setState({
-      showComponent: true,
-      phoneNumbers: [...this.state.phoneNumbers, this.state.defaultPhoneNumber],
-      defaultPhoneNumber: { location: '', phone: '' }
-    });
+    
+    if (
+      (this.state.defaultPhoneNumber.location != '') &
+      (this.state.defaultPhoneNumber.phone != '')
+    ) {
+      this.cont++;
+      this.setState({
+        showComponent: true,
+        phoneNumbers: [
+          ...this.state.phoneNumbers,
+          this.state.defaultPhoneNumber
+        ],
+        defaultPhoneNumber: { location: '', phone: '' }
+      });
+    }
   };
+
+  borrarNumero = (numero) => {
+    this.cont--;
+    this.setState(({phoneNumbers}) => {
+      const newNumbers = phoneNumbers.filter(it => it.phone !== numero)
+      return {
+        phoneNumbers: newNumbers
+      }
+    })
+  }
 
   modal = React.createRef();
 
@@ -235,6 +254,7 @@ export default class Form extends React.Component {
             <div className="input-field col s12">
               <PhoneBox
                 userData={this.state.phoneNumbers}
+                deleteNumber={this.borrarNumero}
                 displayCheck={this.state.showComponent}
               />
             </div>

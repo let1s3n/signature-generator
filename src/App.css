@@ -474,6 +474,7 @@ input[type]:-webkit-autofill:active {
 } */
 
 .chip {
+  position:relative;
   width: 176px;
   border-radius: 12px;
   background-color: #b4b4b4;
@@ -512,6 +513,14 @@ input[type]:-webkit-autofill:active {
 
 .custom-button-color, .custom-button-color:hover {
   background-color: #f89937;
+}
+
+.close-icon{
+  cursor: pointer;
+  float: right;
+  font-size: 16px;
+  line-height: 32px;
+  padding-left: 8px;
 }
 
 
