@@ -514,4 +514,12 @@ input[type]:-webkit-autofill:active {
   background-color: #f89937;
 }
 
+.close-icon{
+  cursor: pointer;
+  float: right;
+  font-size: 16px;
+  line-height: 32px;
+  padding-left: 8px;
+}
+
 

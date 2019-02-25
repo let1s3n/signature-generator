@@ -5,7 +5,6 @@ import 'flag-icon-css/css/flag-icon.css';
 import 'flag-icon-css/css/flag-icon.min.css';
 
 export default class PhoneBox extends React.Component {
-  
   render() {
     if (this.props.displayCheck) {
       return (
@@ -39,7 +38,7 @@ export default class PhoneBox extends React.Component {
         break;
 
       default:
-        return 'Error!' ;
+        return 'Error!';
     }
   }
 
@@ -57,7 +56,12 @@ export default class PhoneBox extends React.Component {
                     )}
                   />{' '}
                   <span>{item.phone}</span>
-                  <i className="close material-icons">close</i>
+                  <i
+                    className="material-icons close-icon"
+                    onClick={() => this.props.deletePhone(item.phone)}
+                  >
+                    close
+                  </i>
                 </div>
               </div>
             </React.Fragment>
@@ -71,7 +75,7 @@ export default class PhoneBox extends React.Component {
     return (
       <React.Fragment>
         <div className="phoneDefaultContainer">
-          <img id="phoneImg" src={require('./images/phone.png')} alt="" />{' '}{' '}
+          <img id="phoneImg" src={require('./images/phone.png')} alt="" />{' '}
           <span>The added phone numbers will appear here</span>
         </div>
       </React.Fragment>
