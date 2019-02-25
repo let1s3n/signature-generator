@@ -16,7 +16,6 @@ import CreatableSelect from 'react-select/lib/Creatable';
 import $ from 'jquery';
 
 export default class Form extends React.Component {
-  cont = 0;
   constructor(props) {
     super(props);
     this.state = {
@@ -50,7 +49,6 @@ export default class Form extends React.Component {
         availableLocations: data
       });
     });
-  
   }
 
   handleSubmit = event => {
@@ -112,8 +110,7 @@ export default class Form extends React.Component {
   };
 
   deletePhone = numero => {
-    this.cont--;
-    if (this.cont == 0) {
+    if (this.state.phoneNumbers.length == 0) {
       this.setState({
         showComponent: false
       });
@@ -126,12 +123,9 @@ export default class Form extends React.Component {
     });
   };
 
-  
-
   modal = React.createRef();
 
   render() {
-    /* const maxPhones = this.maximumAditionalPhonesValidation(); */
     return (
       <div className="row main">
         <div className="title">
@@ -310,7 +304,6 @@ export default class Form extends React.Component {
           >
             GENERATE SIGNATURE
           </button>
-           {/*<a class="btn tooltipped disabled" data-position="bottom" data-tooltip="I am a tooltip">Hover me!</a>*/}
         </form>
 
         <ModalComponent ref={this.modal} data={this.state} />
@@ -330,14 +323,14 @@ export default class Form extends React.Component {
       className += ' disabled custom-disabled-button-color';
     }
     return className;
-  }
+  };
 
   getToolTipMesssage = () => {
     if (this.state.phoneNumbers.length < 3) {
       return 'Add phone number';
     }
     return 'Maximum of phone numbers reached';
-  }
+  };
 
   maximumAditionalPhonesValidation = () => {
     return (
@@ -353,7 +346,7 @@ export default class Form extends React.Component {
         </a>
       </React.Fragment>
     );
-  }
+  };
 }
 
 Form.propTypes = {};
