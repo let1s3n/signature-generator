@@ -510,8 +510,6 @@ input[type]:-webkit-autofill:active {
   background-color: #b4b4b4 !important;
 }
 
-
-
 .btn-floating.custom-disabled-button-color:hover{
   background-color: #b4b4b4 !important;
   pointer-events: all;
