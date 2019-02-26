@@ -12,8 +12,13 @@ import {
   selectLocationsStyles,
   DropdownIndicator
 } from './utilities/SelectComponentStyles';
-import CreatableSelect from 'react-select/lib/Creatable';
 import $ from 'jquery';
+import BaseCreatable from 'react-select/lib/Creatable';
+import FixRequiredSelect from './utilities/FixRequiredSelect';
+
+const Creatable = props => (
+  <FixRequiredSelect {...props} SelectComponent={BaseCreatable} />
+);
 
 export default class Form extends React.Component {
   constructor(props) {
@@ -33,7 +38,8 @@ export default class Form extends React.Component {
       availablePositions: [],
       availableLocations: [],
       showComponent: false,
-      showAddButton: false
+      showAddButton: false,
+      hasError: false
     };
   }
 
@@ -162,7 +168,8 @@ export default class Form extends React.Component {
           </div>
           <div className="row input">
             <div className="input-field col s12">
-              <CreatableSelect
+              <Creatable
+                required
                 components={{ DropdownIndicator }}
                 styles={colourStyles}
                 name="position"
