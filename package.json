@@ -34,5 +34,6 @@
     "not dead",
     "ie >= 9",
     "not op_mini all"
-  ]
+  ],
+  "devDependencies": {}
 }
