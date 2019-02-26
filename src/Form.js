@@ -16,7 +16,6 @@ import CreatableSelect from 'react-select/lib/Creatable';
 import $ from 'jquery';
 
 export default class Form extends React.Component {
-  cont = 0;
   constructor(props) {
     super(props);
     this.state = {
@@ -94,7 +93,6 @@ export default class Form extends React.Component {
   };
 
   addNewPhone = event => {
-    
     if (
       (this.state.defaultPhoneNumber.location != '') &
       (this.state.defaultPhoneNumber.phone != '')
@@ -111,20 +109,19 @@ export default class Form extends React.Component {
     }
   };
 
-  deletePhone = (numero) => {
-    this.cont--;
-    if(this.cont==0){
+  deletePhone = numero => {
+    if (this.state.phoneNumbers.length == 0) {
       this.setState({
         showComponent: false
       });
     }
-    this.setState(({phoneNumbers}) => {
-      const newNumbers = phoneNumbers.filter(it => it.phone !== numero)
+    this.setState(({ phoneNumbers }) => {
+      const newNumbers = phoneNumbers.filter(it => it.phone !== numero);
       return {
         phoneNumbers: newNumbers
-      }
-    })
-  }
+      };
+    });
+  };
 
   modal = React.createRef();
 
@@ -318,35 +315,38 @@ export default class Form extends React.Component {
     );
   }
 
-  maximumAditionalPhonesValidation() {
-    if (this.cont <= 2) {
-      return (
-        <React.Fragment>
-          <a
-            id="btn-phones"
-            className="btn-floating btn-small custom-button-color"
-            onClick={this.addNewPhone}
-          >
-            <i className="material-icons">add</i>
-          </a>
-        </React.Fragment>
-      );
+  getClassButtonForPhoneNumers = () => {
+    let className = 'btn btn-floating btn-small tooltipped';
+    if (this.state.phoneNumbers.length < 3) {
+      className += ' custom-button-color';
     } else {
-      return (
-        <React.Fragment>
-          <a
-            id="btn-phones"
-            className="btn-floating btn-small disabled custom-disabled-button-color"
-            onClick={this.addNewPhone}
-            data-position="bottom"
-            data-tooltip="The maximum number of phone additions has been reached"
-          >
-            <i className="material-icons">add</i>
-          </a>
-        </React.Fragment>
-      );
+      className += ' custom-disabled-button-color';
     }
-  }
+    return className;
+  };
+
+  getToolTipMesssage = () => {
+    if (this.state.phoneNumbers.length < 3) {
+      return 'Add phone number';
+    }
+    return 'Maximum of phone numbers reached';
+  };
+
+  maximumAditionalPhonesValidation = () => {
+    return (
+      <React.Fragment>
+        <a
+          id="btn-phones"
+          className={this.getClassButtonForPhoneNumers()}
+          onClick={this.addNewPhone}
+          data-position="bottom"
+          data-tooltip={this.getToolTipMesssage()}
+        >
+          <i className="material-icons">add</i>
+        </a>
+      </React.Fragment>
+    );
+  };
 }
 
 Form.propTypes = {};
